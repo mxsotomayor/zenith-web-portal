@@ -41,7 +41,7 @@ export default function NewsCard({
             fill
             className="object-cover transition-all hover:scale-105"
           />
-          <Badge className="absolute top-2 left-2 z-10">{category}</Badge>
+          <Badge className="absolute top-2 left-2 z-10 rounded-none">{category}</Badge>
         </div>
       </CardHeader>
       <CardContent className="p-4 space-y-4">
