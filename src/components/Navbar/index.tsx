@@ -11,7 +11,8 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import Image from "next/image";
+import React, {useEffect} from "react";
 import SearchBox from "./SearchBox";
 import GlobalMenu from "./GlobalMenu";
 
@@ -28,6 +29,7 @@ interface NavBarProps {
 function NavBar({ selectedSite = 0 }: NavBarProps) {
 
   const [showSearch, setShowSearch] = React.useState(false);
+
   const [showMenu, setShowMenu] = React.useState(false);
 
 
@@ -49,13 +51,21 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
     setShowSearch(!showSearch);
   }
 
+  useEffect(()=>{
+    if(showMenu){
+      document.body.style.overflow = "hidden"
+    }else{
+      document.body.style.overflow = "auto"
+    }
+  },[showMenu])
+
   return (
-    <nav className="dark:bg-gray-900 fixed w-full z-20 top-0 start-0 overflow-hidden ">
+    <nav className="dark:bg-gray-900 fixed w-full z-50 top-0 start-0 overflow-hidden ">
       {/* Search block */}
       <SearchBox showSearch={showSearch} toogleSearch={toogleSearch} />
       <GlobalMenu show={showMenu} />
       {/* Menu block */}
-      <div className="w-full bg-blue-900">
+      <div className="w-full bg-orange-500">
         <div className="container mx-auto">
           <div className="flex flex-row items-center">
             <ul className="flex flex-row items-center text-xs">
@@ -64,7 +74,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
                   key={index}
                   className={`${
                     index === selectedSite
-                      ? "bg-orange-500 font-bold"
+                      ? "bg-white font-bold"
                       : "text-white"
                   } px-4 py-2 uppercase`}
                 >
@@ -97,14 +107,14 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
           </div>
         </div>
       </div>
-      <div className="bg-orange-500">
+      <div className="bg-white">
         <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
           <button onClick={() => setShowMenu(!showMenu)} >
             { showMenu ? <X size="32"/> : <Menu size="32" />}
           </button>
           <Link href="#" className="flex items-center space-x-3  ml-4">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              iBanca Online
+              <Image src="/oie_liyvudiqai3a.png" width={120} height={50} alt="" />
             </span>
           </Link>
           <div className="flex items-center md:order-2 gap-x-6 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -113,7 +123,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
             </button>
             <Link href="/signup"
               type="button"
-              className="text-white bg-black hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center gap-x-3"
+              className="text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center gap-x-3"
             >
               <UserPlus size="16" /> Become a Customer!
             </Link>
@@ -129,7 +139,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent bg-blue-500 md:p-0 text-sm"
+                  className="block py-2 px-3  hover:underline  rounded-sm md:bg-transparent bg-blue-500 md:p-0 text-sm"
                   aria-current="page"
                 >
                   Business
@@ -138,7 +148,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
+                  className="block py-2 px-3  hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   Personal
@@ -147,7 +157,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
+                  className="block py-2 px-3  hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   Digital Banking
@@ -156,25 +166,25 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
+                  className="block py-2 px-3  hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
-                  UniTrust
+                  UniTrust &trade;
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
+                  className="block py-2 px-3  hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
-                  UniLeasing
+                  UniLeasing &trade;
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
+                  className="block py-2 px-3  hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   About Us

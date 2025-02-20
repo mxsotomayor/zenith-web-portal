@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React from 'react'
+import Image from 'next/image';
 
 
 const settings = {
@@ -106,7 +107,7 @@ function GlobalMenu({show}:{show:boolean}) {
              </div>
 
              <div className="flex flex-col p-8 flex-1 w-full  overflow-hidden">
-              <h3 className="text-4xl font-semibold text-white mb-2">Why iBanca Online?</h3>
+              <h3 className="text-4xl font-semibold text-white mb-2 flex items-center">Why  <Image src="/oie_liyvudiqai3a.png" width={180} height={50} alt="" /> Online ?</h3>
               <p className="text-white mb-8">We are always  bringing benefits for you.</p>
  
              <Slider {...settings}>

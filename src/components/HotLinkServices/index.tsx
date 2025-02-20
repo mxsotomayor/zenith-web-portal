@@ -56,7 +56,7 @@ function HotLinkServices() {
   return (
     <div>
       <div className="container mx-auto mx:px-0 overflow-hidden py-8">
-      <h2 className="text-5xl font-semibold text-gray-900 mb-6">Our customer are looking for</h2>
+      <h2 className="text-5xl font-semibold text-blue-950 mb-6">Our customer are looking for</h2>
         <Slider {...settings}>
           {texts.map((text, index) => (
             <div key={index} className="h-32 user-select-none px-2">
