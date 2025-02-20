@@ -86,15 +86,15 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               ))}
             </ul>
 
-            <div className="flex justify-end text-white font-thin flex-1">
-              <ul className="flex flex-row items-center space-x-8 text-xs">
-                <li>
+            <div className="justify-end text-white font-thin flex-1">
+              <ul className="flex flex-row justify-end items-center md:space-x-8 text-xs">
+                <li className="hidden  md:flex">
                   <Link href="">Branches</Link>
                 </li>
-                <li>
+                <li className="hidden  md:flex">
                   <Link href="">Need Help?</Link>
                 </li>
-                <li>
+                <li className="hidden  md:flex">
                   <Link href="">Call us! 297-6000</Link>
                 </li>
                 <li>
@@ -112,12 +112,12 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
           <button onClick={() => setShowMenu(!showMenu)} >
             { showMenu ? <X size="32"/> : <Menu size="32" />}
           </button>
-          <Link href="#" className="flex items-center space-x-3  ml-4">
+          <Link href="#" className="flex items-center md:space-x-3  md:ml-4">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               <Image src="/oie_liyvudiqai3a.png" width={120} height={50} alt="" />
             </span>
           </Link>
-          <div className="flex items-center md:order-2 gap-x-6 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <div className="flex items-center md:order-2 gap-x-4  md:gap-x-6 rtl:space-x-reverse">
             <button onClick={toogleSearch}>
               <Search />
             </button>
@@ -125,10 +125,10 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               type="button"
               className="text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center gap-x-3"
             >
-              <UserPlus size="16" /> Become a Customer!
+              <UserPlus size="16" /> <span className="hidden md:block">Become a Customer!</span>
             </Link>
             <Link href="/login" className="flex items-center gap-2">
-              <Unlock size="16" /> Sign In!
+              <Unlock size="16" /> <span className="hidden md:block">Sign In!</span>
             </Link>
           </div>
           <div

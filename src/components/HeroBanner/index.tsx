@@ -61,7 +61,7 @@ export default function HeroBanner() {
         {slides.map((slide, index) => (
           <CarouselItem key={index}>
             <Card className="border-0">
-              <CardContent className="p-0 relative lg:h-[640px] 2xl:h-[800px] overflow-hidden">
+              <CardContent className="p-0 relative h-[620px] lg:h-[640px] 2xl:h-[800px] overflow-hidden">
                 <Image
                   src={slide.image || "/placeholder.svg"}
                   alt={slide.alt}
