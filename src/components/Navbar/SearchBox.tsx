@@ -3,7 +3,7 @@ import React from 'react'
 
 function SearchBox({showSearch, toogleSearch}:{showSearch:boolean, toogleSearch:()=>void}) {
   return (
-    <div className={`p-4 2xl:px-0 absolute w-full h-full bg-white pt-10 bg-opacity-20 transition-all ease-in-out backdrop-blur-md ${!showSearch ? "-top-60" : "top-0"}`}>
+    <div className={`p-4 2xl:px-0 absolute w-full h-full bg-blue-800 pt-10 bg-opacity-80 transition-all ease-in-out backdrop-blur-md ${!showSearch ? "-top-60" : "top-0"}`}>
         <div className="container mx-auto relative">
           <Search className="absolute top-3 left-3" />
           <input

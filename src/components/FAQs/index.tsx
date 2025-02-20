@@ -1,9 +1,14 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Input } from "@/components/ui/input"
-import { Search } from "lucide-react"
+import { useState } from "react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
 
 const faqs = [
   {
@@ -36,44 +41,49 @@ const faqs = [
     answer:
       "Open Banking typically works with current accounts, savings accounts, and credit cards. However, the exact types of accounts may vary depending on your bank and the services you're using. Some providers are also expanding Open Banking to include mortgages and pensions.",
   },
-]
+];
 
 export default function FAQBlock() {
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filteredFaqs = faqs.filter(
     (faq) =>
       faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      faq.answer.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
+      faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <div className="container  mx-auto py-8">
-      <h2 className="text-5xl font-semibold text-blue-950 mb-6 text-center">Frequently Asked Questions</h2>
-      <div className="relative mb-6">
-        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-        <Input
-          type="text"
-          placeholder="Search FAQs..."
-          className="pl-10 pr-4 py-2 w-full"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+    <div className="py-8 bg-white">
+      <div className="container  mx-auto ">
+        <h2 className="text-5xl font-semibold text-blue-950 mb-6 text-center">
+          Frequently Asked Questions
+        </h2>
+        <div className="relative mb-6">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          <Input
+            type="text"
+            placeholder="Search FAQs..."
+            className="pl-10 pr-4 py-2 w-full"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <Accordion type="single" collapsible className="w-full">
+          {filteredFaqs.map((faq, index) => (
+            <AccordionItem value={`item-${index}`} key={index}>
+              <AccordionTrigger className="text-left">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent>{faq.answer}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+        {filteredFaqs.length === 0 && (
+          <p className="text-center text-gray-500 mt-4">
+            No matching questions found. Please try a different search term.
+          </p>
+        )}
       </div>
-      <Accordion type="single" collapsible className="w-full">
-        {filteredFaqs.map((faq, index) => (
-          <AccordionItem value={`item-${index}`} key={index}>
-            <AccordionTrigger className="text-left">{faq.question}</AccordionTrigger>
-            <AccordionContent>{faq.answer}</AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
-      {filteredFaqs.length === 0 && (
-        <p className="text-center text-gray-500 mt-4">
-          No matching questions found. Please try a different search term.
-        </p>
-      )}
     </div>
-  )
+  );
 }
-

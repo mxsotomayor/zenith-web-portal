@@ -45,7 +45,7 @@ function ImportantBlock() {
               key={index}
               className={`${item.className} text-white h-80 p-8 flex flex-col justify-end relative overflow-hidden group hover:justify-start transition-all duration-500 ease-in-out cursor-pointer`}
             >
-              <div className="absolute group-hover:top-0 top-[500px] transition-all ease-in-out  left-0 w-full h-full bg-black/50 backdrop-blur-sm z-10"></div>
+              <div className="absolute group-hover:top-0 top-[500px] transition-all ease-in-out  left-0 w-full h-full bg-black/50 duration-300 backdrop-blur-sm z-10"></div>
               <h3 className="font-bold text-2xl z-20">{item.title}</h3>
               <p className="max-w-md z-20">{item.subtitle}</p>
               <div className="absolute -bottom-12 -right-12 z-1 group-hover:scale-110 transition-all ease-in-out z-0">
