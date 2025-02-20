@@ -1,17 +1,16 @@
 import HeroBanner from "@/components/HeroBanner";
 import HotLinkServices from "@/components/HotLinkServices";
-import ImportantBlock from "@/components/ImportantBlock";
 import NavBar from "@/components/Navbar";
-import PromoAlert from "@/components/PromoAlert";
+import React from "react";
 
-export default function Home() {
+function BusinessPage() {
   return (
     <div className="pt-[100px]">
-      <NavBar />
-      <HeroBanner /> 
+      <NavBar selectedSite={1}/>
+      <HeroBanner />
       <HotLinkServices />
-      <ImportantBlock />
-      <PromoAlert />
     </div>
   );
 }
+
+export default BusinessPage;
