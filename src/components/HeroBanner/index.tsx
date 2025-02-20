@@ -73,7 +73,7 @@ export default function HeroBanner() {
                 <div className="absolute container mx-auto  inset-0 flex flex-col justify-center px-6 sm:px-12 md:px-24 text-white">
                   <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4 max-w-3xl">{slide.title}</h2>
                   <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 max-w-lg">{slide.description}</p>
-                  <Button asChild className="w-fit" size="lg">
+                  <Button asChild className="w-fit h-12" size="lg">
                     <a href={slide.ctaLink}>{slide.cta}</a>
                   </Button>
                 </div>

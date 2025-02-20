@@ -8,6 +8,7 @@ import {
   Unlock,
   User,
   UserPlus,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
@@ -27,6 +28,8 @@ interface NavBarProps {
 function NavBar({ selectedSite = 0 }: NavBarProps) {
 
   const [showSearch, setShowSearch] = React.useState(false);
+  const [showMenu, setShowMenu] = React.useState(false);
+
 
   const topItems: SubSitesLinks[] = [
     {
@@ -50,7 +53,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
     <nav className="dark:bg-gray-900 fixed w-full z-20 top-0 start-0 overflow-hidden ">
       {/* Search block */}
       <SearchBox showSearch={showSearch} toogleSearch={toogleSearch} />
-      {/* <GlobalMenu /> */}
+      <GlobalMenu show={showMenu} />
       {/* Menu block */}
       <div className="w-full bg-blue-900">
         <div className="container mx-auto">
@@ -96,8 +99,8 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
       </div>
       <div className="bg-orange-500">
         <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
-          <button>
-            <Menu size="32" />
+          <button onClick={() => setShowMenu(!showMenu)} >
+            { showMenu ? <X size="32"/> : <Menu size="32" />}
           </button>
           <Link href="#" className="flex items-center space-x-3  ml-4">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
@@ -126,7 +129,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0 "
+                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent bg-blue-500 md:p-0 text-sm"
                   aria-current="page"
                 >
                   Business
@@ -135,7 +138,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0 "
+                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   Personal
@@ -144,7 +147,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0 "
+                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   Digital Banking
@@ -153,7 +156,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0 "
+                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   UniTrust
@@ -162,7 +165,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0 "
+                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   UniLeasing
@@ -171,7 +174,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               <li>
                 <a
                   href="#"
-                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0 "
+                  className="block py-2 px-3 text-white hover:underline  rounded-sm md:bg-transparent   md:p-0  text-sm"
                   aria-current="page"
                 >
                   About Us
