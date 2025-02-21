@@ -1,4 +1,4 @@
-import { Info } from "lucide-react";
+import { PersonStanding } from "lucide-react";
 import React from "react";
 
 interface ImportantBlockProps {
@@ -13,20 +13,21 @@ function ImportantBlock() {
       title: "Funcionalidades de la app",
       className: "bg-blue-500",
       subtitle:
-        "Puedes realizar operaciones bancarias estés donde estés, conectándote con BBVA desde tu celular.",
+        "Puedes realizar operaciones bancarias estés donde estés, conectándote con UniBank desde tu celular.",
     },
     {
-      title: "title2",
+      title: "Puedes realizar operaciones bancarias",
       subtitle: "Conoce más",
       className: "bg-blue-900",
     },
     {
-      title: "title3",
+      title:
+        "Operaciones bancarias estés donde estés, conectándote con UniBank desde tu celular.",
       subtitle: "Conoce más",
       className: "bg-blue-700",
     },
     {
-      title: "title3",
+      title: "conectándote con UniBank desde tu celular.",
       subtitle: "Conoce más",
       className: "bg-blue-800",
     },
@@ -40,18 +41,17 @@ function ImportantBlock() {
         </h2>
       </div>
       <div className="container mx-auto">
-
-      <div className="grid grid-cols-1   lg:grid-cols-2">
+        <div className="grid grid-cols-1   lg:grid-cols-2">
           {data.map((item, index) => (
             <div
               key={index}
               className={`${item.className} text-white h-80 p-8 flex flex-col justify-end relative overflow-hidden group hover:justify-start transition-all duration-500 ease-in-out cursor-pointer`}
             >
               <div className="absolute group-hover:top-0 top-[500px] transition-all ease-in-out  left-0 w-full h-full bg-black/50 duration-300 backdrop-blur-sm z-10"></div>
-              <h3 className="font-bold text-2xl z-20">{item.title}</h3>
-              <p className="max-w-md z-20">{item.subtitle}</p>
+              <h3 className="font-bold text-2xl z-20 max-w-md">{item.title}</h3>
+              <p className="max-w-md z-20 text-sm">{item.subtitle}</p>
               <div className="absolute -bottom-12 -right-12 z-1 group-hover:scale-110 transition-all ease-in-out z-0">
-                <Info size="220" />
+                <PersonStanding size="220" />
               </div>
             </div>
           ))}

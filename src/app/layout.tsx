@@ -6,6 +6,7 @@ import { Bot } from "lucide-react";
 import CookiesNotice from "@/components/CookiesNotice";
 import Footer from "@/components/Footer";
 import NavBar from "@/components/Navbar";
+import PhoneCallLeadButton from "@/components/PhoneCallLeadButton";
 
 const geistSans = Open_Sans({
   weight: ["400"],
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={`${geistSans.className}  antialiased bg-slate-50`}>
         
       <NavBar />
+      <PhoneCallLeadButton />
       
         {children}
 

@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel"
 import Link from "next/link"
 
 export default function HeroBanner() {
@@ -57,7 +57,7 @@ export default function HeroBanner() {
 
   return (
     <div className="relative">
-    <Carousel setApi={setApi} className="w-full">
+    <Carousel  setApi={setApi} className="w-full">
       <CarouselContent>
         {slides.map((slide, index) => (
           <CarouselItem key={index}>
@@ -83,8 +83,8 @@ export default function HeroBanner() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-4" />
-      <CarouselNext className="right-4" />
+      {/* <CarouselPrevious className="left-4" />
+      <CarouselNext className="right-4" /> */}
     </Carousel>
     <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
     {slides.map((_, index) => (

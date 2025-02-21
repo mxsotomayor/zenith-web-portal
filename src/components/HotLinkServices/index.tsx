@@ -3,7 +3,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Info } from "lucide-react";
+import { BlocksIcon } from "lucide-react";
 import Link from "next/link";
 
 const settings = {
@@ -45,7 +45,7 @@ const settings = {
 
 function HotLinkServices() {
   const texts = [
-    "Open Bank Account",
+    "Open UniBank Account",
     "Mortgage Application",
     "Consumer Loan Application",
     "Personal Deposit Products",
@@ -61,9 +61,9 @@ function HotLinkServices() {
         <Slider {...settings}>
           {texts.map((text, index) => (
             <div key={index} className="h-32 user-select-none px-2">
-              <Link href="/login" className="flex flex-col w-full h-full bg-gray-100 hover:bg-orange-500 group transition-all justify-end pb-6 items-center ">
-                <Info size="42" className="text-orange-500 min-w-8 min-h-8 group-hover:text-white" />
-                <h3 className="mt-2 font-semibold text-ellipsis line-clamp-1 text-xs group-hover:text-white">{text}</h3>
+              <Link href="/login" className="flex flex-col w-full h-full px-4 bg-gray-100 hover:bg-orange-500 group transition-all justify-start pt-6 items-center ">
+                <BlocksIcon size="42" className="text-orange-500 min-w-8 min-h-8 group-hover:text-white" />
+                <h3 className="mt-2 font-semibold text-ellipsis line-clamp-2 text-center text-xs lg:text-sm group-hover:text-white">{text}</h3>
               </Link>
             </div>
           ))}
