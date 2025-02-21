@@ -71,7 +71,7 @@ export default function FAQBlock() {
         <Accordion type="single" collapsible className="w-full">
           {filteredFaqs.map((faq, index) => (
             <AccordionItem value={`item-${index}`} key={index}>
-              <AccordionTrigger className="text-left">
+              <AccordionTrigger className="text-left font-semibold">
                 {faq.question}
               </AccordionTrigger>
               <AccordionContent>{faq.answer}</AccordionContent>

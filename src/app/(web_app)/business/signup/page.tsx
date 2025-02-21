@@ -4,11 +4,11 @@ import React from "react";
 function BusinessLoginPage() {
   return (
     <div className="pt-[100px] h-screen">
-      <NavBar />
+      <NavBar selectedSite={1}/>
       <div className="container mx-auto py-8 flex items-center h-full">
         <div className="flex-1">
           <h1 className="text-xl lg:text-4xl font-semibold text-orange-500">
-            Unibank
+            Register your Business
           </h1>
           <p className="text-gray-500 mt-4 max-w-xl">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla

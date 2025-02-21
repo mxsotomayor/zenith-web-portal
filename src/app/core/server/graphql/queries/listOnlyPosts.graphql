@@ -1,0 +1,29 @@
+# RECENT ARTCILES
+query listOnlyPosts {
+  articles( filters:  {
+     category:  {
+        slug:  {
+           eq: "post"
+        }
+     }
+  } sort: ["createdAt:DESC"]) {
+    documentId
+    title
+    createdAt
+    author {
+      name
+      avatar {
+        alternativeText
+        name
+      }
+    }
+    category {
+      slug
+    }
+    cover {
+      alternativeText
+      url
+      previewUrl
+    }
+  }
+}

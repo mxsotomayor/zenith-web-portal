@@ -1,0 +1,25 @@
+query getOneArticle($documentId: ID!){
+  article(documentId: $documentId) {
+    title
+    slug
+    blocks {
+      
+      ... on ComponentSharedQuote {
+        __typename
+        body
+        title
+      }
+      ... on ComponentSharedRichText {
+        __typename
+        body
+      }
+      ... on ComponentSharedSlider {
+        __typename
+        files {
+          alternativeText
+          url
+        }
+      }
+    }
+  }
+}

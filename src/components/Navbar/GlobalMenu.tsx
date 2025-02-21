@@ -39,7 +39,7 @@ const settings = {
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 2,
+        slidesToShow: 1.5,
         slidesToScroll: 1,
       },
     },
@@ -125,7 +125,7 @@ function GlobalMenu({ show }: { show: boolean }) {
           </ul>
         </div>
 
-        <div className="flex flex-col p-8 flex-1 w-full  overflow-hidden">
+        <div className="flex flex-col p-8 flex-1 w-full  overflow-hidden border-t lg:border-none border-slate-400 ">
           <h3 className="text-xl md:text-3xl font-semibold text-white mb-2 flex items-center">
             Why{" "}
             <Image
