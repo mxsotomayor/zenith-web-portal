@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
+import { Button } from "@/components/ui/button";
+import { Bot } from "lucide-react";
+import CookiesNotice from "@/components/CookiesNotice";
 
-const geistSans = Poppins({ 
-  weight: ["400", "500", "700"],
+const geistSans = Open_Sans({
+  weight: ["400"],
   subsets: ["latin"],
 });
- 
 
 export const metadata: Metadata = {
   title: "iBanca Online",
@@ -20,10 +22,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.className}  antialiased bg-slate-50`}
-      >
+      <body className={`${geistSans.className}  antialiased bg-slate-50`}>
         {children}
+
+        <div className="fixed bottom-12 right-12 z-50">
+          <Button className="w-16 h-16 rounded-full">
+            <div className="min-w-34 min-h-34">
+              <Bot size="34" />
+            </div>
+          </Button>
+        </div>
+
+        <CookiesNotice />
       </body>
     </html>
   );

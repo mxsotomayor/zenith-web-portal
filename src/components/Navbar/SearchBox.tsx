@@ -11,7 +11,7 @@ function SearchBox({showSearch, toogleSearch}:{showSearch:boolean, toogleSearch:
             placeholder="Search for services, customer portal features and more"
           />
           <p className='text-xs flex text-white gap-x-2 py-1'><span>Search Tool Powered by </span> <span className='text-emerald-300'>Unibank AI</span> <Sparkles className='text-emerald-300' size="10"/></p>
-          <button className="absolute -top-9 right-1 bg-white rounded-full p-1 bg-opacity-55" onClick={toogleSearch}>
+          <button className="absolute -top-8 right-1 bg-white rounded-full p-1 bg-opacity-55" onClick={toogleSearch}>
             <X  size="14"/>
           </button>
         </div>

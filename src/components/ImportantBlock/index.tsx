@@ -33,14 +33,13 @@ function ImportantBlock() {
   ];
 
   return (
-    <div className="bg-blue-950 py-8">
+    <div className="bg-blue-950 py-8 pb-0 lg:pb-8">
       <div className="container mx-auto md:px-0 px-4">
-        <h2 className="text-3xl md:text-5xl py-4 font-bold text-white mb-6">
+        <h2 className="text-3xl md:text-5xl py-4 font-bold text-blue-100 mb-6">
           Now you have ease access to
         </h2>
       </div>
       <div className="container mx-auto">
-        
 
       <div className="grid grid-cols-1   lg:grid-cols-2">
           {data.map((item, index) => (

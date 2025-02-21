@@ -4,7 +4,7 @@ import NewsCard from "../NewsCard";
 function NewsGrid() {
   const newsItem = {
     image:
-      "/padre-hija-desayunando.im1735665141640im.avif?height=400&width=600",
+      "/pareja-bailando-cocina-casa-card.im1616802082927im.avif?height=400&width=600",
     title: "The Future of Artificial Intelligence in Healthcare",
     subtitle: "How AI is revolutionizing medical diagnostics and treatment",
     author: {
