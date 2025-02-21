@@ -1,4 +1,4 @@
-import { ExternalLink, Info } from "lucide-react";
+import { ExternalLink, SmilePlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -86,7 +86,7 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
               key={link.description + index}
               className="bg-slate-200 p-4 flex flex-col justify-end pb-8"
             >
-              <Info className="text-orange-600" />
+              <SmilePlus className="text-orange-600" />
               <h3 className="font-bold my-4 text-blue-950 text-ellipsis line-clamp-3">
                 {link.title}
               </h3>

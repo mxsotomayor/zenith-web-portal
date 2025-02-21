@@ -4,7 +4,8 @@ import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, CarouselApi } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselApi } from "@/components/ui/carousel"
+import Link from "next/link"
 
 export default function HeroBanner() {
   const [api, setApi] = useState<CarouselApi>()
@@ -33,16 +34,16 @@ export default function HeroBanner() {
       alt: "Hero Image 1",
       title: "Pagar tus impuestos y disfrutar de los que más amas es posible.",
       description: "Discover amazing products and services tailored just for you.",
-      cta: "Shop Now",
-      ctaLink: "#shop",
+      cta: "Sign Up Now",
+      ctaLink: "/login",
     },
     {
       image: "/GettyImages-1326458117-e72cd6f16ae44bedbd7f3ca90ffb2053.jpg?height=600&width=1600",
       alt: "Hero Image 2",
-      title: "Summer Sale",
+      title: "Register Your Business Start winning a lot of benefits",
       description: "Get up to 50% off on selected items. Limited time offer!",
-      cta: "View Deals",
-      ctaLink: "#deals",
+      cta: "Get Offer Now!",
+      ctaLink: "/business/login",
     },
     {
       image: "/pareja-bailando-cocina-casa-card.im1616802082927im.avif?height=600&width=1600",
@@ -50,13 +51,13 @@ export default function HeroBanner() {
       title: "Join Our Community",
       description: "Connect with like-minded individuals and grow together.",
       cta: "Sign Up",
-      ctaLink: "#signup",
+      ctaLink: "/business/signup",
     },
   ]
 
   return (
     <div className="relative">
-    <Carousel setApi={setApi} className="w-full">
+    <Carousel  setApi={setApi} className="w-full">
       <CarouselContent>
         {slides.map((slide, index) => (
           <CarouselItem key={index}>
@@ -74,7 +75,7 @@ export default function HeroBanner() {
                   <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4 max-w-3xl">{slide.title}</h2>
                   <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 max-w-lg">{slide.description}</p>
                   <Button asChild className="w-fit h-12 bg-orange-600 hover:bg-orange-500" size="lg">
-                    <a href={slide.ctaLink}>{slide.cta}</a>
+                    <Link href={slide.ctaLink}>{slide.cta}</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -82,8 +83,8 @@ export default function HeroBanner() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-4" />
-      <CarouselNext className="right-4" />
+      {/* <CarouselPrevious className="left-4" />
+      <CarouselNext className="right-4" /> */}
     </Carousel>
     <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
     {slides.map((_, index) => (

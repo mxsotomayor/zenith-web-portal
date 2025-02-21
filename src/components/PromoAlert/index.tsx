@@ -6,10 +6,10 @@ function PromoAlert() {
   return (
     <div className="bg-white  py-8">
       <div className="container mx-auto">
-        <div className="flex gap-4 items-center p-8 bg-blue-900">
+        <div className="flex gap-4 flex-col items-start lg:flex-row lg:items-center p-8 bg-blue-900">
           <TriangleAlert className="text-white" size="62" />
           <div className="text-white text-sm flex-1">
-            <h2 className="text-2xl font-semibold">
+            <h2 className="text-xl lg:text-2xl font-semibold">
               Protégete de mensajes fraudulentos
             </h2>
             <p className="text-sm mb-2">

@@ -28,7 +28,7 @@ function NewsGrid() {
         </h2>
       </div>
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4">
-        {[1, 2, 3, 3, 4, 5].map((item, index) => (
+        {[1, 2, 3].map((item, index) => (
           <NewsCard key={index} {...newsItem} />
         ))}
       </div>
