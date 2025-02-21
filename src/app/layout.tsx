@@ -4,6 +4,8 @@ import "./globals.css";
 import { Button } from "@/components/ui/button";
 import { Bot } from "lucide-react";
 import CookiesNotice from "@/components/CookiesNotice";
+import Footer from "@/components/Footer";
+import NavBar from "@/components/Navbar";
 
 const geistSans = Open_Sans({
   weight: ["400"],
@@ -23,17 +25,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.className}  antialiased bg-slate-50`}>
+        
+      <NavBar />
+      
         {children}
 
-        <div className="fixed bottom-12 right-12 z-50">
-          <Button className="w-16 h-16 rounded-full">
+        <div className="fixed bottom-2 right-2 lg:bottom-10 lg:right-10 z-50">
+          <Button className="w-16 h-16 rounded-full bg-orange-500 hover:text-white text-black">
             <div className="min-w-34 min-h-34">
-              <Bot size="34" />
+              <Bot size="54" className="" />
             </div>
           </Button>
         </div>
 
         <CookiesNotice />
+        <Footer />
       </body>
     </html>
   );

@@ -45,22 +45,23 @@ const settings = {
 
 function HotLinkServices() {
   const texts = [
-    "I need credit",
-    "I want to signup",
-    "Insure",
-    "Taxes",
-    "How to save money?",
-    "I want invest my money",
+    "Open Bank Account",
+    "Mortgage Application",
+    "Consumer Loan Application",
+    "Personal Deposit Products",
+    "Investment Products",
+    "Credit Card Application",
+    "Online Services",
   ];
 
   return (
     <div>
       <div className="container mx-auto md:px-0 px-4 overflow-hidden py-8">
-      <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-6">Our customer are looking for</h2>
+      <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-6">Find a Banking Solution that Fits to You</h2>
         <Slider {...settings}>
           {texts.map((text, index) => (
             <div key={index} className="h-32 user-select-none px-2">
-              <Link href="" className="flex flex-col w-full h-full bg-gray-100 hover:bg-orange-500 group transition-all justify-end pb-6 items-center ">
+              <Link href="/login" className="flex flex-col w-full h-full bg-gray-100 hover:bg-orange-500 group transition-all justify-end pb-6 items-center ">
                 <Info size="42" className="text-orange-500 min-w-8 min-h-8 group-hover:text-white" />
                 <h3 className="mt-2 font-semibold text-ellipsis line-clamp-1 text-xs group-hover:text-white">{text}</h3>
               </Link>
