@@ -90,7 +90,7 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
               <h3 className="font-bold my-4 text-blue-950 text-ellipsis line-clamp-3">
                 {link.title}
               </h3>
-              <p className="mb-4 text-ellipsis line-clamp-3 lg:line-clamp-4">
+              <p className="mb-4 text-sm lg:text-base text-ellipsis line-clamp-3 lg:line-clamp-4">
                 {link.description}
               </p>
               <Link
