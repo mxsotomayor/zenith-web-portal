@@ -22,12 +22,12 @@ function NewsGrid() {
 
   return (
     <div className="py-8 bg-slate-50">
-      <div className="container mx-auto md:px-0 px-4">
+      <div className="container mx-auto xxl:px-0 px-4">
         <h2 className="text-3xl md:text-5xl font-semibold text-blue-900 mb-6">
           Top Stories
         </h2>
       </div>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4">
+      <div className="container mx-auto xxl:px-0 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4">
         {[1, 2, 3].map((item, index) => (
           <NewsCard key={index} {...newsItem} />
         ))}

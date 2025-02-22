@@ -13,7 +13,7 @@ function BusinessLoginPage() {
       <div className="justify-end w-full h-screen -z-10 absolute hidden lg:flex">
         <div className="bg-blue-950 w-1/2 h-screen "></div>
       </div>
-      <div className="z-10 container mx-auto px-4 lg:px-0 py-8 flex flex-col lg:flex-row  items-center lg:h-full">
+      <div className="z-10 container mx-auto px-4 xxl:px-0 py-8 flex flex-col lg:flex-row  items-center lg:h-full">
         <div className="flex-1">
           <h1 className="text-xl lg:text-4xl font-semibold text-orange-500">
             Unibank Personal
@@ -35,7 +35,7 @@ function BusinessLoginPage() {
               </p>
               <form className="grid gap-y-3">
                 <div className="grid gap-y-2">
-                  <Label htmlFor="username">Your ID</Label>
+                  <Label htmlFor="username">Customer ID</Label>
                   <Input
                     id="username"
                     placeholder="Insert Customer Email, Phone, Unibank ID"

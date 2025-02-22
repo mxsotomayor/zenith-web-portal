@@ -5,12 +5,12 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react'
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-blue-950  text-white">
+      <div className="container mx-auto px-4  xxl:px-0 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">{process.env.NEXT_PUBLIC_VENDOR_NAME}</h3>
+            <h3 className="tex-xl lg:text-4xl font-semibold mb-4">{process.env.NEXT_PUBLIC_VENDOR_NAME}</h3>
             <p className="text-gray-300">
               We are dedicated to providing the best service to our customers.
             </p>
@@ -46,7 +46,7 @@ const Footer = () => {
               />
               <button
                 type="submit"
-                className="px-4 py-2 bg-blue-600 rounded hover:bg-blue-700 transition-colors"
+                className="px-4 py-2 bg-orange-500 rounded hover:bg-orange-700 transition-colors"
               >
                 Subscribe
               </button>
@@ -77,7 +77,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Company Name. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {process.env.NEXT_PUBLIC_VENDOR_NAME}. All rights reserved.</p>
         </div>
       </div>
     </footer>

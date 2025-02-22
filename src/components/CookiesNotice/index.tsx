@@ -25,9 +25,12 @@ function CookiesNotice() {
       </h2>
 
       <div className="flex gap-2 mt-5">
-        <Button className="" onClick={() => setShow(!show)}>Accept</Button>
+        <Button className="" onClick={() => setShow(!show)}>Accept Cookies</Button>
         <Button className="" onClick={() => setShow(!show)} variant="ghost">
-          Reject
+          Reject Cookies
+        </Button>
+        <Button className="" onClick={() => setShow(!show)} variant="ghost">
+          Close
         </Button>
       </div>
     </div>
