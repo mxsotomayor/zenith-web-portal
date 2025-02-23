@@ -1,5 +1,23 @@
+"use client";
+
 import React from "react";
 import NewsCard from "../NewsCard";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useScreenSize } from "@/app/core/hooks/useScreenSize";
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  pauseOnHover: true,
+};
 
 function NewsGrid() {
   const newsItem = {
@@ -8,7 +26,7 @@ function NewsGrid() {
     title: "The Future of Artificial Intelligence in Healthcare",
     subtitle: "How AI is revolutionizing medical diagnostics and treatment",
     author: {
-      name: "Dr. Jane Smith",
+      name: "Unibank",
       avatar:
         "/padre-hija-desayunando.im1735665141640im.avif?height=40&width=40",
     },
@@ -20,6 +38,8 @@ function NewsGrid() {
     slug: "ai-in-healthcare",
   };
 
+  const { screenSize } = useScreenSize();
+
   return (
     <div className="py-8 bg-slate-50">
       <div className="container mx-auto xxl:px-0 px-4">
@@ -27,11 +47,24 @@ function NewsGrid() {
           Top Stories
         </h2>
       </div>
-      <div className="container mx-auto xxl:px-0 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-4">
-        {[1, 2, 3].map((item, index) => (
-          <NewsCard key={index} {...newsItem} />
-        ))}
-      </div>
+
+      {(screenSize == "sm" || screenSize == "xs") && (
+        <div className="overflow-hidden">
+          <Slider {...settings}>
+            {[1, 2, 3, 4, 5, 6].map((item, index) => (
+              <NewsCard key={index} {...newsItem} />
+            ))}
+          </Slider>
+        </div>
+      )}
+
+      {screenSize != "sm" && (
+        <div className="container mx-auto xxl:px-0 px-4 lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 md:gap-4 overflow-hidden hidden">
+          {[1, 2, 3, 4, 5, 6].map((item, index) => (
+            <NewsCard key={index} {...newsItem} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

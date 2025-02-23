@@ -32,7 +32,7 @@ export default function HeroBanner() {
     {
       image: "/padre-hija-desayunando.im1735665141640im.avif?height=600&width=1600",
       alt: "Hero Image 1",
-      title: "Pagar tus impuestos y disfrutar de los que más amas es posible.",
+      title: "Paying your taxes and enjoying those you love the most is possible.",
       description: "Discover amazing products and services tailored just for you.",
       cta: "Sign Up Now",
       ctaLink: "/login",
@@ -48,8 +48,8 @@ export default function HeroBanner() {
     {
       image: "/pareja-bailando-cocina-casa-card.im1616802082927im.avif?height=600&width=1600",
       alt: "Hero Image 3",
-      title: "Join Our Community",
-      description: "Connect with like-minded individuals and grow together.",
+      title: "Remortgaging? We’ve got you.",
+      description: "Save up to $1,249 on upfront costs when you remortgage to us",
       cta: "Sign Up",
       ctaLink: "/business/signup",
     },
@@ -71,8 +71,8 @@ export default function HeroBanner() {
                   priority={index === 0}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
-                <div className="absolute container mx-auto  inset-0 flex flex-col justify-center px-6 sm:px-12 md:px-24 text-white">
-                  <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-2 sm:mb-4 max-w-3xl">{slide.title}</h2>
+                <div className="absolute container mx-auto  inset-0 flex flex-col justify-center px-4  xxl:px-0 text-white">
+                  <h2 className="text-3xl sm:text-4xl md:text-6xl font-semibold mb-2 sm:mb-4 max-w-3xl">{slide.title}</h2>
                   <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 max-w-lg">{slide.description}</p>
                   <Button asChild className="w-fit h-12 bg-orange-600 hover:bg-orange-500" size="lg">
                     <Link href={slide.ctaLink}>{slide.cta}</Link>

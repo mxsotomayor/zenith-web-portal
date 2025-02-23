@@ -14,6 +14,12 @@ function CookiesNotice() {
     }
   },[])
 
+  useEffect(()=>{
+    if(!show){
+      window.localStorage.setItem('cookies-notice','accepted')
+    }
+  },[show])
+
   return (
     <div className={`bg-white text-white p-4 w-full fixed ${show ? 'bottom-0':'-bottom-56'} z-50 transition-all ease-in-out duration-300  shadow-2xl`}>
     <div className="container mx-auto text-blue-950">
@@ -25,12 +31,12 @@ function CookiesNotice() {
       </h2>
 
       <div className="flex gap-2 mt-5">
-        <Button className="" onClick={() => setShow(!show)}>Accept Cookies</Button>
+        <Button className="" onClick={() => setShow(!show)}>Accept All</Button>
         <Button className="" onClick={() => setShow(!show)} variant="ghost">
-          Reject Cookies
+          Reject All
         </Button>
         <Button className="" onClick={() => setShow(!show)} variant="ghost">
-          Close
+          Settings
         </Button>
       </div>
     </div>

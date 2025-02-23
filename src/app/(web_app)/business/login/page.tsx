@@ -47,7 +47,7 @@ function BusinessLoginPage() {
                   </Link>
                 </div>
 
-                <div className="grid gap-y-2">
+                {/* <div className="grid gap-y-2">
                   <Label htmlFor="username">Password</Label>
                   <Input
                     id="password"
@@ -60,13 +60,13 @@ function BusinessLoginPage() {
                   >
                     Forgot your password?
                   </Link>
-                </div>
+                </div> */}
 
                 <div>
-                  <Button className="w-full">Sign In</Button>
+                  <Button className="w-full">Continue</Button>
                 </div>
                 <div className="text-center text-xs">
-                  You dont have account yet?
+                  Your Business does&apos;t have an <span className="text-orange-500">Unibank</span> account yet?
                 </div>
                 <div>
                   <Link

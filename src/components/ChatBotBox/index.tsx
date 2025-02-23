@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "../ui/button";
-import { Bot, Send } from "lucide-react";
+import { Bot,  LoaderCircle, Send } from "lucide-react";
 
 import {
   Sheet,
@@ -35,12 +35,33 @@ function ChatBotBox() {
           <div className=" flex-1 flex flex-col">
             {/* Bubbles Chat Area */}
             <div className="flex flex-col flex-1 gap-2">
-              <div className="bg-slate-100 rounded-lg p-2 text-sm mr-6">Hi I&apos;m your <span className="font-semibold text-orange-500">Unibank Digital Assistant</span>, Im here to help you in your journey with us, please feel free to ask anything about our Services, Products and more?</div>
-              <div className="bg-slate-300 rounded-lg p-2 text-sm ml-6">How create my Unibank Account?</div>
+              <div className="bg-slate-100 rounded-lg rounded-tl-none p-2 text-sm mr-6">
+                <span className="text-xs font-bold">Unibank Assistant</span>
+                <p>
+                  Hi I&apos;m your{" "}
+                  <span className="font-semibold text-orange-500">
+                    Unibank Digital Assistant
+                  </span>
+                  , Im here to help you in your journey with us, please feel
+                  free to ask anything about our Services, Products and more?
+                </p>
+              </div>
+              <div className="bg-slate-300 rounded-lg rounded-tr-none p-2 text-sm ml-6 text-right">
+                <span className="text-xs font-bold">Me</span>
+                <p>How can I create my Unibank Account?</p>
+              </div>
+              <div className="bg-slate-100 rounded-lg rounded-tl-none p-2 text-sm mr-6">
+                <LoaderCircle className="animate-spin repeat-infinite" size="16" /> Wait a second please ...
+              </div>
             </div>
             <div className="relative">
               <Textarea className="pe-11" />
-              <Button className="absolute top-2 right-2 rounded-full w-8 h-8 min-h-8 flex items-center justify-center" type="button"><Send /></Button>
+              <Button
+                className="absolute top-2 right-2 rounded-full w-8 h-8 min-h-8 flex items-center justify-center"
+                type="button"
+              >
+                <Send />
+              </Button>
             </div>
           </div>
         </SheetContent>

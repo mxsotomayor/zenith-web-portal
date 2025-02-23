@@ -1,12 +1,10 @@
 "use client";
 
-import {
-  Building,
+import { 
   ChevronDown,
   Menu,
   Search,
-  Unlock,
-  User,
+  Unlock, 
   UserPlus,
   X,
 } from "lucide-react";
@@ -15,12 +13,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import SearchBox from "./SearchBox";
 import GlobalMenu from "./GlobalMenu";
-
-interface SubSitesLinks {
-  icon?: React.ReactNode;
-  name: string;
-  url: string;
-}
+ 
 
 interface NavBarProps {
   selectedSite?: number;
@@ -29,20 +22,65 @@ interface NavBarProps {
 function NavBar({ selectedSite = 0 }: NavBarProps) {
   const [showSearch, setShowSearch] = React.useState(false);
 
+  const menuSettings = {
+    logoUrl: "",
+    logoAltText: "",
+    topRightMenus: [
+      {
+        displayText: "Contact",
+        url: "/contact",
+        target:"_self"
+      },
+      {
+        displayText: "Customer Support",
+        url: "/help",
+        target:"_self"
+      },
+      {
+        displayText: "Call Us!",
+        url: "tel:+12345678",
+        target:"_self"
+      },
+    ],
+    subSites: [
+      {
+        keyName: "personal",
+        displayName: "Personal",
+        subPath: "",
+      },
+      {
+        keyName: "corporate",
+        displayName: "Corporate",
+        subPath: "/business",
+      },
+      {
+        keyName: "gov",
+        displayName: "GOV",
+        subPath: "/business",
+      },
+    ],
+    items: [],
+  };
+
   const [showMenu, setShowMenu] = React.useState(false);
 
-  const topItems: SubSitesLinks[] = [
-    {
-      icon: <User size="16" />,
-      name: "Personal",
-      url: "",
-    },
-    {
-      icon: <Building size="16" />,
-      name: "Business",
-      url: "/business",
-    },
-  ];
+  // const topItems: SubSitesLinks[] = [
+  //   {
+  //     icon: <User size="16" />,
+  //     name: "Personal",
+  //     url: "",
+  //   },
+  //   {
+  //     icon: <Building size="16" />,
+  //     name: "Business",
+  //     url: "/business",
+  //   },
+  //   {
+  //     icon: <Building size="16" />,
+  //     name: "GOV",
+  //     url: "/business",
+  //   },
+  // ];
 
   const toogleSearch = () => {
     setShowSearch(!showSearch);
@@ -56,7 +94,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
     }
   }, [showMenu]);
 
-  const CURRENT_BASE_SITE = topItems[selectedSite].url;
+  const CURRENT_BASE_SITE = menuSettings.subSites[selectedSite].subPath;
 
   return (
     <nav className="dark:bg-gray-900 fixed w-full z-50 top-0 start-0 overflow-hidden ">
@@ -68,19 +106,19 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
         <div className="container mx-auto">
           <div className="flex flex-row items-center">
             <ul className="flex flex-row items-center text-xs">
-              {topItems.map((item, index) => (
+              {menuSettings.subSites.map((item, index) => (
                 <li
                   key={index}
                   className={`${
-                    index === selectedSite ? "bg-white font-bold" : "text-white"
+                    index === selectedSite ? "bg-white font-semibold text-blue-900" : "text-white"
                   } px-4 py-2 uppercase`}
                 >
                   <Link
-                    href={item.url + "/"}
+                    href={item.subPath + "/"}
                     className="flex items-center gap-2"
                   >
                     {" "}
-                    {item.icon} {item.name}
+                    {item.displayName}
                   </Link>
                 </li>
               ))}
@@ -88,20 +126,16 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
 
             <div className="justify-end text-white font-thin flex-1 px-4 xxl:px-0">
               <ul className="flex flex-row justify-end items-center md:space-x-8 text-xs">
-                <li className="hidden  md:flex">
-                  <Link href="">Branches</Link>
-                </li>
-                <li className="hidden  md:flex">
-                  <Link href="/help">Need Help?</Link>
-                </li>
-                <li className="hidden  md:flex">
-                  <Link href="">Call us! 297-6000</Link>
-                </li>
+                {
+                  menuSettings.topRightMenus.map((item, index) =>(<li key={index} className="hidden  md:flex">
+                    <Link href={item.url} target={item.target}>{item.displayText}</Link>
+                  </li>))
+                } 
                 <li>
                   <Link href="" className="flex items-center">
-                    Spanish <ChevronDown size="16" />
+                    EN <ChevronDown size="16" />
                   </Link>
-                </li>
+                </li> 
               </ul>
             </div>
           </div>
@@ -132,11 +166,11 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
             </button>
 
             <Link
-              href={CURRENT_BASE_SITE + "/login"}
+              href={process.env.NEXT_PUBLIC_ONLINE_BANKING_URL + "/login" +  CURRENT_BASE_SITE}
               className="flex items-center gap-2"
             >
               <Unlock size="16" />{" "}
-              <span className="hidden md:block">Sign In!</span>
+              <span className="hidden md:block">Sign In</span>
             </Link>
 
             <Link
@@ -145,7 +179,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               className="text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 lg:py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center gap-x-3 py-3"
             >
               <UserPlus size="16" />{" "}
-              <span className="hidden md:block">Join Us!</span>
+              <span className="hidden md:block">Join Us</span>
             </Link>
           </div>
           <div

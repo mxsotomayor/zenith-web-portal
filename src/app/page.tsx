@@ -1,5 +1,6 @@
 import FAQs from "@/components/FAQs";
 import HeroBanner from "@/components/HeroBanner";
+import HorizServicesLinks from "@/components/HorizServicesLinks";
 import HotLinkServices from "@/components/HotLinkServices";
 import ImportantBlock from "@/components/ImportantBlock";
 import MansoryGrid from "@/components/MansoryGrid";
@@ -16,7 +17,10 @@ export default function Home() {
       <NewsGrid />
       <PromoAlert />
       <div className="py-6">
-        <MansoryGrid direction="LEFT_RIGHT" />
+        <MansoryGrid direction="LEFT_RIGHT" /> 
+      </div>
+      <HorizServicesLinks />
+      <div className="py-6"> 
         <MansoryGrid direction="RIGHT_LEFT" />
       </div>
       <FAQs />

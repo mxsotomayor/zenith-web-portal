@@ -1,11 +1,11 @@
 "use client";
 
 import { PhoneCall, X } from "lucide-react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { LeadModal } from "./LeadModal";
 
 function PhoneCallLeadButton() {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
   const [leadOpen, setLeadOpen] = useState(false);
 
   const toggleShow = () => {
@@ -16,9 +16,21 @@ function PhoneCallLeadButton() {
     setLeadOpen(!leadOpen);
   };
 
+  useEffect(() => {
+    setShow(window.localStorage.getItem("show-lead-btn") == "yes");
+  }, []);
+
+  useEffect(() => {
+    if (!show) {
+      window.localStorage.setItem("show-lead-btn", "no");
+    } else {
+      window.localStorage.setItem("show-lead-btn", "yes");
+    }
+  }, [show]);
+
   return (
     <div className="w-[2px] h-screen fixed right-0 top-0 z-40 flex items-center justify-end">
-      <LeadModal open={leadOpen}  toggleOpen={toggleLeadOpen}/>
+      <LeadModal open={leadOpen} toggleOpen={toggleLeadOpen} />
       <button
         onClick={toggleLeadOpen}
         className={`${
@@ -27,8 +39,8 @@ function PhoneCallLeadButton() {
       >
         <div className="bg-orange-500 w-[92px] min-h-40 rounded-l-lg flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all ease-in-out relative group">
           <div className="flex-1 bg-orange-500 text-white p-2 uppercase text-xs text-start flex flex-col justify-center font-semibold relative overflow-visible">
-            Need Help?, we got you! 
-          <Triangle />
+            Need Help?, we got you!
+            <Triangle />
           </div>
           <div className="flex-1 bg-white group-hover:bg-slate-100 transition-all ease-in-out p-2 text-xs flex flex-col items-start justify-center">
             <div className="font-bold mb-1">

@@ -7,8 +7,8 @@ import NavBar from "@/components/Navbar";
 import PhoneCallLeadButton from "@/components/PhoneCallLeadButton";
 import ChatBotBox from "@/components/ChatBotBox";
 
-const geistSans = Open_Sans({
-  weight: ["400"],
+const baseFont = Open_Sans({
+  weight: ["400", "600", "800"],
   subsets: ["latin"],
 });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.className}  antialiased bg-slate-50`}>
+      <body className={`${baseFont.className}  antialiased bg-slate-50`}>
         <NavBar />
         <PhoneCallLeadButton />
         {children}

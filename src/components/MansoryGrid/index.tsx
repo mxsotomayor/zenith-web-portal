@@ -1,7 +1,26 @@
+"use client";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useScreenSize } from "@/app/core/hooks/useScreenSize";
 import { ExternalLink, SmilePlus } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
+const settings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  pauseOnHover: true, 
+  
+};
 
 interface MansoryGridProps {
   direction: "LEFT_RIGHT" | "RIGHT_LEFT";
@@ -45,6 +64,8 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
       icon: "",
     },
   ];
+
+  const { screenSize } = useScreenSize();
   return (
     <div className="py-2">
       <div
@@ -80,28 +101,57 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
             </div>
           </div>
         </div>
-        <div className="grid gap-3 grid-cols-2 aspect-square flex-1">
-          {links.map((link, index) => (
-            <div
-              key={link.description + index}
-              className="bg-slate-200 p-4 flex flex-col justify-end pb-8"
-            >
-              <SmilePlus className="text-orange-600" />
-              <h3 className="font-bold my-4 text-blue-950 text-ellipsis line-clamp-3">
-                {link.title}
-              </h3>
-              <p className="mb-4 text-sm lg:text-base text-ellipsis line-clamp-3 lg:line-clamp-4">
-                {link.description}
-              </p>
-              <Link
-                href="#"
-                className="font-bold text-blue-900 text-sm mt-auto flex items-center space-x-1"
+        {(screenSize == "sm" || screenSize == "xs") && (
+          <div className="overflow-hidden">
+            <Slider {...settings}>
+              {links.map((link, index) => (
+                <div
+                  key={link.description + index}
+                  className="bg-slate-200 p-4 flex flex-col justify-end pb-8"
+                >
+                  <SmilePlus className="text-orange-600" />
+                  <h3 className="font-bold my-4 text-blue-950 text-ellipsis line-clamp-3">
+                    {link.title}
+                  </h3>
+                  <p className="mb-4 text-sm lg:text-base text-ellipsis line-clamp-3 lg:line-clamp-4">
+                    {link.description}
+                  </p>
+                  <Link
+                    href="#"
+                    className="font-bold text-blue-900 text-sm mt-auto flex items-center space-x-1"
+                  >
+                    <span>Saber mas</span>{" "}
+                    <ExternalLink className="" size="14" />
+                  </Link>
+                </div>
+              ))}
+            </Slider>
+          </div>
+        )}
+        {screenSize != "sm" && (
+          <div className="hidden lg:grid gap-3 grid-cols-2 aspect-square flex-1">
+            {links.map((link, index) => (
+              <div
+                key={link.description + index}
+                className="bg-slate-200 p-4 flex flex-col justify-end pb-8"
               >
-                <span>Saber mas</span> <ExternalLink className="" size="14" />
-              </Link>
-            </div>
-          ))}
-        </div>
+                <SmilePlus className="text-orange-600" />
+                <h3 className="font-bold my-4 text-blue-950 text-ellipsis line-clamp-3">
+                  {link.title}
+                </h3>
+                <p className="mb-4 text-sm lg:text-base text-ellipsis line-clamp-3 lg:line-clamp-4">
+                  {link.description}
+                </p>
+                <Link
+                  href="#"
+                  className="font-bold text-blue-900 text-sm mt-auto flex items-center space-x-1"
+                >
+                  <span>Saber mas</span> <ExternalLink className="" size="14" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
