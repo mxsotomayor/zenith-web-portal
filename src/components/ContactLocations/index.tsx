@@ -16,7 +16,7 @@ function ContactLocations() {
           className=" object-cover w-full h-full"
         />
       </div>
-      <div className="container mx-auto px-4 xxL:px-0 py-10 z-10 relative">
+      <div className="container mx-auto px-4 2xl:px-0 py-20 z-10 relative">
         <div className="max-w-xl">
           <Card className="bg-white p-4">
             <Tabs defaultValue="support">
@@ -125,9 +125,15 @@ function ContactLocations() {
                       <h4 className="flex justify-between font-bold text-xl border-b pb-2 mb-2">
                         <span>Balboa Avenue</span> <MapPin />
                       </h4>
-                      <p>
+                      <p className="mb-2">
                         Balboa Avenue, Grand Bay Tower, Ground Floor Panama
                         City, Republic of Panama
+                      </p>
+                      <p>
+                        Phone:{" "}
+                        <span className="underline underline-offset-2 font-semibold text-orange-500">
+                          +(507) 297-6000
+                        </span>
                       </p>
                     </Card>
                   </button>
@@ -137,7 +143,13 @@ function ContactLocations() {
                       <h4 className="flex justify-between font-bold text-xl border-b pb-2 mb-2">
                         <span>Costa del Este Branch</span> <MapPin />
                       </h4>
-                      <p>Centenario Ave. Peninsula Center Tower Local #5</p>
+                      <p className="mb-2">Centenario Ave. Peninsula Center Tower Local #5</p>
+                      <p>
+                        Phone:{" "}
+                        <span className="underline underline-offset-2 font-semibold text-orange-500">
+                          +(507) 297-6000
+                        </span>
+                      </p>
                     </Card>
                   </button>
                 </div>

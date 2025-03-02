@@ -71,7 +71,7 @@ export default function HeroBanner() {
                   priority={index === 0}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
-                <div className="absolute container mx-auto  inset-0 flex flex-col justify-center px-4  xxl:px-0 text-white">
+                <div className="absolute container mx-auto  inset-0 flex flex-col justify-center px-4  2xl:px-0 text-white">
                   <h2 className="text-3xl sm:text-4xl md:text-6xl font-semibold mb-2 sm:mb-4 max-w-3xl">{slide.title}</h2>
                   <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 max-w-lg">{slide.description}</p>
                   <Button asChild className="w-fit h-12 bg-orange-600 hover:bg-orange-500" size="lg">

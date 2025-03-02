@@ -19,9 +19,9 @@ function ChatBotBox() {
     setShow(!show);
   };
   return (
-    <div className="fixed -bottom-2 -right-2 lg:bottom-6 lg:right-6 z-40">
+    <div className="fixed bottom-2 right-2 lg:bottom-6 lg:right-6 z-40">
       <Button
-        className="w-12 h-12 max-w-12 rounded-full bg-orange-500 hover:text-white text-black flex justify-center items-center p-0"
+        className="w-8 h-8 lg:w-10 lg:h-10 max-w-12 rounded-full bg-orange-500 hover:text-white text-black flex justify-center items-center p-0"
         onClick={toggleShow}
       >
         <Bot size="54" className="" />

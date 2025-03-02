@@ -42,7 +42,7 @@ function NewsGrid() {
 
   return (
     <div className="py-8 bg-slate-50">
-      <div className="container mx-auto xxl:px-0 px-4">
+      <div className="container mx-auto 2xl:px-0 px-4">
         <h2 className="text-3xl md:text-5xl font-semibold text-blue-900 mb-6">
           Top Stories
         </h2>
@@ -59,7 +59,7 @@ function NewsGrid() {
       )}
 
       {screenSize != "sm" && (
-        <div className="container mx-auto xxl:px-0 px-4 lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 md:gap-4 overflow-hidden hidden">
+        <div className="container mx-auto 2xl:px-0 px-4 lg:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-4 md:gap-4 overflow-hidden hidden">
           {[1, 2, 3, 4, 5, 6].map((item, index) => (
             <NewsCard key={index} {...newsItem} />
           ))}

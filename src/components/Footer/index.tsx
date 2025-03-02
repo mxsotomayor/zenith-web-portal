@@ -6,7 +6,7 @@ import { Facebook, Twitter, Instagram, Linkedin, Mail } from 'lucide-react'
 const Footer = () => {
   return (
     <footer className="bg-blue-950  text-white">
-      <div className="container mx-auto px-4  xxl:px-0 py-12">
+      <div className="container mx-auto px-4  2xl:px-0 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>

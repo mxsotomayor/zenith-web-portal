@@ -32,7 +32,7 @@ const Banner: React.FC<MarketingBannerProps> = ({
       <div className="absolute inset-0 bg-black opacity-70 z-10" />
 
       {/* Content */}
-      <div className="relative z-20  py-24 md:py-32 container mx-auto px-4  xxl:px-0">
+      <div className="relative z-20  py-24 md:py-32 container mx-auto px-4  2xl:px-0  min-h-[600px] flex items-center">
         <div  className='w-full lg:max-w-4xl' >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}

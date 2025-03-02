@@ -13,7 +13,7 @@ const settings = {
   dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 1,
+  slidesToShow: 2,
   slidesToScroll: 1,
   arrows: true,
   autoplay: true,
@@ -84,8 +84,8 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
             />
           </div>
           <div className="bg-slate-200 flex-1 flex">
-            <div className="p-4 flex-1 flex flex-col pb-8">
-              <h3 className="font-bold text-xl lg:text-2xl mb-2 text-blue-950">
+            <div className="p-6 flex-1 flex flex-col pb-8">
+              <h3 className="font-bold text-xl lg:text-4xl mb-2 text-blue-950">
                 Vive tranquilo en tu hogar
               </h3>
               <p className="text-ellipsis line-clamp-3 lg:line-clamp-4">
@@ -105,12 +105,13 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
           <div className="overflow-hidden">
             <Slider {...settings}>
               {links.map((link, index) => (
-                <div
-                  key={link.description + index}
-                  className="bg-slate-200 p-4 flex flex-col justify-end pb-8"
+                <div  
+                key={link.description + index}>
+                  <div
+                  className="bg-slate-200 p-4 flex flex-col justify-end pb-8 mr-3"
                 >
                   <SmilePlus className="text-orange-600" />
-                  <h3 className="font-bold my-4 text-blue-950 text-ellipsis line-clamp-3">
+                  <h3 className="font-semibold my-4 text-blue-950 text-ellipsis line-clamp-2">
                     {link.title}
                   </h3>
                   <p className="mb-4 text-sm lg:text-base text-ellipsis line-clamp-3 lg:line-clamp-4">
@@ -124,6 +125,7 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
                     <ExternalLink className="" size="14" />
                   </Link>
                 </div>
+                </div>
               ))}
             </Slider>
           </div>
@@ -136,7 +138,7 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
                 className="bg-slate-200 p-4 flex flex-col justify-end pb-8"
               >
                 <SmilePlus className="text-orange-600" />
-                <h3 className="font-bold my-4 text-blue-950 text-ellipsis line-clamp-3">
+                <h3 className="font-semibold my-4 text-blue-950 text-ellipsis line-clamp-2 text-xl">
                   {link.title}
                 </h3>
                 <p className="mb-4 text-sm lg:text-base text-ellipsis line-clamp-3 lg:line-clamp-4">

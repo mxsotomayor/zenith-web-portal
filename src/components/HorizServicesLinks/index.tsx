@@ -5,7 +5,7 @@ import React from "react";
 function HorizServicesLinks() {
   const items = [
     {
-      displayText: "Banhches and ATMs",
+      displayText: "Branches and ATMs",
       ctaText: "Always close to you",
       icon:<CircleDollarSign size="45" />
     },
@@ -24,7 +24,7 @@ function HorizServicesLinks() {
     <div className="bg-slate-200 py-8">
       <div className="container mx-auto px-4 2xl:px-0  grid grid-cols-1 lg:grid-cols-3">
         {items.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="border-r [&:not(:last-child)]:border-slate-300">
             <Link
               href="#"
               className="p-8 flex flex-col items-center hover:bg-orange-500 transition-colors ease-in-out duration-300 group"
@@ -35,7 +35,7 @@ function HorizServicesLinks() {
               <h3 className="text-2xl font-semibold text-center group-hover:text-blue-800">
                 {item.displayText}
               </h3>
-              <p className="text-blue-500 group-hover:text-blue-100 font-semibold group-hover:underline">
+              <p className="text-blue-500 group-hover:text-blue-100 font-semibold group-hover:underline mt-2">
                 {item.ctaText}
               </p>
             </Link>

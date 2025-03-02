@@ -22,6 +22,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log("render root layout")
   return (
     <html lang="en">
       <body className={`${baseFont.className}  antialiased bg-slate-50`}>

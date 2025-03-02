@@ -5,9 +5,7 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React from "react";
-import Image from "next/image";
-import { useScreenSize } from "@/app/core/hooks/useScreenSize";
+import React from "react"; 
 
 const settings = {
   // dots: true,
@@ -30,16 +28,16 @@ const settings = {
       },
     },
     {
-      breakpoint: 600,
+      breakpoint: 768,
       settings: {
-        slidesToShow: 3,
+        slidesToShow: 2,
         slidesToScroll: 1,
       },
     },
     {
       breakpoint: 480,
       settings: {
-        slidesToShow: 1.5,
+        slidesToShow: 1,
         slidesToScroll: 1,
       },
     },
@@ -86,25 +84,23 @@ function GlobalMenu({ show }: { show: boolean }) {
     "Develop your business",
   ];
 
-  const { screenSize } = useScreenSize();
-
+ 
   return (
     <div
       className={`fixed ${
         show
-          ? "top-[100px] opacity-100 "
+          ? "top-[96px] opacity-100 "
           : "top-60 opacity-0  pointer-events-none"
       } bottom-0 left-0 w-full h-screen bg-blue-900  z-50 flex flex-col transition-all duration-300 ease-in-out overflow-y-auto`}
     >
-      <div className="container mx-auto flex flex-col lg:flex-row">
-        <div className="text-white w-full lg:w-[300px] p-4 overflow-y-auto h-1/3 md:h-auto">
-          <h3 className="text-xl font-bold mb-6">Products</h3>
-          <ul className="border-b border-slate-500">
+      <div className="container mx-auto flex flex-col lg:flex-row  h-[calc(100vh-100px)] lg:h-full ">
+        <div className="text-white w-full lg:w-[300px] p-4 overflow-y-auto flex-1 md:h-auto">
+          <ul className="border-b border-slate-500 mb-3 pb-3">
             {products.map((item, index) => (
               <li key={index}>
                 <Link
                   href={item.url}
-                  className="flex items-center justify-between py-1 md:py-2 text-xs md:text-sm"
+                  className="flex items-center justify-between py-2 md:py-2 text-lg md:text-sm"
                 >
                   <span>{item.name}</span> <ChevronRight />
                 </Link>
@@ -116,7 +112,7 @@ function GlobalMenu({ show }: { show: boolean }) {
               <li key={index}>
                 <Link
                   href={item.url}
-                  className="flex items-center justify-between py-1 md:py-2 text-xs md:text-sm"
+                  className="flex items-center justify-between py-2 md:py-2 text-lg md:text-sm"
                 >
                   <span>{item.name}</span> <ChevronRight />
                 </Link>
@@ -125,16 +121,9 @@ function GlobalMenu({ show }: { show: boolean }) {
           </ul>
         </div>
 
-        <div className="flex flex-col p-8 flex-1 w-full  overflow-hidden border-t lg:border-none border-slate-400 ">
+        {/* <div className="flex flex-col p-8  w-full  overflow-hidden border-t lg:border-none border-slate-400 ">
           <h3 className="text-xl md:text-3xl font-semibold text-white mb-2 flex items-center">
-            Why{" "}
-            <Image
-              src="/oie_liyvudiqai3a.png"
-              width={screenSize == "sm" ? "150" : "120"}
-              height={50}
-              alt=""
-            />{" "}
-            Online ?
+            Why choose us?
           </h3>
           <p className="text-white mb-8">
             We are always bringing benefits for you.
@@ -145,9 +134,9 @@ function GlobalMenu({ show }: { show: boolean }) {
               <div key={index} className="h-52 user-select-none px-2">
                 <Link
                   href=""
-                  className="flex flex-col h-52  hover:bg-orange-500 group transition-all justify-end p-6 items-center bg-blue-950"
+                  className="flex flex-col lg:h-52  hover:bg-orange-500 group transition-all justify-end p-6 items-center bg-blue-950"
                 >
-                  <Info size="56" />
+                  <Info size="56" className="hidden" />
                   <h3 className="mt-2 font-semibold text-ellipsis line-clamp-1 group-hover:text-white text-white">
                     {text}
                   </h3>
@@ -155,7 +144,7 @@ function GlobalMenu({ show }: { show: boolean }) {
               </div>
             ))}
           </Slider>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ export default function FAQBlock() {
 
   return (
     <div className="py-8 bg-white">
-      <div className="container mx-auto xxl:px-0 px-4">
+      <div className="container mx-auto 2xl:px-0 px-4">
         <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-6 text-center">
           Frequently Asked Questions
         </h2>
