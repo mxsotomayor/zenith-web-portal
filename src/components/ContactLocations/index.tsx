@@ -6,7 +6,7 @@ import Image from "next/image";
 
 function ContactLocations() {
   return (
-    <div className="min-h-[650px] relative">
+    <div data-name="ContactLocations" className="min-h-[650px] relative">
       <div className="absolute w-full h-full top-0 right-0 z-0">
         <Image
           src="/unibank-map.png"

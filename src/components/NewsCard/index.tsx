@@ -37,7 +37,7 @@ export default function NewsCard({
   slug,
 }: NewsCardProps) {
   return (
-    <Link
+    <Link data-name="NewsCard"
       href={`/news/${slug}`}
       className="text-primary   font-medium bg-slate-100 w-full flex justify-center"
     >

@@ -21,7 +21,7 @@ const Banner: React.FC<MarketingBannerProps> = ({
   backgroundImage = '/GettyImages-1326458117-e72cd6f16ae44bedbd7f3ca90ffb2053.jpg?height=400&width=1200',
 }) => {
   return (
-    <div className="relative overflow-hidden">
+    <div data-name="Banner" className="relative overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center z-0"

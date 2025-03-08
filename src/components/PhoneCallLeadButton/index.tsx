@@ -29,7 +29,7 @@ function PhoneCallLeadButton() {
   }, [show]);
 
   return (
-    <div className="w-[2px] h-screen fixed right-0 top-0 z-40 flex items-center justify-end">
+    <div data-name="PhoneCallLeadButton" className="w-[2px] h-screen fixed right-0 top-0 z-40 flex items-center justify-end">
       <LeadModal open={leadOpen} toggleOpen={toggleLeadOpen} />
       <button
         onClick={toggleLeadOpen}

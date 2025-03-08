@@ -41,7 +41,7 @@ function NewsGrid() {
   const { screenSize } = useScreenSize();
 
   return (
-    <div className="py-8 bg-slate-50">
+    <div data-name="NewsGrid" className="py-8 bg-slate-50">
       <div className="container mx-auto 2xl:px-0 px-4">
         <h2 className="text-3xl md:text-5xl font-semibold text-blue-900 mb-6">
           Top Stories

@@ -55,7 +55,7 @@ function HotLinkServices() {
   ];
 
   return (
-    <div className="py-8">
+    <div data-name="HotLinksServices" className="py-8">
       <div className="container mx-auto 2xl:px-0 px-4 overflow-hidden py-8">
       <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-6">Find a Banking Solution that Fits to You</h2>
         <Slider {...settings}>

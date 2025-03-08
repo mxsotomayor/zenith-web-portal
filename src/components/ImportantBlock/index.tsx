@@ -34,7 +34,7 @@ function ImportantBlock() {
   ];
 
   return (
-    <div className="bg-blue-950 py-8 pb-4 lg:pb-8">
+    <div data-name="ImportantBlock" className="bg-blue-950 py-8 pb-4 lg:pb-8">
       <div className="container mx-auto 2xl:px-0 px-4">
         <h2 className="text-4xl md:text-5xl py-4 font-semibold text-blue-100 mb-6">
           A new world opened to you

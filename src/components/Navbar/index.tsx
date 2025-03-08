@@ -57,29 +57,32 @@ function MenuItem(props: Record<string, any>) {
                 : "top-40 opacity-0 pointer-events-none"
             } left-0 py-8 flex justify-center`}
           >
-            <div className="container mx-auto px-4 2xl:mx-0 flex gap-4">
-              {/* left image */}
-              <Link href="#">
-                <div className="bg-orange-400 w-60 h-72 rounded-lg flex justify-center items-center overflow-hidden relative">
-                  <Image
-                    src="/padre-hija-desayunando.im1735665141640im.avif"
-                    width="240"
-                    height="380"
-                    alt=""
-                    className="object-cover w-full h-full"
-                  />
-                  <div className="w-full h-full absolute bg-gradient-to-b from-transparent to-gray-900  top-0 left-0 text-white flex flex-col justify-end p-4">
-                    <h3 className="mb-1 font-bold text-xl text-ellipsis line-clamp-2">
-                      Aprovecha ahora y adhiere a nuestros banco
-                    </h3>
-                    <p className="text-semibold text-ellipsis line-clamp-3">
-                      Ahora puedes usar nuestras tarifas com menos de 5% de
-                      descuentos para clientes nacionales
-                    </p>
-                    <p className="underline text-blue-400 mt-1">Saber mas</p>
+            <div className="container mx-auto px-4 2xl:mx-0 flex gap-4 z-20">
+              {props.banner && (
+                <Link href={props.banner.href} target={props.banner.target}>
+                  <div className="bg-orange-400 w-60 h-72 rounded-lg flex justify-center items-center overflow-hidden relative">
+                    <Image
+                      src={props.banner.image.url}
+                      width="240"
+                      height="380"
+                      alt={props.banner.image.altText}
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="w-full h-full absolute bg-gradient-to-b from-transparent to-gray-900  top-0 left-0 text-white flex flex-col justify-end p-4">
+                      <h3 className="mb-1 font-bold text-xl text-ellipsis line-clamp-2">
+                        {props.banner.campaign.header}
+                      </h3>
+                      <p className="text-semibold text-ellipsis line-clamp-3">
+                        {props.banner.campaign.description}
+                      </p>
+                      <p className="underline text-blue-400 mt-1">
+                        {" "}
+                        {props.banner.campaign.cta}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              )}
 
               {/* main menu blocks */}
               <div className=" grid grid-cols-3 gap-4 flex-1">
@@ -106,8 +109,6 @@ function MenuItem(props: Record<string, any>) {
                   </div>
                 ))}
               </div>
-              {/* help block */}
-              {/* <div className="bg-orange-400 w-[340px] h-72 rounded-lg flex justify-center items-center overflow-hidden"></div> */}
             </div>
           </section>
         )}
@@ -142,7 +143,10 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
   const CURRENT_BASE_SITE = menuSettings.subSites[selectedSite].subPath;
 
   return (
-    <nav className=" shadow-lg fixed w-full z-50 top-0 start-0 overflow-hidden ">
+    <nav
+      data-name="NavBar"
+      className=" shadow-lg fixed w-full z-50 top-0 start-0 overflow-hidden "
+    >
       {/* Search block */}
       <SearchBox showSearch={showSearch} toogleSearch={toogleSearch} />
       <GlobalMenu show={showMenu} />
@@ -220,10 +224,13 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
                 <MenuItem {...item} key={index} />
               ))}
             </ul>
-          </div> 
+          </div>
           <div className="flex items-center md:order-2 gap-x-4 border-l pl-2">
             {menuSettings.showSearch && (
-              <button onClick={toogleSearch} className="bg-slate-50 hover:bg-slate-100 p-2 rounded-full">
+              <button
+                onClick={toogleSearch}
+                className="bg-slate-50 hover:bg-slate-100 p-2 rounded-full"
+              >
                 <Search />
               </button>
             )}
@@ -240,9 +247,8 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
                 <Unlock size="16" />{" "}
                 <span className="hidden md:block">Mi Banca</span>
               </Link>
-            )} 
+            )}
           </div>
-          
         </div>
       </div>
     </nav>

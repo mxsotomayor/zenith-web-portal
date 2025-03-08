@@ -154,6 +154,20 @@ export const mainMenuItems = [
     text: "Para Compañias",
     href: null,
     target: null,
+    banner: {
+      href: "",
+      target: "",
+      image: {
+        url: "/padre-hija-desayunando.im1735665141640im.avif",
+        altText: "",
+      },
+      campaign: {
+        header: " Aprovecha ahora y adhiere a nuestros banco",
+        description:
+          "Ahora puedes usar nuestras tarifas com menos de 5% de  descuentos para clientes nacionales",
+        cta: "more",
+      },
+    },
     sections: [
       {
         header: "Cuentas de Depósitos",

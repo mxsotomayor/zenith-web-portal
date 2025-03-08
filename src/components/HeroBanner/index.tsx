@@ -56,7 +56,7 @@ export default function HeroBanner() {
   ]
 
   return (
-    <div className="relative">
+    <div data-name="HeroBanner" className="relative">
     <Carousel  setApi={setApi} className="w-full">
       <CarouselContent>
         {slides.map((slide, index) => (

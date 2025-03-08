@@ -9,7 +9,7 @@ interface CardTopicProps {
 
 function CardTopic({ title, items }: CardTopicProps) {
   return (
-    <div className="p-4">
+    <div data-name="TopicCard" className="p-4">
       <h4 className="text-xl lg:text-3xl font-semibold mb-3">{title}</h4>
       <ul className="flex flex-col gap-2">
         {items.map((item, index) => (

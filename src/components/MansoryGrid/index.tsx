@@ -67,7 +67,7 @@ function MansoryGrid({ direction = "LEFT_RIGHT" }: MansoryGridProps) {
 
   const { screenSize } = useScreenSize();
   return (
-    <div className="py-2">
+    <div data-name="MansoryGrid" className="py-2">
       <div
         className={`${
           direction == "LEFT_RIGHT" ? " lg:flex-row " : " lg:flex-row-reverse "
