@@ -13,9 +13,10 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import SearchBox from "./SearchBox";
 import GlobalMenu from "./GlobalMenu";
-import { mainMenuItems, menuSettings } from "./dataInit";
+// import { mainMenuItems, menuSettings } from "./dataInit";
+import { MenuLink, NavBarProps } from "./schema";
 
-function MenuItem(props: Record<string, any>) {
+function MenuItem({ href, target, text, subMenu }: MenuLink) {
   const [displayMenu, setDisplayMenu] = useState(false);
 
   const onEnter = () => {
@@ -30,12 +31,12 @@ function MenuItem(props: Record<string, any>) {
     if (isLink) {
       return (
         <Link
-          href={props.href ?? "#"}
-          target={props.target ?? "_self"}
+          href={href ?? "#"}
+          target={target ?? "_self"}
           className="px-3 text-sm flex gap-x-2 items-center hover:bg-slate-50"
           aria-current="page"
         >
-          <span dangerouslySetInnerHTML={{ __html: props.text }}></span>
+          <span dangerouslySetInnerHTML={{ __html: text }}></span>
         </Link>
       );
     }
@@ -46,10 +47,10 @@ function MenuItem(props: Record<string, any>) {
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
       >
-        <span dangerouslySetInnerHTML={{ __html: props.text }}></span>
-        {props.sections && <ChevronDown />}
+        <span dangerouslySetInnerHTML={{ __html: text }}></span>
+        {subMenu && <ChevronDown />}
 
-        {props.sections && (
+        {subMenu && (
           <section
             className={`fixed w-screen h-auto bg-slate-50 cursor-default transition-all ease-in-out duration-300 z-10 shadow-xl ${
               displayMenu
@@ -58,26 +59,29 @@ function MenuItem(props: Record<string, any>) {
             } left-0 py-8 flex justify-center`}
           >
             <div className="container mx-auto px-4 2xl:mx-0 flex gap-4 z-20">
-              {props.banner && (
-                <Link href={props.banner.href} target={props.banner.target}>
+              {subMenu.campaign && (
+                <Link
+                  href={subMenu.campaign.cta.href}
+                  target={subMenu.campaign.cta.text}
+                >
                   <div className="bg-orange-400 w-60 h-72 rounded-lg flex justify-center items-center overflow-hidden relative">
                     <Image
-                      src={props.banner.image.url}
+                      src={subMenu.campaign.image.url}
                       width="240"
                       height="380"
-                      alt={props.banner.image.altText}
+                      alt={subMenu.campaign.image.altText}
                       className="object-cover w-full h-full"
                     />
                     <div className="w-full h-full absolute bg-gradient-to-b from-transparent to-gray-900  top-0 left-0 text-white flex flex-col justify-end p-4">
                       <h3 className="mb-1 font-bold text-xl text-ellipsis line-clamp-2">
-                        {props.banner.campaign.header}
+                        {subMenu.campaign.title}
                       </h3>
                       <p className="text-semibold text-ellipsis line-clamp-3">
-                        {props.banner.campaign.description}
+                        {subMenu.campaign.title}
                       </p>
                       <p className="underline text-blue-400 mt-1">
                         {" "}
-                        {props.banner.campaign.cta}
+                        {subMenu.campaign.cta.text}
                       </p>
                     </div>
                   </div>
@@ -86,16 +90,17 @@ function MenuItem(props: Record<string, any>) {
 
               {/* main menu blocks */}
               <div className=" grid grid-cols-3 gap-4 flex-1">
-                {props.sections.map((section, index) => (
+                {subMenu.blocks.map((section, index) => (
                   <div key={index}>
                     <h4 className="font-bold text-xl text-orange-500 mb-3">
-                      {section.header}
+                      {section.title}
                     </h4>
                     <ul>
-                      {section.links.map((sectionItem, _index) => (
+                      {section.items.map((sectionItem, _index) => (
                         <li key={_index} className="py-2">
                           <Link
-                            href=""
+                            href={sectionItem.href}
+                            target={sectionItem.target ?? "_self"}
                             className="text-md text-blue-800 gap-2 flex items-center group"
                           >
                             <ChevronRight className="min-w-4 w-4" />
@@ -118,12 +123,12 @@ function MenuItem(props: Record<string, any>) {
 
   return (
     <li className="flex h-full">
-      <LinkWrapper isLink={!props.sections} />
+      <LinkWrapper isLink={!subMenu?.blocks} />
     </li>
   );
 }
 
-function NavBar({ selectedSite = 0 }: NavBarProps) {
+function NavBar({ selectedSite = 0, menu }: NavBarProps) {
   const [showSearch, setShowSearch] = React.useState(false);
 
   const [showMenu, setShowMenu] = React.useState(false);
@@ -140,7 +145,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
     }
   }, [showMenu]);
 
-  const CURRENT_BASE_SITE = menuSettings.subSites[selectedSite].subPath;
+  const CURRENT_BASE_SITE = menu.subSites[selectedSite].subPath;
 
   return (
     <nav
@@ -155,7 +160,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
         <div className="container mx-auto">
           <div className="flex flex-row items-center">
             <ul className="flex flex-row items-center text-xs">
-              {menuSettings.subSites.map((item, index) => (
+              {menu.subSites.map((item, index) => (
                 <li
                   key={index}
                   className={`${
@@ -177,10 +182,10 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
 
             <div className="justify-end text-white font-thin flex-1 px-4 2xl:px-0">
               <ul className="flex flex-row justify-end items-center md:space-x-8 text-xs">
-                {menuSettings.topRightMenus.map((item, index) => (
+                {menu.topRightMenus.map((item, index) => (
                   <li key={index} className="hidden  md:flex">
-                    <Link href={item.url} target={item.target}>
-                      {item.displayText}
+                    <Link href={item.href ?? ""} target={item.target}>
+                      {item.text}
                     </Link>
                   </li>
                 ))}
@@ -206,10 +211,10 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
             {/* VENDOR LOGO */}
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
               <Image
-                src={menuSettings.logoUrl}
+                src={menu.logoUrl}
                 width={120}
                 height={50}
-                alt={menuSettings.logoAltText}
+                alt={menu.logoAltText}
               />
             </span>
           </Link>
@@ -220,13 +225,13 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
             id="navbar-sticky"
           >
             <ul className="flex flex-row gap-x-3 font-medium  h-full z-40">
-              {mainMenuItems.map((item, index) => (
+              {menu.items.map((item, index) => (
                 <MenuItem {...item} key={index} />
               ))}
             </ul>
           </div>
           <div className="flex items-center md:order-2 gap-x-4 border-l pl-2">
-            {menuSettings.showSearch && (
+            {menu.showSearch && (
               <button
                 onClick={toogleSearch}
                 className="bg-slate-50 hover:bg-slate-100 p-2 rounded-full"
@@ -235,7 +240,7 @@ function NavBar({ selectedSite = 0 }: NavBarProps) {
               </button>
             )}
 
-            {menuSettings.showLogin && (
+            {menu.showLogin && (
               <Link
                 href={
                   process.env.NEXT_PUBLIC_ONLINE_BANKING_URL +

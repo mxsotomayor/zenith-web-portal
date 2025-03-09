@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import NavBar from "@/components/Navbar";
 import PhoneCallLeadButton from "@/components/PhoneCallLeadButton";
 import ChatBotBox from "@/components/ChatBotBox";
+import { menuSettings } from "@/components/Navbar/dataInit";
 
 const baseFont = Open_Sans({
   weight: ["400", "600", "800"],
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${baseFont.className}  antialiased bg-slate-50`}>
-        <NavBar />
+        <NavBar selectedSite={0} menu={menuSettings} />
         <PhoneCallLeadButton />
         {children}
         <ChatBotBox />
