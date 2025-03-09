@@ -45,7 +45,7 @@ const settings = {
 
 function HotLinkServices() {
   const texts = [
-    "Open UniBank Account",
+    "Open " + process.env.NEXT_PUBLIC_VENDOR_NAME + " Account",
     "Mortgage Application",
     "Consumer Loan Application",
     "Personal Deposit Products",

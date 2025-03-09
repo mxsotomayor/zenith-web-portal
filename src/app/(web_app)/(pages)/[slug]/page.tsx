@@ -13,11 +13,96 @@ function Locations() {
         title="Banca Digital"
         subtitle="Get in touch with us using our common contact and location details"
       />
-      <TwoColumnBanner direction="RIGHT_LEFT" />
+      {/* <TwoColumnBanner direction="RIGHT_LEFT" /> */}
       <PromoAlert />
-      <TwoColumnBanner direction="LEFT_RIGHT" />
-      <MansoryGrid direction="LEFT_RIGHT" />
-      <TwoColumnBanner direction="RIGHT_LEFT" />
+      <TwoColumnBanner
+        direction="left"
+        title="Unitoken"
+        cta={{
+          text: "Crear cuenta",
+        }}
+        subTitle=" Realiza tus transferencias de forma segura con UniToken, que es el
+            código que actúa como segundo factor de autenticación para validar
+            tu transacción."
+        body={[
+          " Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
+          [
+            "Realiza tus transferencias de forma segura con UniToken",
+            "Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
+          ],
+        ]}
+        media={{
+          type: "img",
+          url: "/36.png",
+        }}
+      />
+      <MansoryGrid
+        direction="right"
+        banner={{
+          title: "Vive tranquilo en tu hogar",
+          description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+          url: "/GettyImages-1326458117-e72cd6f16ae44bedbd7f3ca90ffb2053.jpg",
+          cta: {
+            text: "Vive tranquilo",
+            url: "/pagina",
+          },
+        }}
+        items={[
+          {
+            title: "Vive tranquilo en tu hogar",
+            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            cta: {
+              text: "Saber Mas",
+              url: "/pagina-text",
+            },
+          },
+          {
+            title: "Vive tranquilo en tu hogar",
+            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            cta: {
+              text: "Saber Mas",
+              url: "/pagina-text",
+            },
+          },
+          {
+            title: "Vive tranquilo en tu hogar",
+            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            cta: {
+              text: "Saber Mas",
+              url: "/pagina-text",
+            },
+          },
+          {
+            title: "Vive tranquilo en tu hogar",
+            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            cta: {
+              text: "Saber Mas",
+              url: "/pagina-text",
+            },
+          },
+        ]}
+      />
+      <TwoColumnBanner
+        direction="right"
+        title="Unitoken"
+        cta={{
+          text: "Crear cuenta",
+        }}
+        subTitle=" Realiza tus transferencias de forma segura con UniToken, que es el
+            código que actúa como segundo factor de autenticación para validar
+            tu transacción."
+        body={[
+          " Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
+          [
+            "Realiza tus transferencias de forma segura con UniToken",
+            "Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
+          ],
+        ]}
+        media={{
+          type: "img",
+          url: "/36.png",
+        }}
+      />
       <HorizServicesLinks />
     </PageWrapper>
   );

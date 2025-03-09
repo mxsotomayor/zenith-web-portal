@@ -13,7 +13,7 @@ function ImportantBlock() {
       title: "Funcionalidades de la app",
       className: "bg-blue-500",
       subtitle:
-        "Puedes realizar operaciones bancarias estés donde estés, conectándote con UniBank desde tu celular.",
+        "Puedes realizar operaciones bancarias estés donde estés, conectándote con " + process.env.NEXT_PUBLIC_VENDOR_NAME + " desde tu celular.",
     },
     {
       title: "Puedes realizar operaciones bancarias",
@@ -22,12 +22,12 @@ function ImportantBlock() {
     },
     {
       title:
-        "Operaciones bancarias estés donde estés, conectándote con UniBank desde tu celular.",
+        "Operaciones bancarias estés donde estés, conectándote con " + process.env.NEXT_PUBLIC_VENDOR_NAME +  " desde tu celular.",
       subtitle: "Conoce más",
       className: "bg-blue-700",
     },
     {
-      title: "conectándote con UniBank desde tu celular.",
+      title: "conectándote con " + process.env.NEXT_PUBLIC_VENDOR_NAME + " desde tu celular.",
       subtitle: "Conoce más",
       className: "bg-blue-800",
     },

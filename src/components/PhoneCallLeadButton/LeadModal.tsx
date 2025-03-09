@@ -33,7 +33,7 @@ export function LeadModal({
       <DialogContent className="sm:max-w-md max-h-[calc(100vh-10px)] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-2xl text-start">
-            Schedule a call with Unibank
+            Schedule a call with {process.env.NEXT_PUBLIC_VENDOR_NAME}
           </DialogTitle>
           <DialogDescription className="text-start">
             Give us your contact details and then one of our talented Customer
