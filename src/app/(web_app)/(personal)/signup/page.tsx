@@ -1,10 +1,10 @@
-import NavBar from "@/components/Navbar";
+// import NavBar from "@/components/Navbar";
 import React from "react";
 
 function BusinessLoginPage() {
   return (
     <div className="pt-[100px] h-screen">
-      <NavBar selectedSite={0} />
+      {/* <NavBar selectedSite={0} /> */}
       <div className="justify-start w-full h-screen -z-10 absolute hidden lg:flex">
         <div className="bg-blue-950 w-1/2 h-screen "></div>
       </div>

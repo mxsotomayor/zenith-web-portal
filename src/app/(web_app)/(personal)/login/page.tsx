@@ -1,4 +1,4 @@
-import NavBar from "@/components/Navbar";
+// import NavBar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,7 +9,7 @@ import React from "react";
 function BusinessLoginPage() {
   return (
     <div className="pt-[100px] h-screen relative overflow-auto lg:overflow-hidden">
-      <NavBar selectedSite={0} />
+      {/* <NavBar selectedSite={0} /> */}
       <div className="justify-end w-full h-screen -z-10 absolute hidden lg:flex">
         <div className="bg-blue-950 w-1/2 h-screen "></div>
       </div>

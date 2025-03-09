@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner";
 import HorizServicesLinks from "@/components/HorizServicesLinks";
+import HorizServicesLinksItems from "@/components/HorizServicesLinks/dataInit";
 import MansoryGrid from "@/components/MansoryGrid";
 import PageWrapper from "@/components/PageWrapper";
 import PromoAlert from "@/components/PromoAlert";
@@ -40,7 +41,8 @@ function Locations() {
         direction="right"
         banner={{
           title: "Vive tranquilo en tu hogar",
-          description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+          description:
+            "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
           url: "/GettyImages-1326458117-e72cd6f16ae44bedbd7f3ca90ffb2053.jpg",
           cta: {
             text: "Vive tranquilo",
@@ -50,7 +52,8 @@ function Locations() {
         items={[
           {
             title: "Vive tranquilo en tu hogar",
-            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            description:
+              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
             cta: {
               text: "Saber Mas",
               url: "/pagina-text",
@@ -58,7 +61,8 @@ function Locations() {
           },
           {
             title: "Vive tranquilo en tu hogar",
-            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            description:
+              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
             cta: {
               text: "Saber Mas",
               url: "/pagina-text",
@@ -66,7 +70,8 @@ function Locations() {
           },
           {
             title: "Vive tranquilo en tu hogar",
-            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            description:
+              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
             cta: {
               text: "Saber Mas",
               url: "/pagina-text",
@@ -74,7 +79,8 @@ function Locations() {
           },
           {
             title: "Vive tranquilo en tu hogar",
-            description: "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
+            description:
+              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
             cta: {
               text: "Saber Mas",
               url: "/pagina-text",
@@ -103,7 +109,7 @@ function Locations() {
           url: "/36.png",
         }}
       />
-      <HorizServicesLinks />
+      <HorizServicesLinks items={HorizServicesLinksItems} />
     </PageWrapper>
   );
 }

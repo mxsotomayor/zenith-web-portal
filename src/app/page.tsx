@@ -2,8 +2,11 @@ import BlockSpace from "@/components/BlockSpace";
 import FAQs from "@/components/FAQs";
 import HeroBanner from "@/components/HeroBanner";
 import HorizServicesLinks from "@/components/HorizServicesLinks";
+import HorizServicesLinksItems from "@/components/HorizServicesLinks/dataInit";
 import HotLinkServices from "@/components/HotLinkServices";
+import HotLinkServicesItems from "@/components/HotLinkServices/dataInit";
 import ImportantBlock from "@/components/ImportantBlock";
+import ImportantBlockInitProps from "@/components/ImportantBlock/dataInit";
 import MansoryGrid from "@/components/MansoryGrid";
 import NewsGrid from "@/components/NewsGrid";
 import PageWrapper from "@/components/PageWrapper";
@@ -14,8 +17,8 @@ export default function Home() {
   return (
     <PageWrapper>
       <HeroBanner />
-      <HotLinkServices />
-      <ImportantBlock />
+      <HotLinkServices items={HotLinkServicesItems} />
+      <ImportantBlock {...ImportantBlockInitProps} />
       <PromoAlert />
       <NewsGrid />
       <PromoAlert />
@@ -111,7 +114,7 @@ export default function Home() {
         }}
       />
 
-      <HorizServicesLinks />
+      <HorizServicesLinks items={HorizServicesLinksItems} />
       <MansoryGrid
         direction="left"
         banner={{
