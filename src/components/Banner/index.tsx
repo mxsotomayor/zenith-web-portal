@@ -4,11 +4,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 
-interface MarketingBannerProps {
-  title: string
-  subtitle: string
+export interface MarketingBannerProps {
+  title: string;
+  subtitle: string;
   backgroundImage?: string;
-  
   cta?: string 
   ctaUrl?: string;
 }

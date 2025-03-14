@@ -32,8 +32,8 @@ const blocks: BlockItem[] = [
   },
 ];
 const ImportantBlockInitProps: ImportantBlockProps = {
-  title: "dsfgsdfg",
-  bgColor: "orange",
+  title: "Banking Solution",
+  bgColor: "blue",
   blocks,
 };
 

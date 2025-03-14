@@ -18,4 +18,8 @@ const HorizServicesLinksItems: ServiceItemProps[] = [
   },
 ];
 
-export default HorizServicesLinksItems;
+const HorizServicesLinksInit = {
+  items: HorizServicesLinksItems
+}
+
+export default HorizServicesLinksInit;

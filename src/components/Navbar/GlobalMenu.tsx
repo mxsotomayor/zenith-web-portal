@@ -73,16 +73,7 @@ function GlobalMenu({ show }: { show: boolean }) {
       name: "Rewards",
       url: "/business",
     },
-  ];
-
-  // const texts = [
-  //   "Buy a car",
-  //   "Buy your first house",
-  //   "Keep your own fund and leave ease",
-  //   "Invest and plan your family future",
-  //   "Develop your business",
-  // ];
-
+  ]; 
  
   return (
     <div
@@ -118,32 +109,7 @@ function GlobalMenu({ show }: { show: boolean }) {
               </li>
             ))}
           </ul>
-        </div>
-
-        {/* <div className="flex flex-col p-8  w-full  overflow-hidden border-t lg:border-none border-slate-400 ">
-          <h3 className="text-xl md:text-3xl font-semibold text-white mb-2 flex items-center">
-            Why choose us?
-          </h3>
-          <p className="text-white mb-8">
-            We are always bringing benefits for you.
-          </p>
-
-          <Slider {...settings}>
-            {texts.map((text, index) => (
-              <div key={index} className="h-52 user-select-none px-2">
-                <Link
-                  href=""
-                  className="flex flex-col lg:h-52  hover:bg-orange-500 group transition-all justify-end p-6 items-center bg-blue-950"
-                >
-                  <Info size="56" className="hidden" />
-                  <h3 className="mt-2 font-semibold text-ellipsis line-clamp-1 group-hover:text-white text-white">
-                    {text}
-                  </h3>
-                </Link>
-              </div>
-            ))}
-          </Slider>
-        </div> */}
+        </div> 
       </div>
     </div>
   );

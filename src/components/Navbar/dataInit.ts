@@ -3,8 +3,6 @@ import { MenuLink, MenuProps } from "./schema";
 export const mainMenuItems: MenuLink[] = [
   {
     text: "Nosotros",
-    // href: null,
-    // target: null,
     subMenu: {
       blocks: [
         {
@@ -12,13 +10,13 @@ export const mainMenuItems: MenuLink[] = [
           items: [
             {
               text: "Junta Directiva",
-              href: "#",
-              target: "_blank",
+              href: "/junta-directiva",
+              target: "_self",
             },
             {
               text: "Uni - Lideres",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -28,17 +26,17 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Estados Financieros",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Sostenibilidad",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Calificación de Riesgo",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -48,12 +46,12 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Manual de Gobierno Corporativo",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Cumplimiento Normativo y Prevención",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -62,8 +60,6 @@ export const mainMenuItems: MenuLink[] = [
   },
   {
     text: "Para Personas",
-    // href: null,
-    // target: null,
     subMenu: {
       blocks: [
         {
@@ -72,22 +68,22 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Cuenta Naranja +",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Cuenta de Ahorros",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Cuenta Corriente",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Depósitos a Plazo Fijo",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -97,12 +93,12 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Prestamo de Auto",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Invertis Global Income Fund",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -112,12 +108,12 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Cajillas de Seguridad",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "MasterCard Black CRedito",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -132,8 +128,8 @@ export const mainMenuItems: MenuLink[] = [
     subMenu: {
       campaign: {
         cta: {
-          href: "",
-          text: "string",
+          href: "/campanha",
+          text: "Obtener ahora",
           // target: "",
         },
         image: {
@@ -141,7 +137,7 @@ export const mainMenuItems: MenuLink[] = [
           altText: "",
         },
 
-        title: " Aprovecha ahora y adhiere a nuestros banco",
+        title: "Aprovecha ahora y adhiere a nuestros banco",
         subTitle:
           "Ahora puedes usar nuestras tarifas com menos de 5% de  descuentos para clientes nacionales",
       },
@@ -152,12 +148,12 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Cuenta Corriente",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Cuenta de Ahorro",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -167,27 +163,27 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Prestámos Comerciales",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Prestamos Agroindustriales",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Financiamiento de Propiedades Comerciales",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Líneas de Créditos",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "Emisión de Valores",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -197,12 +193,12 @@ export const mainMenuItems: MenuLink[] = [
             {
               text: "Pago de Planilla Empresarial",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
             {
               text: "MasterCard Black Débito",
               href: "#",
-              target: "_blank",
+              target: "_self",
             },
           ],
         },
@@ -212,7 +208,7 @@ export const mainMenuItems: MenuLink[] = [
 
   {
     text: "Banca Digital",
-    href: "/our-team",
+    href: "/banca-digital",
     // target: null,
   },
   {

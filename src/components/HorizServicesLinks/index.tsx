@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function HorizServicesLinks({ items }: { items: ServiceItemProps[] }) {
   return (
-    <div data-name="HorizServicesLinks" className="bg-slate-200 py-8">
+    <div className="bg-slate-200 py-8">
       <div className="container mx-auto px-4 2xl:px-0  grid grid-cols-1 lg:grid-cols-3">
         {items.map((item, index) => (
           <div

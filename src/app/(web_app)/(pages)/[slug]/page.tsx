@@ -1,117 +1,48 @@
-import Banner from "@/components/Banner";
-import HorizServicesLinks from "@/components/HorizServicesLinks";
-import HorizServicesLinksItems from "@/components/HorizServicesLinks/dataInit";
-import MansoryGrid from "@/components/MansoryGrid";
-import PageWrapper from "@/components/PageWrapper";
-import PromoAlert from "@/components/PromoAlert";
-import TwoColumnBanner from "@/components/TwoColBanner";
+import { getClient } from "@/app/core/lib/graphqlClient";
+import PageBuilder from "@/app/core/page_builder/PageBuilder";
+import GetPageBySlugQuery from "@/app/core/page_builder/queries/pages";
+import { ImportProps } from "@/app/core/page_builder/schemas";
+import { notFound } from "next/navigation";
 import React from "react";
 
-function Locations() {
-  return (
-    <PageWrapper>
-      <Banner
-        title="Banca Digital"
-        subtitle="Get in touch with us using our common contact and location details"
-      />
-      {/* <TwoColumnBanner direction="RIGHT_LEFT" /> */}
-      <PromoAlert />
-      <TwoColumnBanner
-        direction="left"
-        title="Unitoken"
-        cta={{
-          text: "Crear cuenta",
-        }}
-        subTitle=" Realiza tus transferencias de forma segura con UniToken, que es el
-            código que actúa como segundo factor de autenticación para validar
-            tu transacción."
-        body={[
-          " Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
-          [
-            "Realiza tus transferencias de forma segura con UniToken",
-            "Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
-          ],
-        ]}
-        media={{
-          type: "img",
-          url: "/36.png",
-        }}
-      />
-      <MansoryGrid
-        direction="right"
-        banner={{
-          title: "Vive tranquilo en tu hogar",
-          description:
-            "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
-          url: "/GettyImages-1326458117-e72cd6f16ae44bedbd7f3ca90ffb2053.jpg",
-          cta: {
-            text: "Vive tranquilo",
-            url: "/pagina",
-          },
-        }}
-        items={[
-          {
-            title: "Vive tranquilo en tu hogar",
-            description:
-              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
-            cta: {
-              text: "Saber Mas",
-              url: "/pagina-text",
-            },
-          },
-          {
-            title: "Vive tranquilo en tu hogar",
-            description:
-              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
-            cta: {
-              text: "Saber Mas",
-              url: "/pagina-text",
-            },
-          },
-          {
-            title: "Vive tranquilo en tu hogar",
-            description:
-              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
-            cta: {
-              text: "Saber Mas",
-              url: "/pagina-text",
-            },
-          },
-          {
-            title: "Vive tranquilo en tu hogar",
-            description:
-              "Elige tu casa, consíguela, protégela. En UniBank te ayudamos a administrarla y protegerla.",
-            cta: {
-              text: "Saber Mas",
-              url: "/pagina-text",
-            },
-          },
-        ]}
-      />
-      <TwoColumnBanner
-        direction="right"
-        title="Unitoken"
-        cta={{
-          text: "Crear cuenta",
-        }}
-        subTitle=" Realiza tus transferencias de forma segura con UniToken, que es el
-            código que actúa como segundo factor de autenticación para validar
-            tu transacción."
-        body={[
-          " Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
-          [
-            "Realiza tus transferencias de forma segura con UniToken",
-            "Realiza tus transferencias de forma segura con UniToken, que es el código que actúa como segundo factor de autenticación para validar tu transacción.",
-          ],
-        ]}
-        media={{
-          type: "img",
-          url: "/36.png",
-        }}
-      />
-      <HorizServicesLinks items={HorizServicesLinksItems} />
-    </PageWrapper>
+async function SlugPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+
+
+  const { data:{pages} } = await getClient().query({
+    query: GetPageBySlugQuery,
+    variables: {
+      filterInput: {
+        slug: {
+          eq: (await params).slug ?? "",
+        },
+      },
+    },
+  });
+
+
+
+  if(pages.length == 0){
+    notFound()
+  }
+
+  const pageBodyContent: ImportProps[] = pages[0].body.map(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (component: any) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { _component, ...rest } = component;
+      return {
+        _component: component.__typename,
+        props: rest,
+      };
+    }
   );
+
+  return <PageBuilder items={pageBodyContent} />;
+ 
 }
 
-export default Locations;
+export default SlugPage;

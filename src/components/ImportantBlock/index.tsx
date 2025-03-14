@@ -4,6 +4,15 @@ import ImportantBlockProps from "./schema";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const colors: any = { 
+  neutral: {
+    bg: "#314158", // 950
+    colors: [
+      "#7b889b", //500
+      "#52637e", //900
+      "#566378", //700
+      "#7f91b0", //800
+    ],
+  },
   blue: {
     bg: "#162556", // 950
     colors: [

@@ -79,7 +79,7 @@ function MenuItem({ href, target, text, subMenu }: MenuLink) {
                       <p className="text-semibold text-ellipsis line-clamp-3">
                         {subMenu.campaign.title}
                       </p>
-                      <p className="underline text-blue-400 mt-1">
+                      <p className="underline underline-offset-2 text-blue-300 mt-1">
                         {" "}
                         {subMenu.campaign.cta.text}
                       </p>
