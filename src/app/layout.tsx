@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import CookiesNotice from "@/components/CookiesNotice";
-import Footer from "@/components/Footer";
-import NavBar from "@/components/Navbar";
-import PhoneCallLeadButton from "@/components/PhoneCallLeadButton";
-import ChatBotBox from "@/components/ChatBotBox";
-import { menuSettings } from "@/components/Navbar/dataInit";
-import { getClient } from "./core/lib/graphqlClient";
-import DefaultGlobalsQuery from "./core/page_builder/queries/globals";
+ import CMSGlobalService from "./core/services/CMSGlobalService";
+import NavBarFragment from "./core/page_builder/_partials/NavBarFragment";
 
 const baseFont = Open_Sans({
   weight: ["400", "600", "800"],
@@ -25,22 +19,23 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const globalSettings = await CMSGlobalService.get();
 
-  const { data } = await getClient().query({
-    query: DefaultGlobalsQuery,
-  });
-
-  console.log("layout", data);
+  // console.log("layout", data);
 
   return (
     <html lang="en">
       <body className={`${baseFont.className}  antialiased bg-slate-50`}>
-        <NavBar selectedSite={0} menu={menuSettings} />
-        <PhoneCallLeadButton />
+
+        {globalSettings.defaultSite?.navBar && (
+          <NavBarFragment {...globalSettings.defaultSite?.navBar} />
+        )}
+
+        {/* <PhoneCallLeadButton /> */}
         {children}
-        <ChatBotBox />
-        <CookiesNotice />
-        <Footer /> 
+        {/* <ChatBotBox /> */}
+        {/* <CookiesNotice /> */}
+        {/* <Footer />  */}
       </body>
     </html>
   );

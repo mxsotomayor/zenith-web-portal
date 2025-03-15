@@ -16,6 +16,7 @@ const NavLinkFragmentSimple = gql`
     campaign {
       title
       description
+      slug
     }
     page {
       metaTitle

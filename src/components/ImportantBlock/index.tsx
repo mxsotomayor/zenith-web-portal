@@ -1,37 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import ImportantBlockProps from "./schema";
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const colors: any = { 
-  neutral: {
-    bg: "#314158", // 950
-    colors: [
-      "#7b889b", //500
-      "#52637e", //900
-      "#566378", //700
-      "#7f91b0", //800
-    ],
-  },
-  blue: {
-    bg: "#162556", // 950
-    colors: [
-      "#2b7fff", //500
-      "#1c398e", //900
-      "#1447e6", //700
-      "#193cb8", //800
-    ],
-  },
-  orange: {
-    bg: "#441306", // 950
-    colors: [
-      "#ff6900", //500
-      "#7e2a0c", //900
-      "#ca3500", //700
-      "#9f2d00", //800
-    ],
-  },
-}; 
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { colors } from "./constants";
 
 function ImportantBlock({ title, bgColor, blocks }: ImportantBlockProps) {
   return (
@@ -48,7 +20,8 @@ function ImportantBlock({ title, bgColor, blocks }: ImportantBlockProps) {
       <div className="container mx-auto">
         <div className="grid grid-cols-1   lg:grid-cols-2">
           {blocks.map((item, index) => (
-            <div
+            <Link
+              href={item.href ?? "#"}
               key={index}
               style={{
                 backgroundColor: bgColor
@@ -59,6 +32,9 @@ function ImportantBlock({ title, bgColor, blocks }: ImportantBlockProps) {
                 index == 0 ? "flex" : "hidden lg:flex"
               } flex-col justify-end relative overflow-hidden group transition-all duration-500 ease-in-out cursor-pointer `}
             >
+              <div className="hidden lg:block absolute z-50 top-20 right-20 opacity-0 group-hover:opacity-100 group-hover:top-8 group-hover:right-8 transition-all ease-in-out">
+                <ExternalLink size="40" />
+              </div>
               <div className="absolute group-hover:top-0 top-[500px] transition-all ease-in-out  left-0 w-full h-full bg-black/50 duration-300 backdrop-blur-sm z-10"></div>
               <h3 className="font-semibold text-2xl z-20 max-w-md group-hover:mb-2 transition-all duration-200 ease-in-out">
                 {item.title}
@@ -77,7 +53,7 @@ function ImportantBlock({ title, bgColor, blocks }: ImportantBlockProps) {
                   />
                 </div>
               )}
-            </div>
+            </Link>
           ))}
         </div>
       </div>

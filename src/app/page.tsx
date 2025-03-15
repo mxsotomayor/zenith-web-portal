@@ -16,41 +16,34 @@
 // import PromoAlertInit from "@/components/PromoAlert/dataInit";
 // import TwoColumnBanner from "@/components/TwoColBanner";
 // import TwoColumnInit from "@/components/TwoColBanner/dataInit";
-import { getClient } from "./core/lib/graphqlClient";
 import PageBuilder from "./core/page_builder/PageBuilder";
-import DefaultGlobalsQuery from "./core/page_builder/queries/globals";
-import { GetPageByIDQuery } from "./core/page_builder/queries/pages";
 import { ImportProps } from "./core/page_builder/schemas";
+import CMSGlobalService from "./core/services/CMSGlobalService";
+import CMSPagesService from "./core/services/CMSPagesService";
 
 export default async function Home() {
-  // default globals
-  const { data } = await getClient().query({
-    query: DefaultGlobalsQuery,
-  });
+  const globalSettings = await CMSGlobalService.get();
 
-  const DEFAULT_PAGE_ID = data.global.defaultSite?.page?.documentId ?? "";
+  const DEFAULT_PAGE_ID = globalSettings.defaultSite?.page?.documentId ?? "";
 
-  // page data
-  const { data: pageData } = await getClient().query({
-    query: GetPageByIDQuery,
-    variables: {
-      documentId: DEFAULT_PAGE_ID,
-    },
-  });
+  const page = await CMSPagesService.getByID(DEFAULT_PAGE_ID);
 
-  const pageBodyContent: ImportProps[] = pageData.page.body.map(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (component: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { _component, ...rest } = component;
-      return {
-        _component: component.__typename,
-        props: rest,
-      };
-    }
+  const pageBodyContent: ImportProps[] =
+    page.body?.map(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (component: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { _component, ...rest } = component;
+        return {
+          _component: component.__typename,
+          props: rest,
+        };
+      }
+    ) ?? [];
+
+  return (
+      <PageBuilder items={pageBodyContent} /> 
   );
-
-  return <PageBuilder items={pageBodyContent} />;
   // return (
   //   <PageWrapper>
   //     <HeroBanner {...HeroBannerInit} />

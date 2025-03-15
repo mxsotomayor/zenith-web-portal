@@ -53,10 +53,10 @@ function HotLinkServices({ items, title }: HotlinksProps) {
         </h2>
         <Slider {...settings} autoplay={settings.slidesToShow<=items.length} infinite={settings.slidesToShow<=items.length}>
           {items.map((item, index) => (
-            <div key={index} className="h-40 user-select-none px-2">
+            <div key={index} className="h-40 user-select-none px-2 ">
               <Link
                 href={item.href}
-                className="flex flex-col w-full h-full px-4 bg-gray-100 hover:bg-orange-500 group transition-all justify-start pt-6 items-center "
+                className="flex flex-col w-full h-full px-4 rounded-lg bg-gray-100 hover:bg-blue-500 group transition-all justify-start pt-6 items-center "
               >
                 <div className="w-16 h-16 relative overflow-hidden flex items-center justify-center">
                 <Image src={item.icon} width="55" height="55" alt={item.text} className="object-cover w-full h-full"/>

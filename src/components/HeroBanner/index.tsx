@@ -42,14 +42,13 @@ export default function HeroBanner({items}:{items: Banner[]}) {
                 <Image
                   src={slide.media.url|| "/placeholder.svg"}
                   alt={slide.media.alt}
-                  // width="1200"
-                  // height="800"
                   fill
                   className="object-cover"
                   priority={index === 0}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
                 <div className="absolute container mx-auto  inset-0 flex flex-col justify-center px-4  2xl:px-0 text-white">
+                  {/* <span className="border w-fit px-3 py-1 rounded-lg text-xs mb-2 bg-white/20 backdrop-blur-lg">Desde 14/Ene/2025 - 15/Dic/2025</span> */}
                   <h2 className="text-3xl sm:text-4xl md:text-7xl font-semibold mb-2 sm:mb-4 max-w-4xl" dangerouslySetInnerHTML={{ __html: slide.title }}></h2>
                   <p className="text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 max-w-2xl" dangerouslySetInnerHTML={{ __html: slide.description }}></p>
                   <Button asChild className="w-fit h-12 bg-orange-600 hover:bg-orange-500" size="lg">

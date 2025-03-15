@@ -70,6 +70,29 @@ const GetPageBySlugQuery = gql`
             answer
           }
         }
+
+        ... on ComponentGridsFourBlocksGrid {
+          title
+          blocks_items {
+            title
+            description
+            bg {
+              url
+              alternativeText
+            }
+            cta {
+              ...NavLinkFragmentSimple_QF
+            }
+          }
+        }
+
+        ... on ComponentGridsArticleGrid{
+        title
+        articleCategory {
+          slug
+        }
+        maxLength
+      }
       }
     }
   }
@@ -143,6 +166,29 @@ export const GetPageByIDQuery = gql`
             answer
           }
         }
+
+        ... on ComponentGridsFourBlocksGrid {
+          title
+          blocks_items {
+            title
+            description
+            bg {
+              url
+              alternativeText
+            }
+            cta {
+              ...NavLinkFragmentSimple_QF
+            }
+          }
+        }
+
+        ... on ComponentGridsArticleGrid{
+        title
+        articleCategory {
+          slug
+        }
+        maxLength
+      }
       }
     }
   }

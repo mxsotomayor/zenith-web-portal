@@ -8,6 +8,7 @@ export type BlockItem = {
   title: string;
   description: string;
   image?: string;
+  href?:string
 };
 
  

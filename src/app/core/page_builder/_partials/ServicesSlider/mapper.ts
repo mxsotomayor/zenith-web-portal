@@ -1,5 +1,6 @@
 import { ComponentSlidersServicesSlider } from "@/__generated__/graphql";
 import HotlinksProps from "@/components/HotLinkServices/schema";
+import { extractNavLinkHref, extractNavLinkText } from "../../utils";
 
 const mapper = (data: ComponentSlidersServicesSlider): HotlinksProps => {
   return {
@@ -7,12 +8,8 @@ const mapper = (data: ComponentSlidersServicesSlider): HotlinksProps => {
     items:
       data.services_items?.map((item) => ({
         text:
-          item?.cta?.text ??
-          item?.cta?.page?.metaTitle ??
-          item?.cta?.campaign?.title ??
-          item?.cta?.article?.title ??
-          "[no-title]",
-        href: item?.cta?.href ?? "",
+          extractNavLinkText(item?.cta),
+        href: extractNavLinkHref(item?.cta),
         icon:
           (process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? "") + item?.icon?.url,
       })) ?? [],

@@ -327,6 +327,28 @@ export type ComponentAccordionFaqFaqs_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ComponentGridsArticleGrid = {
+  __typename?: 'ComponentGridsArticleGrid';
+  articleCategory?: Maybe<Category>;
+  id: Scalars['ID']['output'];
+  maxLength?: Maybe<Scalars['Int']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentGridsFourBlocksGrid = {
+  __typename?: 'ComponentGridsFourBlocksGrid';
+  blocks_items?: Maybe<Array<Maybe<ComponentSharedHeroBannerItem>>>;
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentGridsFourBlocksGridBlocks_ItemsArgs = {
+  filters?: InputMaybe<ComponentSharedHeroBannerItemFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type ComponentNavNavBar = {
   __typename?: 'ComponentNavNavBar';
   id: Scalars['ID']['output'];
@@ -343,6 +365,7 @@ export type ComponentNavNavBarMenusArgs = {
 
 export type ComponentNavNavBarMenuItem = {
   __typename?: 'ComponentNavNavBarMenuItem';
+  campaign?: Maybe<Campaign>;
   id: Scalars['ID']['output'];
   link?: Maybe<ComponentNavNavLink>;
   sections?: Maybe<Array<Maybe<ComponentNavNavBarSection>>>;
@@ -357,6 +380,7 @@ export type ComponentNavNavBarMenuItemSectionsArgs = {
 
 export type ComponentNavNavBarMenuItemFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentNavNavBarMenuItemFiltersInput>>>;
+  campaign?: InputMaybe<CampaignFiltersInput>;
   link?: InputMaybe<ComponentNavNavLinkFiltersInput>;
   not?: InputMaybe<ComponentNavNavBarMenuItemFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentNavNavBarMenuItemFiltersInput>>>;
@@ -364,6 +388,7 @@ export type ComponentNavNavBarMenuItemFiltersInput = {
 };
 
 export type ComponentNavNavBarMenuItemInput = {
+  campaign?: InputMaybe<Scalars['ID']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   link?: InputMaybe<ComponentNavNavLinkInput>;
   sections?: InputMaybe<Array<InputMaybe<ComponentNavNavBarSectionInput>>>;
@@ -371,7 +396,6 @@ export type ComponentNavNavBarMenuItemInput = {
 
 export type ComponentNavNavBarSection = {
   __typename?: 'ComponentNavNavBarSection';
-  campaign?: Maybe<Campaign>;
   id: Scalars['ID']['output'];
   items?: Maybe<Array<Maybe<ComponentNavNavLink>>>;
   title?: Maybe<Scalars['String']['output']>;
@@ -386,7 +410,6 @@ export type ComponentNavNavBarSectionItemsArgs = {
 
 export type ComponentNavNavBarSectionFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentNavNavBarSectionFiltersInput>>>;
-  campaign?: InputMaybe<CampaignFiltersInput>;
   items?: InputMaybe<ComponentNavNavLinkFiltersInput>;
   not?: InputMaybe<ComponentNavNavBarSectionFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentNavNavBarSectionFiltersInput>>>;
@@ -394,7 +417,6 @@ export type ComponentNavNavBarSectionFiltersInput = {
 };
 
 export type ComponentNavNavBarSectionInput = {
-  campaign?: InputMaybe<Scalars['ID']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   items?: InputMaybe<Array<InputMaybe<ComponentNavNavLinkInput>>>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -731,7 +753,7 @@ export type FooterRelationResponseCollection = {
   nodes: Array<Footer>;
 };
 
-export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
@@ -1247,8 +1269,13 @@ export type Navbar = {
   locale?: Maybe<Scalars['String']['output']>;
   localizations: Array<Maybe<Navbar>>;
   localizations_connection?: Maybe<NavbarRelationResponseCollection>;
+  logo?: Maybe<UploadFile>;
   menus?: Maybe<Array<Maybe<ComponentNavNavBarMenuItem>>>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  showLogin?: Maybe<Scalars['Boolean']['output']>;
+  showSearch?: Maybe<Scalars['Boolean']['output']>;
+  sub_sites: Array<Maybe<SubSite>>;
+  sub_sites_connection?: Maybe<SubSiteRelationResponseCollection>;
   title?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
@@ -1274,6 +1301,20 @@ export type NavbarMenusArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+
+export type NavbarSub_SitesArgs = {
+  filters?: InputMaybe<SubSiteFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type NavbarSub_Sites_ConnectionArgs = {
+  filters?: InputMaybe<SubSiteFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type NavbarEntityResponseCollection = {
   __typename?: 'NavbarEntityResponseCollection';
   nodes: Array<Navbar>;
@@ -1290,13 +1331,20 @@ export type NavbarFiltersInput = {
   not?: InputMaybe<NavbarFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<NavbarFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  showLogin?: InputMaybe<BooleanFilterInput>;
+  showSearch?: InputMaybe<BooleanFilterInput>;
+  sub_sites?: InputMaybe<SubSiteFiltersInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type NavbarInput = {
+  logo?: InputMaybe<Scalars['ID']['input']>;
   menus?: InputMaybe<Array<InputMaybe<ComponentNavNavBarMenuItemInput>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  showLogin?: InputMaybe<Scalars['Boolean']['input']>;
+  showSearch?: InputMaybe<Scalars['Boolean']['input']>;
+  sub_sites?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -1336,7 +1384,7 @@ export type PageLocalizations_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSlidersServicesSlider | Error;
+export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSlidersServicesSlider | Error;
 
 export type PageEntityResponseCollection = {
   __typename?: 'PageEntityResponseCollection';

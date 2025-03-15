@@ -11,9 +11,7 @@ import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import FAQProps from "./schema";
 
-
-
-export default function FAQBlock({title, search, items}:FAQProps) {
+export default function FAQBlock({ title, search, items }: FAQProps) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredFaqs = items.filter(
@@ -42,9 +40,11 @@ export default function FAQBlock({title, search, items}:FAQProps) {
           {filteredFaqs.map((faq, index) => (
             <AccordionItem value={`item-${index}`} key={index}>
               <AccordionTrigger className="text-left font-semibold [&[data-state='open']]:bg-slate-50 hover:bg-slate-100 px-4">
-                {faq.question}
+                <span dangerouslySetInnerHTML={{ __html: faq.question }}></span>
               </AccordionTrigger>
-              <AccordionContent className="px-4 pt-4">{faq.answer}</AccordionContent>
+              <AccordionContent className="px-4 pt-4">
+                <span dangerouslySetInnerHTML={{ __html: faq.answer }}></span>
+              </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

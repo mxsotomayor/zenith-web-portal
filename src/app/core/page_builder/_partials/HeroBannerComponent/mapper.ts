@@ -1,7 +1,6 @@
-import {
-  ComponentSharedHeroBanner, 
-} from "@/__generated__/graphql";
+import { ComponentSharedHeroBanner } from "@/__generated__/graphql";
 import Banner from "@/components/HeroBanner/schema";
+import { extractNavLinkHref } from "../../utils";
 
 const mapper = (data: ComponentSharedHeroBanner): Banner[] => {
   return (
@@ -14,12 +13,7 @@ const mapper = (data: ComponentSharedHeroBanner): Banner[] => {
         "[no-title]",
       cta: {
         text: item?.cta?.text ?? "[add cta]",
-        url:
-          item?.cta?.href ??
-          (item?.cta?.page?.slug && `/${item?.cta?.page?.slug}` )??
-          ((item?.cta?.campaign?.externalLink || item?.cta?.campaign?.slug) && (`/campaign/${item?.cta?.campaign?.externalLink ?? item?.cta?.campaign?.slug}`) ) ??
-          (item?.cta?.article?.slug && ("/" + item?.cta?.article?.category?.slug + "/" + item?.cta?.article?.slug)) ??
-          "/not-link-found",
+        url: extractNavLinkHref(item?.cta),
       },
       media: {
         alt:

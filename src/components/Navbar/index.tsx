@@ -47,8 +47,15 @@ function MenuItem({ href, target, text, subMenu }: MenuLink) {
         onMouseEnter={onEnter}
         onMouseLeave={onLeave}
       >
-        <span dangerouslySetInnerHTML={{ __html: text }}></span>
-        {subMenu && <ChevronDown />}
+        <Link
+          href={`${href || "#"}`}
+          className={`${
+            href && "font-semibold"
+          } flex gap-x-2 items-center flex-1`}
+        >
+          <span dangerouslySetInnerHTML={{ __html: text }}></span>
+          {subMenu && <ChevronDown />}
+        </Link>
 
         {subMenu && (
           <section
@@ -73,12 +80,18 @@ function MenuItem({ href, target, text, subMenu }: MenuLink) {
                       className="object-cover w-full h-full"
                     />
                     <div className="w-full h-full absolute bg-gradient-to-b from-transparent to-gray-900  top-0 left-0 text-white flex flex-col justify-end p-4">
-                      <h3 className="mb-1 font-bold text-xl text-ellipsis line-clamp-2">
-                        {subMenu.campaign.title}
-                      </h3>
-                      <p className="text-semibold text-ellipsis line-clamp-3">
-                        {subMenu.campaign.title}
-                      </p>
+                      <h3
+                        className="mb-1 font-bold text-xl text-ellipsis line-clamp-2"
+                        dangerouslySetInnerHTML={{
+                          __html: subMenu.campaign.title,
+                        }}
+                      ></h3>
+                      <p
+                        className="text-semibold text-ellipsis line-clamp-3"
+                        dangerouslySetInnerHTML={{
+                          __html: subMenu.campaign.subTitle,
+                        }}
+                      ></p>
                       <p className="underline underline-offset-2 text-blue-300 mt-1">
                         {" "}
                         {subMenu.campaign.cta.text}
@@ -92,7 +105,7 @@ function MenuItem({ href, target, text, subMenu }: MenuLink) {
               <div className=" grid grid-cols-3 gap-4 flex-1">
                 {subMenu.blocks.map((section, index) => (
                   <div key={index}>
-                    <h4 className="font-bold text-xl text-orange-500 mb-3">
+                    <h4 className="font-semibold text-xl text-blue-900 mb-3">
                       {section.title}
                     </h4>
                     <ul>
@@ -145,7 +158,7 @@ function NavBar({ selectedSite = 0, menu }: NavBarProps) {
     }
   }, [showMenu]);
 
-  const CURRENT_BASE_SITE = menu.subSites[selectedSite].subPath;
+  const CURRENT_BASE_SITE = menu.subSites[selectedSite]?.subPath ?? "";
 
   return (
     <nav
@@ -200,21 +213,22 @@ function NavBar({ selectedSite = 0, menu }: NavBarProps) {
         </div>
       </div>
       <div className="bg-white">
-        <div className="container flex flex-wrap items-center justify-start lg:justify-between mx-auto h-16">
-          <button onClick={() => setShowMenu(!showMenu)}>
+        <div className="container flex flex-wrap items-center justify-start lg:justify-between mx-auto px-4 2xl:px-0 h-16">
+          <button onClick={() => setShowMenu(!showMenu)} className="hidden">
             {showMenu ? <X size="32" /> : <Menu size="32" />}
           </button>
           <Link
             href={CURRENT_BASE_SITE + "/"}
-            className="flex items-center md:space-x-3  md:ml-4"
+            className="flex items-center md:space-x-3  md:ml-4 flex-1 lg:flex-none"
           >
             {/* VENDOR LOGO */}
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white w-[120px] h-[50px] relative overflow-hidden flex justify-start items-center">
               <Image
                 src={menu.logoUrl}
                 width={120}
                 height={50}
                 alt={menu.logoAltText}
+                className="object-contain w-full h-full"
               />
             </span>
           </Link>

@@ -9,39 +9,24 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { CalendarIcon, ClockIcon } from "lucide-react";
+import { ArticleCardProps } from "./types";
 
-interface NewsCardProps {
-  image: string;
-  title: string;
-  subtitle: string;
-  author: {
-    name: string;
-    avatar: string;
-  };
-  date: string;
-  readingTime: string;
-  category: string;
-  excerpt: string;
-  slug: string;
-}
-
-export default function NewsCard({
+export default function ArticleCard({
   image,
   title,
-  subtitle,
   author,
   date,
   readingTime,
   category,
   excerpt,
   slug,
-}: NewsCardProps) {
+}: ArticleCardProps) {
   return (
-    <Link data-name="NewsCard"
-      href={`/news/${slug}`}
-      className="text-primary   font-medium bg-slate-100 w-full flex justify-center"
+    <Link
+      href={slug}
+      className="text-primary  font-medium bg-slate-100 w-full flex justify-center"
     >
-      <Card className="overflow-hidden transition-all shadow-none rounded-none border-none">
+      <Card className="overflow-hidden transition-all shadow-none rounded-none border-none flex-1">
         <CardHeader className="p-0">
           <div className="relative aspect-video overflow-hidden">
             <Image
@@ -58,21 +43,22 @@ export default function NewsCard({
         <CardContent className="p-4 space-y-4">
           <div>
             <h3 className="text-xl font-bold line-clamp-2 mb-1">{title}</h3>
-            <p className="text-sm text-muted-foreground line-clamp-1">
-              {subtitle}
+            <p className="text-sm text-muted-foreground line-clamp-2">
+              {excerpt}
             </p>
-          </div>
-          <p className="text-sm line-clamp-3">{excerpt}</p>
+          </div> 
         </CardContent>
-        <CardFooter className="p-4 pt-0 flex flex-col gap-4">
+        <CardFooter className="p-4 pt-0 flex flex-col gap-4 ">
           <div className="flex items-center justify-between w-full text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Avatar className="w-6 h-6">
-                <AvatarImage src={author.avatar} alt={author.name} />
-                <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
-              </Avatar>
-              <span>{author.name}</span>
-            </div>
+            {author && (
+              <div className="flex items-center gap-2">
+                <Avatar className="w-6 h-6">
+                  <AvatarImage src={author.avatar} alt={author.name} />
+                  <AvatarFallback>{author.name.charAt(0)}</AvatarFallback>
+                </Avatar>
+                <span>{author.name}</span>
+              </div>
+            )}
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1">
                 <CalendarIcon className="w-4 h-4" />

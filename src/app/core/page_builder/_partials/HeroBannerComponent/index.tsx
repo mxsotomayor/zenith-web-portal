@@ -8,8 +8,7 @@ function HeroBannerComponent(payload: ComponentSharedHeroBanner) {
   const data: Banner[] = mapper(payload);
   return (
     <div>
-      <HeroBanner items={data} />
-      {/* <DumpPre {...payload}/> */}
+      <HeroBanner items={data} /> 
     </div>
   );
 }
