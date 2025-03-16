@@ -6,6 +6,7 @@ const partialScaffoldMap: Record<string, string> = {
   ComponentAccordionFaq  : "ComponentAccordionFaq",
   ComponentGridsFourBlocksGrid  : "GridsFourBlocksGridFragment",
   ComponentGridsArticleGrid  : "GridsArticleGridFragment",
+  ComponentSharedAlertCard  : "SharedAlertCardFragment",
 };
 
 export default partialScaffoldMap;

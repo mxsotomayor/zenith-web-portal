@@ -1,6 +1,7 @@
 import { ComponentSharedHeroBanner } from "@/__generated__/graphql";
 import Banner from "@/components/HeroBanner/schema";
 import { extractNavLinkHref } from "../../utils";
+import { format  } from 'date-fns'
 
 const mapper = (data: ComponentSharedHeroBanner): Banner[] => {
   return (
@@ -31,6 +32,16 @@ const mapper = (data: ComponentSharedHeroBanner): Banner[] => {
             item?.cta?.article?.cover?.url ??
             "/no-image"),
       },
+      listItems: item?.cta?.campaign
+        ? item?.cta?.campaign?.hightlights
+          ? item.cta.campaign?.hightlights?.map((item) => item?.highlight ?? "")
+          : undefined
+        : undefined,
+      topPill: item?.cta?.campaign
+        ? (item?.cta?.campaign?.start && item?.cta?.campaign?.end)
+          ? `Desde: ${format(item?.cta?.campaign?.start, "dd/MMM/yy")} hasta ${format(item?.cta?.campaign?.end, "dd/MMM/yy")}`
+          : undefined
+        : undefined,
       description:
         item?.description ??
         item?.cta?.page?.metaDescription ??

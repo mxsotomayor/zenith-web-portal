@@ -8,15 +8,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { CalendarIcon, ClockIcon } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 import { ArticleCardProps } from "./types";
 
 export default function ArticleCard({
   image,
   title,
   author,
-  date,
-  readingTime,
+  date, 
   category,
   excerpt,
   slug,
@@ -26,7 +25,7 @@ export default function ArticleCard({
       href={slug}
       className="text-primary  font-medium bg-slate-100 w-full flex justify-center"
     >
-      <Card className="overflow-hidden transition-all shadow-none rounded-none border-none flex-1">
+      <Card className="overflow-hidden transition-all shadow-none rounded-none border-none flex-1  flex flex-col">
         <CardHeader className="p-0">
           <div className="relative aspect-video overflow-hidden">
             <Image
@@ -40,7 +39,7 @@ export default function ArticleCard({
             </Badge>
           </div>
         </CardHeader>
-        <CardContent className="p-4 space-y-4">
+        <CardContent className="p-4 space-y-4 mb-auto  flex-1">
           <div>
             <h3 className="text-xl font-bold line-clamp-2 mb-1">{title}</h3>
             <p className="text-sm text-muted-foreground line-clamp-2">
@@ -63,11 +62,7 @@ export default function ArticleCard({
               <div className="flex items-center gap-1">
                 <CalendarIcon className="w-4 h-4" />
                 <span>{date}</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <ClockIcon className="w-4 h-4" />
-                <span>{readingTime}</span>
-              </div>
+              </div> 
             </div>
           </div>
         </CardFooter>

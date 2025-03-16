@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function PromoAlert({ title, subTitle, icon, cta, altCta }: PromoAlertProps) {
   return (
-    <div data-name="PromoAlert" className="bg-white  py-8">
+    <div  className="bg-white  py-8">
       <div className="container mx-auto px-4 2xl:px-0">
         <div className="flex gap-4 flex-col items-start lg:flex-row lg:items-center p-8 bg-blue-900">
           <Image src={icon} width="72" height="72" alt={title} />

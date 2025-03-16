@@ -3,8 +3,9 @@
 import { PhoneCall, X } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import { LeadModal } from "./LeadModal";
+import { PhoneCallLeadButtonProps } from "./types";
 
-function PhoneCallLeadButton() {
+function PhoneCallLeadButton({title, subTitle,timeOpen }:PhoneCallLeadButtonProps) {
   const [show, setShow] = useState(false);
   const [leadOpen, setLeadOpen] = useState(false);
 
@@ -38,20 +39,17 @@ function PhoneCallLeadButton() {
         } pointer-events-all relative flex justify-center items-center transition-all ease-in-out duration-300`}
       >
         <div className="bg-orange-500 w-[92px] min-h-40 rounded-l-lg flex flex-col overflow-hidden shadow-lg hover:shadow-2xl transition-all ease-in-out relative group">
-          <div className="flex-1 bg-orange-500 text-white p-2 uppercase text-xs text-start flex flex-col justify-center font-semibold relative overflow-visible">
-            Need Help?, we got you!
+          <div className="flex-1 bg-orange-500 text-white p-2 uppercase text-xs text-start flex flex-col justify-center font-semibold relative overflow-visible text-ellipsis line-clamp-3">
+           <span className="text-ellipsis line-clamp-3"> {title}</span>
             <Triangle />
           </div>
           <div className="flex-1 bg-white group-hover:bg-slate-100 transition-all ease-in-out p-2 text-xs flex flex-col items-start justify-center">
-            <div className="font-bold mb-1">
-              {/* <span className="bg-orange-500 w-6 h-6 rounded-full flex items-center justify-center ">
-                <PhoneCall size="12" className="text-orange-950" />
-              </span> */}
+            <div className="font-bold mb-1"> 
             </div>
-            <p className="font-semibold text-orange-950 text-start">
-              Schedule a Call with Us.
+            <p className="font-semibold text-orange-950 text-start text-ellipsis line-clamp-2">
+              {subTitle}
             </p>
-            <p className="text-start text-xs">Available 08AM - 06PM</p>
+            <p className="text-start text-xs text-ellipsis line-clamp-2">{timeOpen}</p>
           </div>
         </div>
       </button>

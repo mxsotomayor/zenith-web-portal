@@ -5,6 +5,11 @@ const DefaultGlobalsQuery = gql`
   ${NavLinkFragmentSimple}
   query getGlobals {
     global {
+      callBackButton {
+        title
+        subTitle
+        timeOpen
+      }
       defaultSite {
         documentId
         navBar {

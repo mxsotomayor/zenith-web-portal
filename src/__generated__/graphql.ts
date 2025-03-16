@@ -205,12 +205,22 @@ export type Campaign = {
   ctaText?: Maybe<Scalars['String']['output']>;
   description?: Maybe<Scalars['String']['output']>;
   documentId: Scalars['ID']['output'];
+  end?: Maybe<Scalars['DateTime']['output']>;
   externalLink?: Maybe<Scalars['String']['output']>;
   externalLinkTarget?: Maybe<Enum_Campaign_Externallinktarget>;
+  hightlights?: Maybe<Array<Maybe<ComponentTextCampaignHighlight>>>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   slug?: Maybe<Scalars['String']['output']>;
+  start?: Maybe<Scalars['DateTime']['output']>;
   title?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type CampaignHightlightsArgs = {
+  filters?: InputMaybe<ComponentTextCampaignHighlightFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type CampaignBodyDynamicZone = ComponentSharedRichText | Error;
@@ -227,12 +237,15 @@ export type CampaignFiltersInput = {
   ctaText?: InputMaybe<StringFilterInput>;
   description?: InputMaybe<StringFilterInput>;
   documentId?: InputMaybe<IdFilterInput>;
+  end?: InputMaybe<DateTimeFilterInput>;
   externalLink?: InputMaybe<StringFilterInput>;
   externalLinkTarget?: InputMaybe<StringFilterInput>;
+  hightlights?: InputMaybe<ComponentTextCampaignHighlightFiltersInput>;
   not?: InputMaybe<CampaignFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<CampaignFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   slug?: InputMaybe<StringFilterInput>;
+  start?: InputMaybe<DateTimeFilterInput>;
   title?: InputMaybe<StringFilterInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
@@ -242,10 +255,13 @@ export type CampaignInput = {
   body?: InputMaybe<Array<Scalars['CampaignBodyDynamicZoneInput']['input']>>;
   ctaText?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
+  end?: InputMaybe<Scalars['DateTime']['input']>;
   externalLink?: InputMaybe<Scalars['String']['input']>;
   externalLinkTarget?: InputMaybe<Enum_Campaign_Externallinktarget>;
+  hightlights?: InputMaybe<Array<InputMaybe<ComponentTextCampaignHighlightInput>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
+  start?: InputMaybe<Scalars['DateTime']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
 };
 
@@ -325,6 +341,21 @@ export type ComponentAccordionFaqFaqs_ConnectionArgs = {
   filters?: InputMaybe<FaqFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentButtonCallBackButton = {
+  __typename?: 'ComponentButtonCallBackButton';
+  id: Scalars['ID']['output'];
+  subTitle?: Maybe<Scalars['String']['output']>;
+  timeOpen?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentButtonCallBackButtonInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  subTitle?: InputMaybe<Scalars['String']['input']>;
+  timeOpen?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentGridsArticleGrid = {
@@ -455,6 +486,15 @@ export type ComponentNavNavLinkInput = {
   text?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type ComponentSharedAlertCard = {
+  __typename?: 'ComponentSharedAlertCard';
+  cta?: Maybe<ComponentNavNavLink>;
+  icon?: Maybe<UploadFile>;
+  id: Scalars['ID']['output'];
+  subTitle?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
 export type ComponentSharedHeroBanner = {
   __typename?: 'ComponentSharedHeroBanner';
   id: Scalars['ID']['output'];
@@ -570,6 +610,24 @@ export type ComponentSlidersServicesSliderServices_ItemsArgs = {
   filters?: InputMaybe<ComponentSlidersServiceSliderItemFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentTextCampaignHighlight = {
+  __typename?: 'ComponentTextCampaignHighlight';
+  highlight?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+};
+
+export type ComponentTextCampaignHighlightFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentTextCampaignHighlightFiltersInput>>>;
+  highlight?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentTextCampaignHighlightFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentTextCampaignHighlightFiltersInput>>>;
+};
+
+export type ComponentTextCampaignHighlightInput = {
+  highlight?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type DateTimeFilterInput = {
@@ -753,10 +811,11 @@ export type FooterRelationResponseCollection = {
   nodes: Array<Footer>;
 };
 
-export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentButtonCallBackButton | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
+  callBackButton?: Maybe<ComponentButtonCallBackButton>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   defaultSeo?: Maybe<ComponentSharedSeo>;
   defaultSite?: Maybe<SubSite>;
@@ -785,6 +844,7 @@ export type GlobalSubSites_ConnectionArgs = {
 };
 
 export type GlobalInput = {
+  callBackButton?: InputMaybe<ComponentButtonCallBackButtonInput>;
   defaultSeo?: InputMaybe<ComponentSharedSeoInput>;
   defaultSite?: InputMaybe<Scalars['ID']['input']>;
   favicon?: InputMaybe<Scalars['ID']['input']>;
@@ -1384,7 +1444,7 @@ export type PageLocalizations_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSlidersServicesSlider | Error;
+export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSlidersServicesSlider | Error;
 
 export type PageEntityResponseCollection = {
   __typename?: 'PageEntityResponseCollection';

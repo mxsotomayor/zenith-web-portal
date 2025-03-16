@@ -23,7 +23,7 @@ export default function FAQBlock({ title, search, items }: FAQProps) {
   return (
     <div data-name="FAQs" className="py-8 bg-white">
       <div className="container mx-auto 2xl:px-0 px-4">
-        <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-6 text-center">
+        <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-12 text-center">
           {title}
         </h2>
         <div className="relative mb-6">

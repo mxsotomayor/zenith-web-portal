@@ -8,15 +8,20 @@ const NavLinkFragmentSimple = gql`
     article {
       title
       description
-      category{
+      category {
         slug
       }
       slug
     }
     campaign {
+      start
+      end
       title
       description
       slug
+      hightlights {
+        highlight
+      }
     }
     page {
       metaTitle

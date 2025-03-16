@@ -10,6 +10,8 @@ type Banner = {
     text: string;
     url: string;
   };
+  listItems?: string[];
+  topPill?: string;
 };
 
 export default Banner;

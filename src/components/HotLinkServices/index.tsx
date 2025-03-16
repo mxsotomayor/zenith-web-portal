@@ -48,7 +48,7 @@ function HotLinkServices({ items, title }: HotlinksProps) {
   return (
     <div data-name="HotLinksServices" className="py-8">
       <div className="container mx-auto 2xl:px-0 px-4 overflow-hidden py-8">
-        <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-6">
+        <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-10">
           {title}
         </h2>
         <Slider {...settings} autoplay={settings.slidesToShow<=items.length} infinite={settings.slidesToShow<=items.length}>

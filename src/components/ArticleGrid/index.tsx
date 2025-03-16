@@ -27,9 +27,9 @@ function ArticleGrid({ title, articles }: ArticleProps) {
 
 
   return (
-    <div data-name="NewsGrid" className="py-8 bg-slate-50">
+    <div data-name="NewsGrid" className="py-12 bg-slate-50">
       <div className="container mx-auto 2xl:px-0 px-4">
-        <h2 className="text-3xl md:text-5xl font-semibold text-blue-900 mb-6">
+        <h2 className="text-3xl md:text-5xl font-semibold text-blue-900 mb-12">
           {title}
         </h2>
       </div>

@@ -16,10 +16,21 @@
 // import PromoAlertInit from "@/components/PromoAlert/dataInit";
 // import TwoColumnBanner from "@/components/TwoColBanner";
 // import TwoColumnInit from "@/components/TwoColBanner/dataInit";
+import { Metadata } from "next";
 import PageBuilder from "./core/page_builder/PageBuilder";
 import { ImportProps } from "./core/page_builder/schemas";
 import CMSGlobalService from "./core/services/CMSGlobalService";
 import CMSPagesService from "./core/services/CMSPagesService";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const globalSettings = await CMSGlobalService.get();
+  const DEFAULT_PAGE_ID = globalSettings.defaultSite?.page?.documentId ?? "";
+  const page = await CMSPagesService.getByID(DEFAULT_PAGE_ID);
+  return {
+    title: page.metaTitle,
+    description: page.metaDescription,
+  };
+}
 
 export default async function Home() {
   const globalSettings = await CMSGlobalService.get();
@@ -41,9 +52,7 @@ export default async function Home() {
       }
     ) ?? [];
 
-  return (
-      <PageBuilder items={pageBodyContent} /> 
-  );
+  return <PageBuilder items={pageBodyContent} />;
   // return (
   //   <PageWrapper>
   //     <HeroBanner {...HeroBannerInit} />

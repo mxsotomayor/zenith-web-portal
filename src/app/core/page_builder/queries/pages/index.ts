@@ -86,13 +86,25 @@ const GetPageBySlugQuery = gql`
           }
         }
 
-        ... on ComponentGridsArticleGrid{
-        title
-        articleCategory {
-          slug
+        ... on ComponentGridsArticleGrid {
+          title
+          articleCategory {
+            slug
+          }
+          maxLength
         }
-        maxLength
-      }
+
+        ... on ComponentSharedAlertCard {
+          title
+          subTitle
+          icon {
+            url
+            alternativeText
+          }
+          cta {
+            ...NavLinkFragmentSimple_QF
+          }
+        }
       }
     }
   }
@@ -182,13 +194,25 @@ export const GetPageByIDQuery = gql`
           }
         }
 
-        ... on ComponentGridsArticleGrid{
-        title
-        articleCategory {
-          slug
+        ... on ComponentGridsArticleGrid {
+          title
+          articleCategory {
+            slug
+          }
+          maxLength
         }
-        maxLength
-      }
+
+        ... on ComponentSharedAlertCard {
+          title
+          subTitle
+          icon {
+            url
+            alternativeText
+          }
+          cta {
+            ...NavLinkFragmentSimple_QF
+          }
+        }
       }
     }
   }
