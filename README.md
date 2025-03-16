@@ -1,13 +1,15 @@
-# Zenith Portal - create your web portals for free
+# Zenith Portal
 
-## What is Zenith?
+## What is Zenith Portal?
 
-Zenith is an initiative that intend to give for free an integration of Nextjs v15 and Strapi CMS.
+Zenith Portal (just NextJS v15 under the hood) is a free template that integrate Nextjs 15 with Strapi Headless CMS.
 
-## What is this repository?
+Through this repo my intention is give a simple but robust base for developers that are struggling integrating Nextjs and Strapi.
 
-coming soon!
+## What is Zenith CMS?
 
-## Where Zenith CMS?
+coming soon! [not published yet]
 
-coming soon!
+## Where's the Zenith CMS?
+
+coming soon! [not published yet]
