@@ -1,4 +1,4 @@
-import NavBar from "@/components/Navbar";
+// import NavBar from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -9,7 +9,7 @@ import React from "react";
 function BusinessLoginPage() {
   return (
     <div className="pt-[100px] h-screen relative overflow-auto lg:overflow-hidden">
-      <NavBar selectedSite={0} />
+      {/* <NavBar selectedSite={0} /> */}
       <div className="justify-end w-full h-screen -z-10 absolute hidden lg:flex">
         <div className="bg-blue-950 w-1/2 h-screen "></div>
       </div>
@@ -48,7 +48,7 @@ function BusinessLoginPage() {
                   </Link>
                 </div>
 
-                <div className="grid gap-y-2">
+                {/* <div className="grid gap-y-2">
                   <Label htmlFor="username">Password</Label>
                   <Input
                     id="password"
@@ -61,13 +61,13 @@ function BusinessLoginPage() {
                   >
                     Forgot your password?
                   </Link>
-                </div>
+                </div> */}
 
                 <div>
-                  <Button className="w-full">Sign In</Button>
+                  <Button className="w-full">Continue</Button>
                 </div>
                 <div className="text-center text-xs">
-                  You dont have account yet?
+                  You don&apos;t have an <span className="text-orange-500">Unibank</span>  account yet?
                 </div>
                 <div>
                   <Link

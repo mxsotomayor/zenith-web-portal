@@ -1,0 +1,48 @@
+ 
+  .reactMarkDown {
+    @apply text-lg;
+  }
+
+   
+  .reactMarkDown ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    list-style: disc outside none;
+  }
+  
+  .reactMarkDown ul li {
+    margin-left: 2em;
+    display: list-item;
+    text-align: -webkit-match-parent;
+  }
+
+  .reactMarkDown a {   
+    @apply  text-blue-800 underline;
+  }
+
+
+   .reactMarkDown p {  
+    font-weight: 400; 
+    white-space: pre-wrap;
+    @apply  py-2;
+  }
+
+  .reactMarkDown h1{
+    @apply text-6xl py-4 font-semibold;
+    white-space: pre-wrap;
+  }
+
+  .reactMarkDown h2{
+    @apply text-5xl py-4 font-semibold;
+    white-space: pre-wrap;
+  }
+
+  .reactMarkDown h3{
+    @apply text-4xl py-4 font-semibold;
+    white-space: pre-wrap;
+  }
+
+  .reactMarkDown h4{
+    @apply text-3xl py-4 font-semibold;
+    white-space: pre-wrap;
+  }

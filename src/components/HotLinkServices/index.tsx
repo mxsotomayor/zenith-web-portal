@@ -3,16 +3,17 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { BlocksIcon } from "lucide-react";
 import Link from "next/link";
+import HotlinksProps from "./schema";
+import Image from "next/image";
 
 const settings = {
-  dots: true,
+  dots: false,
   infinite: true,
   speed: 500,
   slidesToShow: 6,
   slidesToScroll: 1,
-  arrows: true,
+  arrows: false,
   autoplay: true,
   autoplaySpeed: 2000,
   pauseOnHover: true,
@@ -43,27 +44,26 @@ const settings = {
   ],
 };
 
-function HotLinkServices() {
-  const texts = [
-    "Open UniBank Account",
-    "Mortgage Application",
-    "Consumer Loan Application",
-    "Personal Deposit Products",
-    "Investment Products",
-    "Credit Card Application",
-    "Online Services",
-  ];
-
+function HotLinkServices({ items, title }: HotlinksProps) {
   return (
-    <div>
-      <div className="container mx-auto xxl:px-0 px-4 overflow-hidden py-8">
-      <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-6">Find a Banking Solution that Fits to You</h2>
-        <Slider {...settings}>
-          {texts.map((text, index) => (
-            <div key={index} className="h-32 user-select-none px-2">
-              <Link href="/login" className="flex flex-col w-full h-full px-4 bg-gray-100 hover:bg-orange-500 group transition-all justify-start pt-6 items-center ">
-                <BlocksIcon size="42" className="text-orange-500 min-w-8 min-h-8 group-hover:text-white" />
-                <h3 className="mt-2 font-semibold text-ellipsis line-clamp-2 text-center text-xs lg:text-sm group-hover:text-white">{text}</h3>
+    <div data-name="HotLinksServices" className="py-8">
+      <div className="container mx-auto 2xl:px-0 px-4 overflow-hidden py-8">
+        <h2 className="text-3xl md:text-5xl font-semibold text-blue-950 mb-10">
+          {title}
+        </h2>
+        <Slider {...settings} autoplay={settings.slidesToShow<=items.length} infinite={settings.slidesToShow<=items.length}>
+          {items.map((item, index) => (
+            <div key={index} className="h-40 user-select-none px-2 ">
+              <Link
+                href={item.href}
+                className="flex flex-col w-full h-full px-4 rounded-lg bg-gray-100 hover:bg-blue-500 group transition-all justify-start pt-6 items-center "
+              >
+                <div className="w-16 h-16 relative overflow-hidden flex items-center justify-center">
+                <Image src={item.icon} width="55" height="55" alt={item.text} className="object-cover w-full h-full"/>
+                </div>
+                <h3 className="mt-2 font-semibold text-ellipsis line-clamp-2 text-center text-xs lg:text-sm group-hover:text-white">
+                  {item.text}
+                </h3>
               </Link>
             </div>
           ))}
