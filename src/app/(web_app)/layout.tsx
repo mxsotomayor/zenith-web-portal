@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import "./globals.css";
-import CMSGlobalService from "./core/services/CMSGlobalService";
-import NavBarFragment from "./core/page_builder/_partials/NavBarFragment";
+import "@/app/globals.css";
+import CMSGlobalService from "@/app/core/services/CMSGlobalService";
+import NavBarFragment from "@/app/core/page_builder/_partials/NavBarFragment";
 import PhoneCallLeadButton from "@/components/PhoneCallLeadButton";
 
 const baseFont = Open_Sans({

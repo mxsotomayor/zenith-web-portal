@@ -1,10 +1,10 @@
 import { gql } from "@apollo/client";
 import NavLinkFragment from "../../fraqments/nav/NavLinkFragment";
-import NavLinkFragmentSimple from "../../fraqments/nav/NavLinkFragmentSimple";
+import NavLinkFragmentSimple_QF from "../../fraqments/nav/NavLinkFragmentSimple";
 
 const GetPageBySlugQuery = gql`
   ${NavLinkFragment}
-  ${NavLinkFragmentSimple}
+  ${NavLinkFragmentSimple_QF}
 
   query getPageOne($filterInput: PageFiltersInput) {
     pages(filters: $filterInput) {
@@ -112,7 +112,7 @@ const GetPageBySlugQuery = gql`
 
 export const GetPageByIDQuery = gql`
   ${NavLinkFragment}
-  ${NavLinkFragmentSimple}
+  ${NavLinkFragmentSimple_QF}
 
   query getPageByID($documentId: ID!) {
     page(documentId: $documentId) {

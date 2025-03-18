@@ -1,10 +1,10 @@
 import { gql } from "@apollo/client";
 import NavLinkFragment from "../nav/NavLinkFragment";
-import NavLinkFragmentSimple from "../nav/NavLinkFragmentSimple";
+import NavLinkFragmentSimple_QF from "../nav/NavLinkFragmentSimple";
 
 const PageBodyDynamicZone = gql`
 ${NavLinkFragment}
-${NavLinkFragmentSimple}
+${NavLinkFragmentSimple_QF}
 
 fragment PageDynamicZone on PageBodyDynamicZone {
     ... on ComponentSharedHeroBanner {

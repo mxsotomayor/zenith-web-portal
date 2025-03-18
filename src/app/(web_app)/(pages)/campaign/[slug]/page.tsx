@@ -1,40 +1,64 @@
- 
-
-import { getClient } from "@/app/core/lib/graphqlClient";
+import {} from "@/__generated__/graphql";
 import PageBuilder from "@/app/core/page_builder/PageBuilder";
-import DefaultGlobalsQuery from "@/app/core/page_builder/queries/globals";
-import { GetPageByIDQuery } from "@/app/core/page_builder/queries/pages";
 import { ImportProps } from "@/app/core/page_builder/schemas";
+import CMSCampaignService from "@/app/core/services/CMSCampaignService";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
- 
 
-export default async function Home() {
-  // default globals
-  const { data } = await getClient().query({
-    query: DefaultGlobalsQuery,
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+
+  const campaignSlug = (await params).slug;
+
+  const campaign = await CMSCampaignService.getByID(campaignSlug);
+
+  if (!campaign) notFound();
+
+  return {
+    title: campaign.title,
+    description: campaign.description,
+  };
+}
+
+
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const campaignSlug = (await params).slug;
+
+  const campaign = await CMSCampaignService.getByID(campaignSlug);
+
+  if (!campaign) notFound();
+
+  const pageBodyContent: ImportProps[] =
+    campaign.body?.map(
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (component: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { _component, ...rest } = component;
+        return {
+          _component: component.__typename,
+          props: rest,
+        };
+      }
+    ) ?? [];
+
+  pageBodyContent.unshift({
+    _component: "BlockSpaceFragment",
+    props: { size: "lg" },
   });
 
-  const DEFAULT_PAGE_ID = data.global.defaultSite?.page?.documentId ?? "";
-
-  // page data
-  const { data: pageData } = await getClient().query({
-    query: GetPageByIDQuery,
-    variables: {
-      documentId: DEFAULT_PAGE_ID,
-    },
+  pageBodyContent.unshift({
+    _component: "CampaignBannerFragment",
+    props: campaign,
   });
 
-  const pageBodyContent: ImportProps[] = pageData.page.body.map(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (component: any) => {
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const { _component, ...rest } = component;
-      return {
-        _component: component.__typename,
-        props: rest,
-      };
-    }
-  );
-
-  return <PageBuilder items={pageBodyContent} />; 
+  return <PageBuilder items={pageBodyContent} />;
 }

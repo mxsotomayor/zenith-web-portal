@@ -1,4 +1,5 @@
 const partialScaffoldMap: Record<string, string> = {
+  BlockSpaceFragment: "BlockSpaceFragment",
   ComponentSharedHeroBanner: "HeroBannerComponent",
   ComponentSlidersServicesSlider: "ServicesSlider",
   ComponentSharedRichText : "ComponentSharedRichText",
@@ -7,6 +8,7 @@ const partialScaffoldMap: Record<string, string> = {
   ComponentGridsFourBlocksGrid  : "GridsFourBlocksGridFragment",
   ComponentGridsArticleGrid  : "GridsArticleGridFragment",
   ComponentSharedAlertCard  : "SharedAlertCardFragment",
+  CampaignBannerFragment  : "CampaignBannerFragment",
 };
 
 export default partialScaffoldMap;

@@ -15,6 +15,14 @@ import SearchBox from "./SearchBox";
 import GlobalMenu from "./GlobalMenu";
 // import { mainMenuItems, menuSettings } from "./dataInit";
 import { MenuLink, NavBarProps } from "./schema";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function MenuItem({ href, target, text, subMenu }: MenuLink) {
   const [displayMenu, setDisplayMenu] = useState(false);
@@ -202,11 +210,14 @@ function NavBar({ selectedSite = 0, menu }: NavBarProps) {
                     </Link>
                   </li>
                 ))}
-                <li>
-                  <Link href="" className="flex items-center">
-                    EN <ChevronDown size="16" />
-                  </Link>
-                </li>
+
+                <DropdownMenu>
+                  <DropdownMenuTrigger>LANG: EN</DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuItem>EN</DropdownMenuItem>
+                    <DropdownMenuItem>ES</DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </ul>
             </div>
           </div>
