@@ -223,7 +223,7 @@ export type CampaignHightlightsArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type CampaignBodyDynamicZone = ComponentSharedAlertCard | ComponentSharedRichText | Error;
+export type CampaignBodyDynamicZone = ComponentSharedAlertCard | ComponentSharedRichText | ComponentSharedTwoColumnBanner | Error;
 
 export type CampaignEntityResponseCollection = {
   __typename?: 'CampaignEntityResponseCollection';
@@ -371,6 +371,27 @@ export type ComponentButtonCallBackButtonInput = {
   subTitle?: InputMaybe<Scalars['String']['input']>;
   timeOpen?: InputMaybe<Scalars['String']['input']>;
   title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentButtonLoginButton = {
+  __typename?: 'ComponentButtonLoginButton';
+  href?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  text?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentButtonLoginButtonFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentButtonLoginButtonFiltersInput>>>;
+  href?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentButtonLoginButtonFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentButtonLoginButtonFiltersInput>>>;
+  text?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentButtonLoginButtonInput = {
+  href?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentGridsArticleGrid = {
@@ -602,6 +623,18 @@ export type ComponentSharedSliderFiles_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ComponentSharedTwoColumnBanner = {
+  __typename?: 'ComponentSharedTwoColumnBanner';
+  cta?: Maybe<ComponentNavNavLink>;
+  description?: Maybe<Scalars['String']['output']>;
+  direction?: Maybe<Enum_Componentsharedtwocolumnbanner_Direction>;
+  externalYtbUrl?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  media?: Maybe<UploadFile>;
+  title?: Maybe<Scalars['String']['output']>;
+  twoColumnBody?: Maybe<ComponentSharedRichText>;
+};
+
 export type ComponentSlidersServiceSliderItem = {
   __typename?: 'ComponentSlidersServiceSliderItem';
   cta?: Maybe<ComponentNavNavLink>;
@@ -686,6 +719,11 @@ export enum Enum_Campaign_Externallinktarget {
 export enum Enum_Componentnavnavlink_Target {
   Blank = 'blank',
   Self = 'self'
+}
+
+export enum Enum_Componentsharedtwocolumnbanner_Direction {
+  Left = 'left',
+  Right = 'right'
 }
 
 export type Error = {
@@ -829,7 +867,7 @@ export type FooterRelationResponseCollection = {
   nodes: Array<Footer>;
 };
 
-export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentBotChatBotSetting | ComponentButtonCallBackButton | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentBotChatBotSetting | ComponentButtonCallBackButton | ComponentButtonLoginButton | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSharedTwoColumnBanner | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
@@ -1350,6 +1388,7 @@ export type Navbar = {
   locale?: Maybe<Scalars['String']['output']>;
   localizations: Array<Maybe<Navbar>>;
   localizations_connection?: Maybe<NavbarRelationResponseCollection>;
+  loginButton?: Maybe<ComponentButtonLoginButton>;
   logo?: Maybe<UploadFile>;
   menus?: Maybe<Array<Maybe<ComponentNavNavBarMenuItem>>>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
@@ -1417,6 +1456,7 @@ export type NavbarFiltersInput = {
   documentId?: InputMaybe<IdFilterInput>;
   locale?: InputMaybe<StringFilterInput>;
   localizations?: InputMaybe<NavbarFiltersInput>;
+  loginButton?: InputMaybe<ComponentButtonLoginButtonFiltersInput>;
   menus?: InputMaybe<ComponentNavNavBarMenuItemFiltersInput>;
   not?: InputMaybe<NavbarFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<NavbarFiltersInput>>>;
@@ -1432,6 +1472,7 @@ export type NavbarFiltersInput = {
 
 export type NavbarInput = {
   chatIcon?: InputMaybe<Scalars['ID']['input']>;
+  loginButton?: InputMaybe<ComponentButtonLoginButtonInput>;
   logo?: InputMaybe<Scalars['ID']['input']>;
   menus?: InputMaybe<Array<InputMaybe<ComponentNavNavBarMenuItemInput>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -1479,7 +1520,7 @@ export type PageLocalizations_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSlidersServicesSlider | Error;
+export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedTwoColumnBanner | ComponentSlidersServicesSlider | Error;
 
 export type PageEntityResponseCollection = {
   __typename?: 'PageEntityResponseCollection';

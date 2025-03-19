@@ -1,12 +1,10 @@
-export type ListText = string[];
-
-type BodyItem = (string | ListText)[];
+ 
 
 type TwoColBannerProps = {
   direction: "left" | "right";
   title: string;
   subTitle: string;
-  body: BodyItem;
+  body: string;
   media: {
     type: "img" | "video";
     url: string;

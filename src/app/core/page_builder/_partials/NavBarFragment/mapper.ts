@@ -8,6 +8,12 @@ const mapper = (props: Navbar): MenuProps => {
     logoAltText: props.logo?.alternativeText ?? "",
     showLogin: props.showLogin ?? false,
     showSearch: props.showSearch ?? false,
+    loginButton: props.loginButton
+      ? {
+          text: props.loginButton?.text ?? "",
+          href: props.loginButton?.href ?? "",
+        }
+      : undefined,
     subSites:
       props.sub_sites?.map((subsite) => ({
         displayName: subsite?.displayName ?? "",

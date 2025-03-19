@@ -1,10 +1,20 @@
 import { gql } from "@apollo/client";
 import NavLinkFragment from "../../fraqments/nav/NavLinkFragment";
 import NavLinkFragmentSimple_QF from "../../fraqments/nav/NavLinkFragmentSimple";
+import { ComponentAccordionFaq_QF, ComponentGridsArticleGrid_QF, ComponentGridsFourBlocksGrid_QF, ComponentSharedAlertCard_QF, ComponentSharedHeroBanner_QF, ComponentSharedHeroBannerItem_QF, ComponentSharedTwoColumnBanner_QF, ComponentSlidersServicesSlider_QF } from "../../fraqments/pages/PageBodyDynamicZone";
 
 const GetPageBySlugQuery = gql`
   ${NavLinkFragment}
   ${NavLinkFragmentSimple_QF}
+
+  ${ComponentSharedTwoColumnBanner_QF}
+  ${ComponentSharedHeroBanner_QF}
+  ${ComponentSlidersServicesSlider_QF}
+  ${ComponentSharedHeroBannerItem_QF}
+  ${ComponentAccordionFaq_QF}
+  ${ComponentGridsFourBlocksGrid_QF}
+  ${ComponentGridsArticleGrid_QF}
+  ${ComponentSharedAlertCard_QF}
 
   query getPageOne($filterInput: PageFiltersInput) {
     pages(filters: $filterInput) {
@@ -15,34 +25,17 @@ const GetPageBySlugQuery = gql`
         url
       }
       slug
-      body {
+      body { 
+        ... on ComponentSharedTwoColumnBanner {
+          ...ComponentSharedTwoColumnBanner_QF
+        }
+
         ... on ComponentSharedHeroBanner {
-          __typename
-          items {
-            ... on ComponentSharedHeroBannerItem {
-              bg {
-                alternativeText
-                url
-              }
-              cta {
-                ...NavLinkFragment_QF
-              }
-            }
-          }
+          ...ComponentSharedHeroBanner_QF
         }
 
         ... on ComponentSlidersServicesSlider {
-          __typename
-          title
-          services_items {
-            icon {
-              alternativeText
-              url
-            }
-            cta {
-              ...NavLinkFragmentSimple_QF
-            }
-          }
+          ...ComponentSlidersServicesSlider_QF
         }
 
         ... on ComponentSharedRichText {
@@ -51,68 +44,42 @@ const GetPageBySlugQuery = gql`
         }
 
         ... on ComponentSharedHeroBannerItem {
-          bg {
-            url
-            alternativeText
-          }
-          cta {
-            ...NavLinkFragmentSimple_QF
-          }
-          title
-          description
+          ...ComponentSharedHeroBannerItem_QF
         }
 
         ... on ComponentAccordionFaq {
-          title
-          searchPlaceholder
-          faqs {
-            question
-            answer
-          }
+          ...ComponentAccordionFaq_QF
         }
 
         ... on ComponentGridsFourBlocksGrid {
-          title
-          blocks_items {
-            title
-            description
-            bg {
-              url
-              alternativeText
-            }
-            cta {
-              ...NavLinkFragmentSimple_QF
-            }
-          }
+          ...ComponentGridsFourBlocksGrid_QF
         }
 
         ... on ComponentGridsArticleGrid {
-          title
-          articleCategory {
-            slug
-          }
-          maxLength
+          ...ComponentGridsArticleGrid_QF
         }
 
         ... on ComponentSharedAlertCard {
-          title
-          subTitle
-          icon {
-            url
-            alternativeText
-          }
-          cta {
-            ...NavLinkFragmentSimple_QF
-          }
+          ...ComponentSharedAlertCard_QF
         }
       }
     }
   }
 `;
 
-export const GetPageByIDQuery = gql`
+export const GetPageByIDQuery = gql` 
   ${NavLinkFragment}
   ${NavLinkFragmentSimple_QF}
+
+
+  ${ComponentSharedTwoColumnBanner_QF}
+  ${ComponentSharedHeroBanner_QF}
+  ${ComponentSlidersServicesSlider_QF}
+  ${ComponentSharedHeroBannerItem_QF}
+  ${ComponentAccordionFaq_QF}
+  ${ComponentGridsFourBlocksGrid_QF}
+  ${ComponentGridsArticleGrid_QF}
+  ${ComponentSharedAlertCard_QF}
 
   query getPageByID($documentId: ID!) {
     page(documentId: $documentId) {
@@ -124,33 +91,16 @@ export const GetPageByIDQuery = gql`
       }
       slug
       body {
+        ... on ComponentSharedTwoColumnBanner {
+          ...ComponentSharedTwoColumnBanner_QF
+        }
+
         ... on ComponentSharedHeroBanner {
-          __typename
-          items {
-            ... on ComponentSharedHeroBannerItem {
-              bg {
-                alternativeText
-                url
-              }
-              cta {
-                ...NavLinkFragment_QF
-              }
-            }
-          }
+          ...ComponentSharedHeroBanner_QF
         }
 
         ... on ComponentSlidersServicesSlider {
-          __typename
-          title
-          services_items {
-            icon {
-              alternativeText
-              url
-            }
-            cta {
-              ...NavLinkFragmentSimple_QF
-            }
-          }
+          ...ComponentSlidersServicesSlider_QF
         }
 
         ... on ComponentSharedRichText {
@@ -159,59 +109,23 @@ export const GetPageByIDQuery = gql`
         }
 
         ... on ComponentSharedHeroBannerItem {
-          bg {
-            url
-            alternativeText
-          }
-          cta {
-            ...NavLinkFragmentSimple_QF
-          }
-          title
-          description
+          ...ComponentSharedHeroBannerItem_QF
         }
 
         ... on ComponentAccordionFaq {
-          title
-          searchPlaceholder
-          faqs {
-            question
-            answer
-          }
+          ...ComponentAccordionFaq_QF
         }
 
         ... on ComponentGridsFourBlocksGrid {
-          title
-          blocks_items {
-            title
-            description
-            bg {
-              url
-              alternativeText
-            }
-            cta {
-              ...NavLinkFragmentSimple_QF
-            }
-          }
+          ...ComponentGridsFourBlocksGrid_QF
         }
 
         ... on ComponentGridsArticleGrid {
-          title
-          articleCategory {
-            slug
-          }
-          maxLength
+          ...ComponentGridsArticleGrid_QF
         }
 
         ... on ComponentSharedAlertCard {
-          title
-          subTitle
-          icon {
-            url
-            alternativeText
-          }
-          cta {
-            ...NavLinkFragmentSimple_QF
-          }
+          ...ComponentSharedAlertCard_QF
         }
       }
     }

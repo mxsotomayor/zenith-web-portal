@@ -17,6 +17,10 @@ const SubSite_QF = gql`
       }
       showLogin
       showSearch
+      loginButton {
+        href
+        text
+      }
       showChat
       topRightMenu {
         ...NavLinkFragmentSimple_QF

@@ -4,9 +4,7 @@
   }
 
    
-  .reactMarkDown ul {
-    margin-top: 1em;
-    margin-bottom: 1em;
+  .reactMarkDown ul { 
     list-style: disc outside none;
   }
   
@@ -38,11 +36,11 @@
   }
 
   .reactMarkDown h3{
-    @apply text-4xl py-4 font-semibold;
+    @apply text-4xl py-2 font-semibold;
     white-space: pre-wrap;
   }
 
   .reactMarkDown h4{
-    @apply text-3xl py-4 font-semibold;
+    @apply text-3xl py-2 font-semibold;
     white-space: pre-wrap;
   }

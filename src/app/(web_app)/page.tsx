@@ -51,6 +51,11 @@ export default async function Home() {
       }
     ) ?? [];
 
+    // pageBodyContent.push({
+    //   "_component":"TwoColumnBannerFragment",
+    //   "props": TwoColumnInit
+    // })
+
   return <PageBuilder items={pageBodyContent} />;
   // return (
   //   <PageWrapper>

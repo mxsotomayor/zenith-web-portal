@@ -253,7 +253,7 @@ function NavBar({ selectedSite = 0, menu }: NavBarProps) {
               ))}
             </ul>
           </div>
-          
+
           <div className="flex items-center md:order-2 gap-x-4 border-l pl-2">
             {menu.showSearch && (
               <button
@@ -264,17 +264,14 @@ function NavBar({ selectedSite = 0, menu }: NavBarProps) {
               </button>
             )}
 
-            {menu.showLogin && (
+            {menu.showLogin && menu.loginButton && (
               <Link
-                href={
-                  process.env.NEXT_PUBLIC_ONLINE_BANKING_URL +
-                  "/login" +
-                  CURRENT_BASE_SITE
-                }
+                href={menu.loginButton.href ?? "#"}
+                target="_blank"
                 className="gap-2 text-white bg-orange-500 hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm px-4 lg:py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 flex items-center gap-x-3 py-3"
               >
                 <Unlock size="16" />{" "}
-                <span className="hidden md:block">Mi Banca</span>
+                <span className="hidden md:block">{menu.loginButton.text}</span>
               </Link>
             )}
           </div>

@@ -6,7 +6,11 @@ export type NavBarProps = {
 export type MenuProps = {
   logoUrl: string;
   logoAltText: string;
-  showLogin: boolean;
+  showLogin?: boolean;
+  loginButton?: {
+    text: string;
+    href: string;
+  };
   showSearch: boolean;
   topRightMenus: MenuLink[];
   subSites: SubSite[];
@@ -39,7 +43,7 @@ type SubMenuProps = {
   blocks: SubMenuBlockProps[];
 };
 
-type SubMenuBlockProps = {title: string, items: AProps[]};
+type SubMenuBlockProps = { title: string; items: AProps[] };
 
 type AProps = {
   text: string;
