@@ -19,8 +19,6 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -255,6 +253,7 @@ function NavBar({ selectedSite = 0, menu }: NavBarProps) {
               ))}
             </ul>
           </div>
+          
           <div className="flex items-center md:order-2 gap-x-4 border-l pl-2">
             {menu.showSearch && (
               <button

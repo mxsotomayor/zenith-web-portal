@@ -33,8 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const globalSettings = await CMSGlobalService.get();
-
+  const globalSettings = await CMSGlobalService.get(); 
   const DEFAULT_PAGE_ID = globalSettings.defaultSite?.page?.documentId ?? "";
 
   const page = await CMSPagesService.getByID(DEFAULT_PAGE_ID);

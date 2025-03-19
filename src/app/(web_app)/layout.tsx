@@ -4,6 +4,7 @@ import "@/app/globals.css";
 import CMSGlobalService from "@/app/core/services/CMSGlobalService";
 import NavBarFragment from "@/app/core/page_builder/_partials/NavBarFragment";
 import PhoneCallLeadButton from "@/components/PhoneCallLeadButton";
+import ChatBotBox from "@/components/ChatBotBox";
 
 const baseFont = Open_Sans({
   weight: ["400", "600", "800"],
@@ -31,11 +32,24 @@ export default async function RootLayout({
           <NavBarFragment {...globalSettings.defaultSite?.navBar} />
         )}
 
-        {globalSettings.callBackButton && <PhoneCallLeadButton title={globalSettings.callBackButton.title ?? ""} subTitle={globalSettings.callBackButton.subTitle ?? ""} timeOpen={globalSettings.callBackButton.timeOpen ?? ""} />}
+        {globalSettings.callBackButton && (
+          <PhoneCallLeadButton
+            title={globalSettings.callBackButton.title ?? ""}
+            subTitle={globalSettings.callBackButton.subTitle ?? ""}
+            timeOpen={globalSettings.callBackButton.timeOpen ?? ""}
+          />
+        )}
 
         {/*  */}
+
         {children}
-        {/* <ChatBotBox /> */}
+        {globalSettings.chatbotSetting && (
+          <ChatBotBox
+            title={globalSettings.chatbotSetting?.title ?? ""}
+            name={globalSettings.chatbotSetting.botName ?? ""}
+            welcomeMessage={globalSettings.chatbotSetting.welcomeMessage ?? ""}
+          />
+        )}
         {/* <CookiesNotice /> */}
         {/* <Footer />  */}
       </body>

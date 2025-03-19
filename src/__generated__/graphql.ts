@@ -223,7 +223,7 @@ export type CampaignHightlightsArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type CampaignBodyDynamicZone = ComponentSharedRichText | Error;
+export type CampaignBodyDynamicZone = ComponentSharedAlertCard | ComponentSharedRichText | Error;
 
 export type CampaignEntityResponseCollection = {
   __typename?: 'CampaignEntityResponseCollection';
@@ -343,6 +343,21 @@ export type ComponentAccordionFaqFaqs_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ComponentBotChatBotSetting = {
+  __typename?: 'ComponentBotChatBotSetting';
+  botName?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+  welcomeMessage?: Maybe<Scalars['String']['output']>;
+};
+
+export type ComponentBotChatBotSettingInput = {
+  botName?: InputMaybe<Scalars['String']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  welcomeMessage?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ComponentButtonCallBackButton = {
   __typename?: 'ComponentButtonCallBackButton';
   id: Scalars['ID']['output'];
@@ -460,6 +475,7 @@ export type ComponentNavNavLink = {
   href?: Maybe<Scalars['String']['output']>;
   id: Scalars['ID']['output'];
   page?: Maybe<Page>;
+  subSite?: Maybe<SubSite>;
   target?: Maybe<Enum_Componentnavnavlink_Target>;
   text?: Maybe<Scalars['String']['output']>;
 };
@@ -472,6 +488,7 @@ export type ComponentNavNavLinkFiltersInput = {
   not?: InputMaybe<ComponentNavNavLinkFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentNavNavLinkFiltersInput>>>;
   page?: InputMaybe<PageFiltersInput>;
+  subSite?: InputMaybe<SubSiteFiltersInput>;
   target?: InputMaybe<StringFilterInput>;
   text?: InputMaybe<StringFilterInput>;
 };
@@ -482,6 +499,7 @@ export type ComponentNavNavLinkInput = {
   href?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   page?: InputMaybe<Scalars['ID']['input']>;
+  subSite?: InputMaybe<Scalars['ID']['input']>;
   target?: InputMaybe<Enum_Componentnavnavlink_Target>;
   text?: InputMaybe<Scalars['String']['input']>;
 };
@@ -811,11 +829,12 @@ export type FooterRelationResponseCollection = {
   nodes: Array<Footer>;
 };
 
-export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentButtonCallBackButton | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentBotChatBotSetting | ComponentButtonCallBackButton | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
   callBackButton?: Maybe<ComponentButtonCallBackButton>;
+  chatbotSetting?: Maybe<ComponentBotChatBotSetting>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   defaultSeo?: Maybe<ComponentSharedSeo>;
   defaultSite?: Maybe<SubSite>;
@@ -845,6 +864,7 @@ export type GlobalSubSites_ConnectionArgs = {
 
 export type GlobalInput = {
   callBackButton?: InputMaybe<ComponentButtonCallBackButtonInput>;
+  chatbotSetting?: InputMaybe<ComponentBotChatBotSettingInput>;
   defaultSeo?: InputMaybe<ComponentSharedSeoInput>;
   defaultSite?: InputMaybe<Scalars['ID']['input']>;
   favicon?: InputMaybe<Scalars['ID']['input']>;
@@ -1324,6 +1344,7 @@ export type MutationUpdateUsersPermissionsUserArgs = {
 
 export type Navbar = {
   __typename?: 'Navbar';
+  chatIcon?: Maybe<UploadFile>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   locale?: Maybe<Scalars['String']['output']>;
@@ -1332,11 +1353,13 @@ export type Navbar = {
   logo?: Maybe<UploadFile>;
   menus?: Maybe<Array<Maybe<ComponentNavNavBarMenuItem>>>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  showChat?: Maybe<Scalars['Boolean']['output']>;
   showLogin?: Maybe<Scalars['Boolean']['output']>;
   showSearch?: Maybe<Scalars['Boolean']['output']>;
   sub_sites: Array<Maybe<SubSite>>;
   sub_sites_connection?: Maybe<SubSiteRelationResponseCollection>;
   title?: Maybe<Scalars['String']['output']>;
+  topRightMenu?: Maybe<Array<Maybe<ComponentNavNavLink>>>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -1375,6 +1398,13 @@ export type NavbarSub_Sites_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+
+export type NavbarTopRightMenuArgs = {
+  filters?: InputMaybe<ComponentNavNavLinkFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type NavbarEntityResponseCollection = {
   __typename?: 'NavbarEntityResponseCollection';
   nodes: Array<Navbar>;
@@ -1391,21 +1421,26 @@ export type NavbarFiltersInput = {
   not?: InputMaybe<NavbarFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<NavbarFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  showChat?: InputMaybe<BooleanFilterInput>;
   showLogin?: InputMaybe<BooleanFilterInput>;
   showSearch?: InputMaybe<BooleanFilterInput>;
   sub_sites?: InputMaybe<SubSiteFiltersInput>;
   title?: InputMaybe<StringFilterInput>;
+  topRightMenu?: InputMaybe<ComponentNavNavLinkFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
 export type NavbarInput = {
+  chatIcon?: InputMaybe<Scalars['ID']['input']>;
   logo?: InputMaybe<Scalars['ID']['input']>;
   menus?: InputMaybe<Array<InputMaybe<ComponentNavNavBarMenuItemInput>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  showChat?: InputMaybe<Scalars['Boolean']['input']>;
   showLogin?: InputMaybe<Scalars['Boolean']['input']>;
   showSearch?: InputMaybe<Scalars['Boolean']['input']>;
   sub_sites?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   title?: InputMaybe<Scalars['String']['input']>;
+  topRightMenu?: InputMaybe<Array<InputMaybe<ComponentNavNavLinkInput>>>;
 };
 
 export type NavbarRelationResponseCollection = {

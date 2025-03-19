@@ -2,7 +2,6 @@ import { gql } from "@apollo/client";
 import NavLinkFragmentSimple_QF from "../nav/NavLinkFragmentSimple";
 
 const SubSite_QF = gql`
-
   ${NavLinkFragmentSimple_QF}
 
   fragment Subsite_QF on SubSite {
@@ -18,6 +17,10 @@ const SubSite_QF = gql`
       }
       showLogin
       showSearch
+      showChat
+      topRightMenu {
+        ...NavLinkFragmentSimple_QF
+      }
       sub_sites {
         displayName
         slug

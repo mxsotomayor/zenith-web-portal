@@ -8,10 +8,9 @@ import PageWrapper from "@/components/PageWrapper";
 import { notFound } from "next/navigation";
 import React from "react";
 
-async function BusinessPage({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = (await params).slug;
+async function BusinessPage() {
 
-  const currentSite = await CMSSubSiteService.getBySlug(slug);
+  const currentSite = await CMSSubSiteService.getBySlug("empresas");
 
   if (!currentSite) {
     notFound();
@@ -20,7 +19,7 @@ async function BusinessPage({ params }: { params: Promise<{ slug: string }> }) {
   return (
     <PageWrapper>
        {currentSite?.navBar && (
-          <NavBarFragment {...currentSite?.navBar} />
+          <NavBarFragment {...currentSite?.navBar}  />
         )}
       <HeroBanner {...HeroBannerInit} />
       <HotLinkServices {...HotLinkServicesInit} />

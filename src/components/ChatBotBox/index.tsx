@@ -11,8 +11,9 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Textarea } from "../ui/textarea";
+import { ChatBotBoxProps } from "./types";
 
-function ChatBotBox() {
+function ChatBotBox({title, name, welcomeMessage}:ChatBotBoxProps) {
   const [show, setShow] = useState(false);
 
   const toggleShow = () => {
@@ -28,22 +29,17 @@ function ChatBotBox() {
       </Button>
 
       <Sheet open={show} onOpenChange={() => toggleShow()}>
-        <SheetContent className="flex flex-col p-2 w-full lg:w-auto">
+        <SheetContent className="flex flex-col p-2 w-full lg:min-w-[560px]">
           <SheetHeader>
-            <SheetTitle>{process.env.NEXT_PUBLIC_VENDOR_NAME} Assistant</SheetTitle>
+            <SheetTitle>{title}</SheetTitle>
           </SheetHeader>
           <div className=" flex-1 flex flex-col">
             {/* Bubbles Chat Area */}
             <div className="flex flex-col flex-1 gap-2">
               <div className="bg-slate-100 rounded-lg rounded-tl-none p-2 text-sm mr-6">
-                <span className="text-xs font-bold">{process.env.NEXT_PUBLIC_VENDOR_NAME} Assistant</span>
+                <span className="text-xs font-bold ">{name}</span>
                 <p>
-                  Hi I&apos;m your{" "}
-                  <span className="font-semibold text-orange-500">
-                  {process.env.NEXT_PUBLIC_VENDOR_NAME} Digital Assistant
-                  </span>
-                  , Im here to help you in your journey with us, please feel
-                  free to ask anything about our Services, Products and more?
+                {welcomeMessage}
                 </p>
               </div>
               <div className="bg-slate-300 rounded-lg rounded-tr-none p-2 text-sm ml-6 text-right">

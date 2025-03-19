@@ -14,7 +14,11 @@ const mapper = (props: Navbar): MenuProps => {
         keyName: subsite?.displayName ?? "",
         subPath: subsite?.slug ? "/sites/" + subsite?.slug : "",
       })) ?? [],
-    topRightMenus: [],
+    topRightMenus:
+      props.topRightMenu?.map((item) => ({
+        text: extractNavLinkText(item),
+        href: extractNavLinkHref(item),
+      })) ?? [],
     items:
       props.menus?.map((item) => ({
         text: extractNavLinkText(item?.link),
@@ -27,10 +31,12 @@ const mapper = (props: Navbar): MenuProps => {
                     subTitle: item?.campaign?.description ?? "",
                     cta: {
                       text: item.campaign.ctaText ?? "Saber mas",
-                      href: "/campaign/" + (item.campaign.slug  ?? ""),
+                      href: "/campaign/" + (item.campaign.slug ?? ""),
                     },
                     image: {
-                      url: `${process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API}${item?.campaign?.bg?.url ?? ""}`,
+                      url: `${process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API}${
+                        item?.campaign?.bg?.url ?? ""
+                      }`,
                       altText: item?.campaign?.bg?.alternativeText ?? "",
                     },
                   }

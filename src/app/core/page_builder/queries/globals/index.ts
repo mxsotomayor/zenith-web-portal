@@ -7,6 +7,11 @@ const DefaultGlobalsQuery = gql`
   ${SubSite_QF}
   query getGlobals {
     global {
+      chatbotSetting {
+        botName
+        title
+        welcomeMessage
+      }
       callBackButton {
         title
         subTitle
