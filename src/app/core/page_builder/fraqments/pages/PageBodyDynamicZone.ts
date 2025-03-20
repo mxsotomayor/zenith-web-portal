@@ -24,15 +24,18 @@ export const ComponentSharedTwoColumnBanner_QF = gql`
   fragment ComponentSharedTwoColumnBanner_QF on ComponentSharedTwoColumnBanner {
     title
     description
+    direction
     twoColumnBody {
       body
     }
+    externalYtbUrl
     cta {
       ...NavLinkFragment_QF
     }
     media {
       url
       alternativeText
+      mime
     }
   }
 `;

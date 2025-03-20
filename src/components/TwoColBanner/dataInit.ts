@@ -1,4 +1,4 @@
-import TwoColBannerProps from "./schema";
+import TwoColBannerProps from "./types";
 
 const TwoColumnInit : TwoColBannerProps = {
   direction: "left",
