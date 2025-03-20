@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const NavLinkFragmentSimple = gql`
+const NavLinkFragmentSimple_QF = gql`
   fragment NavLinkFragmentSimple_QF on ComponentNavNavLink {
     text
     href
@@ -31,4 +31,4 @@ const NavLinkFragmentSimple = gql`
   }
 `;
 
-export default NavLinkFragmentSimple;
+export default NavLinkFragmentSimple_QF;

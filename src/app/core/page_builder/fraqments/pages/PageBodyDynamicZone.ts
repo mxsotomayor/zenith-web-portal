@@ -1,46 +1,126 @@
 import { gql } from "@apollo/client";
-import NavLinkFragment from "../nav/NavLinkFragment";
-import NavLinkFragmentSimple from "../nav/NavLinkFragmentSimple";
+ 
+export const ComponentSharedHeroBanner_QF = gql`
 
-const PageBodyDynamicZone = gql`
-${NavLinkFragment}
-${NavLinkFragmentSimple}
-
-fragment PageDynamicZone on PageBodyDynamicZone {
-    ... on ComponentSharedHeroBanner {
-      __typename 
-      items {
-        ... on ComponentSharedHeroBannerItem {
-          bg {
-            alternativeText
-            url
-          }
-          cta {
-            ...NavLinkFragment_QF
-          }
-        }
-      }
-    }
-
-    ... on ComponentSlidersServicesSlider {
-      __typename
-      title
-      slider_items: items {
-        icon {
+  fragment ComponentSharedHeroBanner_QF on ComponentSharedHeroBanner {
+    __typename
+    items {
+      ... on ComponentSharedHeroBannerItem {
+        bg {
           alternativeText
           url
         }
         cta {
-          ...NavLinkFragmentSimple_QF
+          ...NavLinkFragment_QF
         }
       }
-    }
-
-    ... on ComponentSharedRichText {
-        __typename
-        body
     }
   }
 `;
 
-export default PageBodyDynamicZone;
+export const ComponentSharedTwoColumnBanner_QF = gql`
+
+
+  fragment ComponentSharedTwoColumnBanner_QF on ComponentSharedTwoColumnBanner {
+    title
+    description
+    twoColumnBody {
+      body
+    }
+    cta {
+      ...NavLinkFragment_QF
+    }
+    media {
+      url
+      alternativeText
+    }
+  }
+`;
+
+export const ComponentSlidersServicesSlider_QF = gql`
+
+  fragment ComponentSlidersServicesSlider_QF on ComponentSlidersServicesSlider {
+    __typename
+    title
+    services_items {
+      icon {
+        alternativeText
+        url
+      }
+      cta {
+        ...NavLinkFragmentSimple_QF
+      }
+    }
+  }
+`;
+
+export const ComponentSharedHeroBannerItem_QF = gql`
+ 
+  fragment ComponentSharedHeroBannerItem_QF on ComponentSharedHeroBannerItem {
+    bg {
+      url
+      alternativeText
+    }
+    cta {
+      ...NavLinkFragmentSimple_QF
+    }
+    title
+    description
+  }
+`;
+
+export const ComponentAccordionFaq_QF = gql`
+  fragment ComponentAccordionFaq_QF on ComponentAccordionFaq {
+    title
+    searchPlaceholder
+    faqs {
+      question
+      answer
+    }
+  }
+`;
+
+export const ComponentGridsFourBlocksGrid_QF = gql`
+ 
+  fragment ComponentGridsFourBlocksGrid_QF on ComponentGridsFourBlocksGrid {
+    title
+    blocks_items {
+      title
+      description
+      bg {
+        url
+        alternativeText
+      }
+      cta {
+        ...NavLinkFragmentSimple_QF
+      }
+    }
+  }
+`;
+
+export const ComponentGridsArticleGrid_QF = gql`
+  fragment ComponentGridsArticleGrid_QF on ComponentGridsArticleGrid {
+    title
+    articleCategory {
+      slug
+    }
+    maxLength
+  }
+`;
+
+export const ComponentSharedAlertCard_QF = gql`
+
+  fragment ComponentSharedAlertCard_QF on ComponentSharedAlertCard {
+    title
+    subTitle
+    icon {
+      url
+      alternativeText
+    }
+    cta {
+      ...NavLinkFragmentSimple_QF
+    }
+  }
+`;
+
+ 

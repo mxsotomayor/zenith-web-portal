@@ -59,7 +59,7 @@ export default function HeroBanner({ items }: { items: Banner[] }) {
                     )}
 
                     <h2
-                      className="text-3xl sm:text-4xl md:text-6xl 2xl:text-7xl font-semibold mb-2 sm:mb-4 max-w-4xl"
+                      className="text-3xl sm:text-4xl md:text-6xl 2xl:text-7xl font-semibold mb-2 sm:mb-4  max-w-3xl 2xl:max-w-4xl"
                       dangerouslySetInnerHTML={{ __html: slide.title }}
                     ></h2>
                     <p

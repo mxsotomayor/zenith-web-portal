@@ -1,29 +1,12 @@
 import Image from "next/image";
 import React from "react";
 import LinkButton from "../LinkButton";
-import { Dot } from "lucide-react";
-import TwoColBannerProps, { ListText } from "./schema";
+import TwoColBannerProps from "./schema";
+import RichText from "../RichText";
 
 // type TwoColumBannerProps = {
 //   direction: "LEFT_RIGHT" | "RIGHT_LEFT";
 // };
-
-function ItemText({ item }: { item: string | ListText }) {
-  if (typeof item == "string") {
-    return <p>{item}</p>;
-  } else {
-    return (
-      <div className="grid gap-2">
-        {(item as ListText).map((item, index) => (
-          <div key={index} className="flex items-start">
-            <Dot className="w-4 h-4 min-w-4 mt-1" size="8" />{" "}
-            <ItemText item={item} />
-          </div>
-        ))}
-      </div>
-    );
-  }
-}
 
 function TwoColumnBanner({
   direction,
@@ -47,12 +30,14 @@ function TwoColumnBanner({
           <h3 className="font-bold text-4xl text-blue-900">{title}</h3>
           <h6 className="text-xl mb-3 text-slate-900">{subTitle}</h6>
           <div className="grid gap-2">
-            {body.map((item, index) => (
-              <ItemText key={index} item={item} />
-            ))}
-          </div> 
+            <RichText content={body} />
+          </div>
 
-          {cta && <div className="mt-3"><LinkButton href={cta.url ?? "#"}>{cta.text}</LinkButton></div>}
+          {cta && (
+            <div className="mt-3">
+              <LinkButton href={cta.url ?? "#"}>{cta.text}</LinkButton>
+            </div>
+          )}
         </div>
         <div className="flex-1 h-auto lg:min-h-[540px] relative flex justify-end items-end">
           {media.type == "img" ? (
@@ -70,7 +55,7 @@ function TwoColumnBanner({
               sandbox="allow-same-origin allow-forms allow-popups allow-scripts allow-presentation"
               src={media.url}
             ></iframe>
-          )} 
+          )}
         </div>
       </div>
     </div>

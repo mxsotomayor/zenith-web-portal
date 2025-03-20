@@ -17,10 +17,10 @@
 // import TwoColumnBanner from "@/components/TwoColBanner";
 // import TwoColumnInit from "@/components/TwoColBanner/dataInit";
 import { Metadata } from "next";
-import PageBuilder from "./core/page_builder/PageBuilder";
-import { ImportProps } from "./core/page_builder/schemas";
-import CMSGlobalService from "./core/services/CMSGlobalService";
-import CMSPagesService from "./core/services/CMSPagesService";
+import PageBuilder from "@/app/core/page_builder/PageBuilder";
+import { ImportProps } from "@/app/core/page_builder/schemas";
+import CMSPagesService from "@/app/core/services/CMSPagesService";
+import CMSGlobalService from "@/app/core/services/CMSGlobalService";
 
 export async function generateMetadata(): Promise<Metadata> {
   const globalSettings = await CMSGlobalService.get();
@@ -33,8 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const globalSettings = await CMSGlobalService.get();
-
+  const globalSettings = await CMSGlobalService.get(); 
   const DEFAULT_PAGE_ID = globalSettings.defaultSite?.page?.documentId ?? "";
 
   const page = await CMSPagesService.getByID(DEFAULT_PAGE_ID);
@@ -51,6 +50,11 @@ export default async function Home() {
         };
       }
     ) ?? [];
+
+    // pageBodyContent.push({
+    //   "_component":"TwoColumnBannerFragment",
+    //   "props": TwoColumnInit
+    // })
 
   return <PageBuilder items={pageBodyContent} />;
   // return (

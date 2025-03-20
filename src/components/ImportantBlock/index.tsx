@@ -49,7 +49,7 @@ function ImportantBlock({ title, bgColor, blocks }: ImportantBlockProps) {
                     width="300"
                     height="300"
                     alt=""
-                    className="object-cover "
+                    className="object-cover w-60 h-60 mr-4 mb-4"
                   />
                 </div>
               )}

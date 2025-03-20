@@ -1,56 +1,24 @@
 import { gql } from "@apollo/client";
-import NavLinkFragmentSimple from "../../fraqments/nav/NavLinkFragmentSimple";
+import NavLinkFragmentSimple_QF from "../../fraqments/nav/NavLinkFragmentSimple";
+import SubSite_QF from "../../fraqments/sites/Subsite_QF";
 
 const DefaultGlobalsQuery = gql`
-  ${NavLinkFragmentSimple}
+  ${NavLinkFragmentSimple_QF}
+  ${SubSite_QF}
   query getGlobals {
     global {
+      chatbotSetting {
+        botName
+        title
+        welcomeMessage
+      }
       callBackButton {
         title
         subTitle
         timeOpen
       }
       defaultSite {
-        documentId
-        navBar {
-          documentId
-          logo {
-            url
-            alternativeText
-          }
-          showLogin
-          showSearch
-          sub_sites {
-            displayName
-            slug
-          }
-          menus {
-            link {
-              ...NavLinkFragmentSimple_QF
-            }
-            campaign {
-              slug
-              title
-              description
-              bg {
-                url
-                alternativeText
-              }
-            }
-            sections {
-              title
-              items {
-                ...NavLinkFragmentSimple_QF
-              }
-            }
-          }
-        }
-        footer {
-          documentId
-        }
-        page {
-          documentId
-        }
+        ...Subsite_QF
       }
       defaultSeo {
         metaDescription
