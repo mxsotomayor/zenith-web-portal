@@ -17,10 +17,10 @@
 // import TwoColumnBanner from "@/components/TwoColBanner";
 // import TwoColumnInit from "@/components/TwoColBanner/dataInit";
 import { Metadata } from "next";
-import PageBuilder from "@/app/core/page_builder/PageBuilder";
-import { ImportProps } from "@/app/core/page_builder/schemas";
-import CMSPagesService from "@/app/core/services/CMSPagesService";
-import CMSGlobalService from "@/app/core/services/CMSGlobalService";
+import PageBuilder from "@/core/page_builder/PageBuilder"; 
+import CMSPagesService from "@/core/services/CMSPagesService";
+import { ImportProps } from "@/core/page_builder/schemas";
+import CMSGlobalService from "@/core/services/CMSGlobalService";
 
 export async function generateMetadata(): Promise<Metadata> {
   const globalSettings = await CMSGlobalService.get();

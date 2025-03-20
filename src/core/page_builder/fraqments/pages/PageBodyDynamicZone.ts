@@ -1,7 +1,6 @@
 import { gql } from "@apollo/client";
- 
-export const ComponentSharedHeroBanner_QF = gql`
 
+export const ComponentSharedHeroBanner_QF = gql`
   fragment ComponentSharedHeroBanner_QF on ComponentSharedHeroBanner {
     __typename
     items {
@@ -19,8 +18,6 @@ export const ComponentSharedHeroBanner_QF = gql`
 `;
 
 export const ComponentSharedTwoColumnBanner_QF = gql`
-
-
   fragment ComponentSharedTwoColumnBanner_QF on ComponentSharedTwoColumnBanner {
     title
     description
@@ -41,7 +38,6 @@ export const ComponentSharedTwoColumnBanner_QF = gql`
 `;
 
 export const ComponentSlidersServicesSlider_QF = gql`
-
   fragment ComponentSlidersServicesSlider_QF on ComponentSlidersServicesSlider {
     __typename
     title
@@ -58,7 +54,6 @@ export const ComponentSlidersServicesSlider_QF = gql`
 `;
 
 export const ComponentSharedHeroBannerItem_QF = gql`
- 
   fragment ComponentSharedHeroBannerItem_QF on ComponentSharedHeroBannerItem {
     bg {
       url
@@ -84,7 +79,6 @@ export const ComponentAccordionFaq_QF = gql`
 `;
 
 export const ComponentGridsFourBlocksGrid_QF = gql`
- 
   fragment ComponentGridsFourBlocksGrid_QF on ComponentGridsFourBlocksGrid {
     title
     blocks_items {
@@ -112,7 +106,6 @@ export const ComponentGridsArticleGrid_QF = gql`
 `;
 
 export const ComponentSharedAlertCard_QF = gql`
-
   fragment ComponentSharedAlertCard_QF on ComponentSharedAlertCard {
     title
     subTitle
@@ -126,4 +119,15 @@ export const ComponentSharedAlertCard_QF = gql`
   }
 `;
 
- 
+export const ComponentSlidersMobileAppAd_QF = gql`
+  fragment ComponentSlidersMobileAppAd_QF on ComponentSlidersMobileAppAd {
+    title
+    subTitle
+    appScreens {
+      url
+      alternativeText
+    }
+    appleStoreUrl
+    googlePlayUrl
+  }
+`;

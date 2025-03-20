@@ -1,7 +1,17 @@
 import { gql } from "@apollo/client";
 import NavLinkFragment from "../../fraqments/nav/NavLinkFragment";
 import NavLinkFragmentSimple_QF from "../../fraqments/nav/NavLinkFragmentSimple";
-import { ComponentAccordionFaq_QF, ComponentGridsArticleGrid_QF, ComponentGridsFourBlocksGrid_QF, ComponentSharedAlertCard_QF, ComponentSharedHeroBanner_QF, ComponentSharedHeroBannerItem_QF, ComponentSharedTwoColumnBanner_QF, ComponentSlidersServicesSlider_QF } from "../../fraqments/pages/PageBodyDynamicZone";
+import {
+  ComponentAccordionFaq_QF,
+  ComponentGridsArticleGrid_QF,
+  ComponentGridsFourBlocksGrid_QF,
+  ComponentSharedAlertCard_QF,
+  ComponentSharedHeroBanner_QF,
+  ComponentSharedHeroBannerItem_QF,
+  ComponentSharedTwoColumnBanner_QF,
+  ComponentSlidersServicesSlider_QF,
+  ComponentSlidersMobileAppAd_QF,
+} from "../../fraqments/pages/PageBodyDynamicZone";
 
 const GetPageBySlugQuery = gql`
   ${NavLinkFragment}
@@ -25,7 +35,7 @@ const GetPageBySlugQuery = gql`
         url
       }
       slug
-      body { 
+      body {
         ... on ComponentSharedTwoColumnBanner {
           ...ComponentSharedTwoColumnBanner_QF
         }
@@ -67,10 +77,9 @@ const GetPageBySlugQuery = gql`
   }
 `;
 
-export const GetPageByIDQuery = gql` 
+export const GetPageByIDQuery = gql`
   ${NavLinkFragment}
   ${NavLinkFragmentSimple_QF}
-
 
   ${ComponentSharedTwoColumnBanner_QF}
   ${ComponentSharedHeroBanner_QF}
@@ -80,6 +89,7 @@ export const GetPageByIDQuery = gql`
   ${ComponentGridsFourBlocksGrid_QF}
   ${ComponentGridsArticleGrid_QF}
   ${ComponentSharedAlertCard_QF}
+  ${ComponentSlidersMobileAppAd_QF}
 
   query getPageByID($documentId: ID!) {
     page(documentId: $documentId) {
@@ -126,6 +136,10 @@ export const GetPageByIDQuery = gql`
 
         ... on ComponentSharedAlertCard {
           ...ComponentSharedAlertCard_QF
+        }
+
+        ... on ComponentSlidersMobileAppAd {
+          ...ComponentSlidersMobileAppAd_QF
         }
       }
     }

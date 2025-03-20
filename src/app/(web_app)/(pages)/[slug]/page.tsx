@@ -1,6 +1,6 @@
-import PageBuilder from "@/app/core/page_builder/PageBuilder";
-import { ImportProps } from "@/app/core/page_builder/schemas";
-import CMSPagesService from "@/app/core/services/CMSPagesService";
+import PageBuilder from "@/core/page_builder/PageBuilder";
+import { ImportProps } from "@/core/page_builder/schemas";
+import CMSPagesService from "@/core/services/CMSPagesService";
 import { notFound } from "next/navigation";
 import React from "react";
 

@@ -1,7 +1,7 @@
 import {} from "@/__generated__/graphql";
-import PageBuilder from "@/app/core/page_builder/PageBuilder";
-import { ImportProps } from "@/app/core/page_builder/schemas";
-import CMSCampaignService from "@/app/core/services/CMSCampaignService";
+import PageBuilder from "@/core/page_builder/PageBuilder";
+import { ImportProps } from "@/core/page_builder/schemas";
+import CMSCampaignService from "@/core/services/CMSCampaignService";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
