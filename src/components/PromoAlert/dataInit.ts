@@ -1,4 +1,4 @@
-import PromoAlertProps from "./schema";
+import PromoAlertProps from "./types";
 
 const PromoAlertInit: PromoAlertProps = {
   title: "Protégete de mensajes fraudulentos",

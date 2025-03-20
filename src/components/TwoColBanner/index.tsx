@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import LinkButton from "../LinkButton";
-import TwoColBannerProps from "./schema";
+import TwoColBannerProps from "./types";
 import RichText from "../RichText";
 
 // type TwoColumBannerProps = {

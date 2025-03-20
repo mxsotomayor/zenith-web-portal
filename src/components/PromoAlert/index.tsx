@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import PromoAlertProps from "./schema";
+import PromoAlertProps from "./types";
 import Image from "next/image";
 
 function PromoAlert({ title, subTitle, icon, cta, altCta }: PromoAlertProps) {

@@ -9,7 +9,7 @@ function CampaignBanner({
 }: CampaignBannerProps) {
   return (
     <div className="h-[600px] flex relative">
-      <div className="w-40 h-40 bg-orange-500 absolute -bottom-20 right-1/2 z-40"></div>
+      <div className="w-40 h-40 bg-orange-500 absolute -bottom-14 right-1/2 z-40"></div>
       <div className="absolute top-0 w-full h-full flex z-0">
         <div className="flex-1 bg-orange-500"></div>
         <div className="flex-1   relative flex items-center justify-center">
