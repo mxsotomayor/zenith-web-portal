@@ -3,6 +3,43 @@ import { ImportProps } from "@/core/page_builder/schemas";
 import CMSPagesService from "@/core/services/CMSPagesService";
 import { notFound } from "next/navigation";
 import React from "react";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const page = await CMSPagesService.getBySlug((await params).slug ?? "");
+  return {
+    title: page.metaTitle,
+    description: page.metaDescription,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_URL ?? ""}/${page.slug}`,
+      media: {
+        [page.sharedImage?.url ?? ""]: `${
+          process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? ""
+        }${page.sharedImage?.url}`,
+      },
+    },
+    openGraph: {
+      title: page.metaTitle ?? "",
+      description: page.metaDescription ?? "  ",
+      type: "website",
+      url: `${process.env.NEXT_PUBLIC_URL ?? ""}/${page.slug}`,
+      images: [
+        {
+          url:
+            (process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? "") +
+            page.sharedImage?.url,
+          width: 800,
+          height: 600,
+          alt: page.sharedImage?.alternativeText ?? "",
+        },
+      ],
+    },
+  };
+}
 
 async function SlugPage({ params }: { params: Promise<{ slug: string }> }) {
   const page = await CMSPagesService.getBySlug((await params).slug ?? "");

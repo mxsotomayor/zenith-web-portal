@@ -29,6 +29,30 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: page.metaTitle,
     description: page.metaDescription,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_URL ?? ""}/${page.slug}`,
+      media: {
+        [page.sharedImage?.url ?? ""]: `${
+          process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? ""
+        }${page.sharedImage?.url}`,
+      },
+    },
+    openGraph: {
+      title: page.metaTitle ?? "",
+      description: page.metaDescription ?? "  ",
+      type: "website",
+      url: `${process.env.NEXT_PUBLIC_URL ?? ""}/${page.slug}`,
+      images: [
+        {
+          url:
+            (process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? "") +
+            page.sharedImage?.url,
+          width: 800,
+          height: 600,
+          alt: page.sharedImage?.alternativeText ?? "",
+        },
+      ],
+    },
   };
 }
 

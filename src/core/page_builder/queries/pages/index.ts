@@ -25,6 +25,7 @@ const GetPageBySlugQuery = gql`
   ${ComponentGridsFourBlocksGrid_QF}
   ${ComponentGridsArticleGrid_QF}
   ${ComponentSharedAlertCard_QF}
+  ${ComponentSlidersMobileAppAd_QF}
 
   query getPageOne($filterInput: PageFiltersInput) {
     pages(filters: $filterInput) {
@@ -71,6 +72,11 @@ const GetPageBySlugQuery = gql`
 
         ... on ComponentSharedAlertCard {
           ...ComponentSharedAlertCard_QF
+        }
+        
+
+        ... on ComponentSlidersMobileAppAd {
+          ...ComponentSlidersMobileAppAd_QF
         }
       }
     }

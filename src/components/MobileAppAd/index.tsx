@@ -31,7 +31,7 @@ function MobileAppAdd({
   return (
     <div className="bg-blue-700">
       <div className="container mx-auto px-4 2xl:px-0 py-12 flex">
-        <div className="flex-1 h-[630px] min-h-[630px]  overflow-hidden relative">
+        <div className="flex-1 h-[630px] min-h-[630px]  overflow-hidden hidden relative lg:block">
           <Slider {...settings}>
             {images.map((image, index) => (
               <div key={index} className="h-[630px] min-h-[630px] relative ">
@@ -49,9 +49,9 @@ function MobileAppAdd({
           </Slider>
         </div>
         <div className="flex-1 flex flex-col justify-center  text-white">
-          <h2 className="font-semibold text-5xl">{title}</h2>
-          <p className="text-2xl mt-4">{subTitle}</p>
-          <div className="flex gap-4 mt-8">
+          <h2 className="font-semibold text-3xl lg:text-5xl">{title}</h2>
+          <p className="text-lg lg:text-2xl mt-4">{subTitle}</p>
+          <div className="flex flex-col sm:flex-row gap-4 mt-8">
             {appleStore && (
               <Link href={appleStore}>
                 <Image

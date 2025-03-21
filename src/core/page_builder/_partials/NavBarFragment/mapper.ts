@@ -4,7 +4,7 @@ import { extractNavLinkHref, extractNavLinkText } from "../../utils";
 
 const mapper = (props: Navbar): MenuProps => {
   return {
-    logoUrl: `${process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API}${props?.logo?.url}`,
+    logoUrl: `${process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API}${props?.logo?.url ?? ""}`,
     logoAltText: props.logo?.alternativeText ?? "",
     showLogin: props.showLogin ?? false,
     showSearch: props.showSearch ?? false,

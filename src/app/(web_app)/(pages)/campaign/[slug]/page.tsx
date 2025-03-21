@@ -5,13 +5,11 @@ import CMSCampaignService from "@/core/services/CMSCampaignService";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-
   const campaignSlug = (await params).slug;
 
   const campaign = await CMSCampaignService.getByID(campaignSlug);
@@ -21,10 +19,32 @@ export async function generateMetadata({
   return {
     title: campaign.title,
     description: campaign.description,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_URL ?? ""}/${campaign.slug}`,
+      media: {
+        [campaign.bg?.url ?? ""]: `${
+          process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? ""
+        }${campaign.bg?.url}`,
+      },
+    },
+    openGraph: {
+      title: campaign.title ?? "",
+      description: campaign.description ?? "",
+      type: "website",
+      url: `${process.env.NEXT_PUBLIC_URL ?? ""}/${campaign.slug}`,
+      images: [
+        {
+          url:
+            (process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? "") +
+            campaign.bg?.url,
+          width: 800,
+          height: 600,
+          alt: campaign.bg?.alternativeText ?? "",
+        },
+      ],
+    },
   };
 }
-
-
 
 export default async function Home({
   params,
