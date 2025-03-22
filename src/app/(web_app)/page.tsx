@@ -17,10 +17,10 @@
 // import TwoColumnBanner from "@/components/TwoColBanner";
 // import TwoColumnInit from "@/components/TwoColBanner/dataInit";
 import { Metadata } from "next";
-import PageBuilder from "@/app/core/page_builder/PageBuilder";
-import { ImportProps } from "@/app/core/page_builder/schemas";
-import CMSPagesService from "@/app/core/services/CMSPagesService";
-import CMSGlobalService from "@/app/core/services/CMSGlobalService";
+import PageBuilder from "@/core/page_builder/PageBuilder"; 
+import CMSPagesService from "@/core/services/CMSPagesService";
+import { ImportProps } from "@/core/page_builder/schemas";
+import CMSGlobalService from "@/core/services/CMSGlobalService";
 
 export async function generateMetadata(): Promise<Metadata> {
   const globalSettings = await CMSGlobalService.get();
@@ -29,6 +29,30 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: page.metaTitle,
     description: page.metaDescription,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_URL ?? ""}/${page.slug}`,
+      media: {
+        [page.sharedImage?.url ?? ""]: `${
+          process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? ""
+        }${page.sharedImage?.url}`,
+      },
+    },
+    openGraph: {
+      title: page.metaTitle ?? "",
+      description: page.metaDescription ?? "  ",
+      type: "website",
+      url: `${process.env.NEXT_PUBLIC_URL ?? ""}/${page.slug}`,
+      images: [
+        {
+          url:
+            (process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? "") +
+            page.sharedImage?.url,
+          width: 800,
+          height: 600,
+          alt: page.sharedImage?.alternativeText ?? "",
+        },
+      ],
+    },
   };
 }
 

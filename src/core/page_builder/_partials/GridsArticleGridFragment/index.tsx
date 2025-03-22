@@ -4,7 +4,7 @@ import { ComponentGridsArticleGrid } from "@/__generated__/graphql";
 import ArticleGrid from "@/components/ArticleGrid";
 import React from "react";
 import mapper from "./mapper";
-import ApolloWrapperProvider from "@/app/core/lib/apollo-wrapper";
+import ApolloWrapperProvider from "@/core/lib/apollo-wrapper";
 import { useQuery } from "@apollo/client";
 import { getArticlesQuery } from "../../queries/articles";
 

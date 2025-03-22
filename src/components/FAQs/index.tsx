@@ -39,10 +39,10 @@ export default function FAQBlock({ title, search, items }: FAQProps) {
         <Accordion type="single" collapsible className="w-full">
           {filteredFaqs.map((faq, index) => (
             <AccordionItem value={`item-${index}`} key={index}>
-              <AccordionTrigger className="text-left font-semibold [&[data-state='open']]:bg-slate-50 hover:bg-slate-100 px-4">
-                <span dangerouslySetInnerHTML={{ __html: faq.question }}></span>
+              <AccordionTrigger className="text-left font-semibold [&[data-state='open']]:bg-slate-50 hover:bg-slate-100 px-4 ">
+                <span dangerouslySetInnerHTML={{ __html: faq.question }} className="text-lg"></span>
               </AccordionTrigger>
-              <AccordionContent className="px-4 pt-4">
+              <AccordionContent className="px-4 pt-4 text-lg">
                 <span dangerouslySetInnerHTML={{ __html: faq.answer }}></span>
               </AccordionContent>
             </AccordionItem>

@@ -223,7 +223,7 @@ export type CampaignHightlightsArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type CampaignBodyDynamicZone = ComponentSharedAlertCard | ComponentSharedRichText | ComponentSharedTwoColumnBanner | Error;
+export type CampaignBodyDynamicZone = ComponentAccordionFaq | ComponentSharedAlertCard | ComponentSharedRichText | ComponentSharedTwoColumnBanner | Error;
 
 export type CampaignEntityResponseCollection = {
   __typename?: 'CampaignEntityResponseCollection';
@@ -392,6 +392,18 @@ export type ComponentButtonLoginButtonInput = {
   href?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
   text?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentFormCustomerCbForm = {
+  __typename?: 'ComponentFormCustomerCbForm';
+  contactTimeLabel?: Maybe<Scalars['String']['output']>;
+  endpoint?: Maybe<Scalars['String']['output']>;
+  formSubTitle?: Maybe<Scalars['String']['output']>;
+  formTitle?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  nameLabel?: Maybe<Scalars['String']['output']>;
+  observationsLabel?: Maybe<Scalars['String']['output']>;
+  phoneLabel?: Maybe<Scalars['String']['output']>;
 };
 
 export type ComponentGridsArticleGrid = {
@@ -635,6 +647,31 @@ export type ComponentSharedTwoColumnBanner = {
   twoColumnBody?: Maybe<ComponentSharedRichText>;
 };
 
+export type ComponentSlidersMobileAppAd = {
+  __typename?: 'ComponentSlidersMobileAppAd';
+  appScreens: Array<Maybe<UploadFile>>;
+  appScreens_connection?: Maybe<UploadFileRelationResponseCollection>;
+  appleStoreUrl?: Maybe<Scalars['String']['output']>;
+  googlePlayUrl?: Maybe<Scalars['String']['output']>;
+  id: Scalars['ID']['output'];
+  subTitle?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentSlidersMobileAppAdAppScreensArgs = {
+  filters?: InputMaybe<UploadFileFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ComponentSlidersMobileAppAdAppScreens_ConnectionArgs = {
+  filters?: InputMaybe<UploadFileFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type ComponentSlidersServiceSliderItem = {
   __typename?: 'ComponentSlidersServiceSliderItem';
   cta?: Maybe<ComponentNavNavLink>;
@@ -679,6 +716,68 @@ export type ComponentTextCampaignHighlightFiltersInput = {
 export type ComponentTextCampaignHighlightInput = {
   highlight?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type CustomerCbReason = {
+  __typename?: 'CustomerCbReason';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type CustomerCbReasonEntityResponseCollection = {
+  __typename?: 'CustomerCbReasonEntityResponseCollection';
+  nodes: Array<CustomerCbReason>;
+  pageInfo: Pagination;
+};
+
+export type CustomerCbReasonFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<CustomerCbReasonFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  documentId?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<CustomerCbReasonFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<CustomerCbReasonFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type CustomerCbReasonInput = {
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CustomerCbSchedule = {
+  __typename?: 'CustomerCbSchedule';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type CustomerCbScheduleEntityResponseCollection = {
+  __typename?: 'CustomerCbScheduleEntityResponseCollection';
+  nodes: Array<CustomerCbSchedule>;
+  pageInfo: Pagination;
+};
+
+export type CustomerCbScheduleFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<CustomerCbScheduleFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  documentId?: InputMaybe<IdFilterInput>;
+  not?: InputMaybe<CustomerCbScheduleFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<CustomerCbScheduleFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type CustomerCbScheduleInput = {
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DateTimeFilterInput = {
@@ -867,7 +966,7 @@ export type FooterRelationResponseCollection = {
   nodes: Array<Footer>;
 };
 
-export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentBotChatBotSetting | ComponentButtonCallBackButton | ComponentButtonLoginButton | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSharedTwoColumnBanner | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentBotChatBotSetting | ComponentButtonCallBackButton | ComponentButtonLoginButton | ComponentFormCustomerCbForm | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSharedTwoColumnBanner | ComponentSlidersMobileAppAd | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | CustomerCbReason | CustomerCbSchedule | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
@@ -1023,6 +1122,8 @@ export type Mutation = {
   createAuthor?: Maybe<Author>;
   createCampaign?: Maybe<Campaign>;
   createCategory?: Maybe<Category>;
+  createCustomerCbReason?: Maybe<CustomerCbReason>;
+  createCustomerCbSchedule?: Maybe<CustomerCbSchedule>;
   createFaq?: Maybe<Faq>;
   createFooter?: Maybe<Footer>;
   createNavbar?: Maybe<Navbar>;
@@ -1039,6 +1140,8 @@ export type Mutation = {
   deleteAuthor?: Maybe<DeleteMutationResponse>;
   deleteCampaign?: Maybe<DeleteMutationResponse>;
   deleteCategory?: Maybe<DeleteMutationResponse>;
+  deleteCustomerCbReason?: Maybe<DeleteMutationResponse>;
+  deleteCustomerCbSchedule?: Maybe<DeleteMutationResponse>;
   deleteFaq?: Maybe<DeleteMutationResponse>;
   deleteFooter?: Maybe<DeleteMutationResponse>;
   deleteGlobal?: Maybe<DeleteMutationResponse>;
@@ -1066,6 +1169,8 @@ export type Mutation = {
   updateAuthor?: Maybe<Author>;
   updateCampaign?: Maybe<Campaign>;
   updateCategory?: Maybe<Category>;
+  updateCustomerCbReason?: Maybe<CustomerCbReason>;
+  updateCustomerCbSchedule?: Maybe<CustomerCbSchedule>;
   updateFaq?: Maybe<Faq>;
   updateFooter?: Maybe<Footer>;
   updateGlobal?: Maybe<Global>;
@@ -1110,6 +1215,18 @@ export type MutationCreateCampaignArgs = {
 
 export type MutationCreateCategoryArgs = {
   data: CategoryInput;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationCreateCustomerCbReasonArgs = {
+  data: CustomerCbReasonInput;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationCreateCustomerCbScheduleArgs = {
+  data: CustomerCbScheduleInput;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1186,6 +1303,16 @@ export type MutationDeleteCampaignArgs = {
 
 
 export type MutationDeleteCategoryArgs = {
+  documentId: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteCustomerCbReasonArgs = {
+  documentId: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteCustomerCbScheduleArgs = {
   documentId: Scalars['ID']['input'];
 };
 
@@ -1300,6 +1427,20 @@ export type MutationUpdateCampaignArgs = {
 
 export type MutationUpdateCategoryArgs = {
   data: CategoryInput;
+  documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationUpdateCustomerCbReasonArgs = {
+  data: CustomerCbReasonInput;
+  documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationUpdateCustomerCbScheduleArgs = {
+  data: CustomerCbScheduleInput;
   documentId: Scalars['ID']['input'];
   status?: InputMaybe<PublicationStatus>;
 };
@@ -1520,7 +1661,7 @@ export type PageLocalizations_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedTwoColumnBanner | ComponentSlidersServicesSlider | Error;
+export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedTwoColumnBanner | ComponentSlidersMobileAppAd | ComponentSlidersServicesSlider | Error;
 
 export type PageEntityResponseCollection = {
   __typename?: 'PageEntityResponseCollection';
@@ -1594,6 +1735,12 @@ export type Query = {
   categories: Array<Maybe<Category>>;
   categories_connection?: Maybe<CategoryEntityResponseCollection>;
   category?: Maybe<Category>;
+  customerCbReason?: Maybe<CustomerCbReason>;
+  customerCbReasons: Array<Maybe<CustomerCbReason>>;
+  customerCbReasons_connection?: Maybe<CustomerCbReasonEntityResponseCollection>;
+  customerCbSchedule?: Maybe<CustomerCbSchedule>;
+  customerCbSchedules: Array<Maybe<CustomerCbSchedule>>;
+  customerCbSchedules_connection?: Maybe<CustomerCbScheduleEntityResponseCollection>;
   faQs: Array<Maybe<Faq>>;
   faQs_connection?: Maybe<FaqEntityResponseCollection>;
   faq?: Maybe<Faq>;
@@ -1724,6 +1871,50 @@ export type QueryCategories_ConnectionArgs = {
 
 export type QueryCategoryArgs = {
   documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryCustomerCbReasonArgs = {
+  documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryCustomerCbReasonsArgs = {
+  filters?: InputMaybe<CustomerCbReasonFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryCustomerCbReasons_ConnectionArgs = {
+  filters?: InputMaybe<CustomerCbReasonFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryCustomerCbScheduleArgs = {
+  documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryCustomerCbSchedulesArgs = {
+  filters?: InputMaybe<CustomerCbScheduleFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryCustomerCbSchedules_ConnectionArgs = {
+  filters?: InputMaybe<CustomerCbScheduleFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;
 };
 

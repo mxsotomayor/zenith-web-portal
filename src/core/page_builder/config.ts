@@ -10,6 +10,7 @@ const partialScaffoldMap: Record<string, string> = {
   ComponentSharedAlertCard  : "SharedAlertCardFragment",
   CampaignBannerFragment  : "CampaignBannerFragment",
   ComponentSharedTwoColumnBanner  : "TwoColumnBannerFragment",
+  ComponentSlidersMobileAppAd  : "MobileAppAdFragment",
 };
 
 export default partialScaffoldMap;

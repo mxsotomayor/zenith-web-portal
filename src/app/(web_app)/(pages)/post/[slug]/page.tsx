@@ -1,10 +1,10 @@
  
 
-import { getClient } from "@/app/core/lib/graphqlClient";
-import PageBuilder from "@/app/core/page_builder/PageBuilder";
-import DefaultGlobalsQuery from "@/app/core/page_builder/queries/globals";
-import { GetPageByIDQuery } from "@/app/core/page_builder/queries/pages";
-import { ImportProps } from "@/app/core/page_builder/schemas";
+import { getClient } from "@/core/lib/graphqlClient";
+import PageBuilder from "@/core/page_builder/PageBuilder";
+import DefaultGlobalsQuery from "@/core/page_builder/queries/globals";
+import { GetPageByIDQuery } from "@/core/page_builder/queries/pages";
+import { ImportProps } from "@/core/page_builder/schemas";
 
  
 
