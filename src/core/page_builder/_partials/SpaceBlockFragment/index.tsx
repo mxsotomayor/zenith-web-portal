@@ -1,8 +1,11 @@
+import BlockSpace from '@/components/BlockSpace'
 import React from 'react'
 
 function SpaceBlockFragment() {
   return (
-    <div>SpaceBlockFragment</div>
+    <div>
+        <BlockSpace size='md'/>
+    </div>
   )
 }
 
