@@ -6,6 +6,51 @@ import React from "react";
 import CMSPagesService from "@/core/services/CMSPagesService";
 import { ImportProps } from "@/core/page_builder/schemas";
 import PageBuilder from "@/core/page_builder/PageBuilder";
+import {Metadata} from "next"
+
+export async function generateMetadata(): Promise<Metadata> {
+
+  const currentSite = await CMSSubSiteService.getBySlug("business");
+
+  if (!currentSite) {
+    notFound();
+  }
+
+  const page = await CMSPagesService.getByID(
+    currentSite.page?.documentId ?? ""
+  );
+
+  
+  return {
+    title: page.metaTitle,
+    description: page.metaDescription,
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_URL ?? ""}/sites/business`,
+      media: {
+        [page.sharedImage?.url ?? ""]: `${
+          process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? ""
+        }${page.sharedImage?.url}`,
+      },
+    },
+    openGraph: {
+      title: page.metaTitle ?? "",
+      description: page.metaDescription ?? "  ",
+      type: "website",
+      url: `${process.env.NEXT_PUBLIC_URL ?? ""}/${page.slug}`,
+      images: [
+        {
+          url:
+            (process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API ?? "") +
+            page.sharedImage?.url,
+          width: 800,
+          height: 600,
+          alt: page.sharedImage?.alternativeText ?? "",
+        },
+      ],
+    },
+  };
+}
+
 
 async function BusinessPage() {
   const currentSite = await CMSSubSiteService.getBySlug("business");

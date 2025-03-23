@@ -6,7 +6,7 @@ type Banner = {
   };
   title: string;
   description: string;
-  cta: {
+  cta?: {
     text: string;
     url: string;
   };

@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/carousel";
 import Link from "next/link";
 import Banner from "./schema";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, ChevronRight } from "lucide-react";
 
 export default function HeroBanner({ items }: { items: Banner[] }) {
   const [api, setApi] = useState<CarouselApi>();
@@ -78,13 +78,14 @@ export default function HeroBanner({ items }: { items: Banner[] }) {
                       </ul>
                     )}
 
-                    <Button
-                      asChild
-                      className="w-fit h-12 bg-orange-600 hover:bg-orange-500"
-                      size="lg"
-                    >
-                      <Link href={slide.cta.url}>{slide.cta.text}</Link>
-                    </Button>
+                    {
+                      slide.cta && ( 
+                        <Link href={slide.cta.url} className="w-fit flex items-center rounded text-sm px-6 h-12 bg-orange-600 hover:bg-orange-500 gap-3">
+                          <span>{slide.cta.text}</span>
+                         <ChevronRight />
+                        </Link> 
+                      )
+                    }
                   </div>
                 </CardContent>
               </Card>

@@ -12,10 +12,10 @@ const mapper = (data: ComponentSharedHeroBanner): Banner[] => {
         item?.cta?.campaign?.title ??
         item?.cta?.article?.title ??
         "[no-title]",
-      cta: {
-        text: item?.cta?.text ?? "[add cta]",
+      cta: item?.cta?.text ? {
+        text: item?.cta?.text ?? "[no-text]",
         url: extractNavLinkHref(item?.cta),
-      },
+      }: undefined,
       media: {
         alt:
           item?.bg?.alternativeText ??
