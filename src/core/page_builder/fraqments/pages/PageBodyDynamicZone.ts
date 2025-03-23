@@ -5,6 +5,8 @@ export const ComponentSharedHeroBanner_QF = gql`
     __typename
     items {
       ... on ComponentSharedHeroBannerItem {
+        title
+        description
         bg {
           alternativeText
           url
