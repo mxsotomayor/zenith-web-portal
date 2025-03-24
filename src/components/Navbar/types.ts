@@ -43,7 +43,7 @@ type SubMenuProps = {
   blocks: SubMenuBlockProps[];
 };
 
-type SubMenuBlockProps = { title: string; items: AProps[] };
+export type SubMenuBlockProps = { title: string; items: AProps[] };
 
 type AProps = {
   text: string;

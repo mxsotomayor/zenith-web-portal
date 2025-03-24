@@ -14,7 +14,7 @@ import React, { useEffect, useState } from "react";
 import SearchBox from "./SearchBox";
 import GlobalMenu from "./GlobalMenu";
 // import { mainMenuItems, menuSettings } from "./dataInit";
-import { MenuLink, NavBarProps } from "./schema";
+import { MenuLink, NavBarProps } from "./types";
 import {
   DropdownMenu,
   DropdownMenuContent,

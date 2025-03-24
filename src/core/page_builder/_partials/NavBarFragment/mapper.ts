@@ -1,5 +1,5 @@
 import { Navbar } from "@/__generated__/graphql";
-import { MenuProps } from "@/components/Navbar/schema";
+import { MenuProps } from "@/components/Navbar/types";
 import { extractNavLinkHref, extractNavLinkText } from "../../utils";
 
 const mapper = (props: Navbar): MenuProps => {

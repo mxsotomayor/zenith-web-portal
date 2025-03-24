@@ -53,6 +53,11 @@ const SubSite_QF = gql`
     }
     footer {
       documentId
+      footerSlogan
+      footerLogo {
+        url
+        alternativeText
+      }
       sections {
         title
         items {

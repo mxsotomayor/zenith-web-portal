@@ -905,6 +905,8 @@ export type Footer = {
   __typename?: 'Footer';
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
+  footerLogo?: Maybe<UploadFile>;
+  footerSlogan?: Maybe<Scalars['String']['output']>;
   locale?: Maybe<Scalars['String']['output']>;
   localizations: Array<Maybe<Footer>>;
   localizations_connection?: Maybe<FooterRelationResponseCollection>;
@@ -945,6 +947,7 @@ export type FooterFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<FooterFiltersInput>>>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   documentId?: InputMaybe<IdFilterInput>;
+  footerSlogan?: InputMaybe<StringFilterInput>;
   locale?: InputMaybe<StringFilterInput>;
   localizations?: InputMaybe<FooterFiltersInput>;
   not?: InputMaybe<FooterFiltersInput>;
@@ -956,6 +959,8 @@ export type FooterFiltersInput = {
 };
 
 export type FooterInput = {
+  footerLogo?: InputMaybe<Scalars['ID']['input']>;
+  footerSlogan?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   sections?: InputMaybe<Array<InputMaybe<ComponentNavNavBarSectionInput>>>;
   title?: InputMaybe<Scalars['String']['input']>;
@@ -1644,6 +1649,7 @@ export type Page = {
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   sharedImage?: Maybe<UploadFile>;
   slug?: Maybe<Scalars['String']['output']>;
+  subSiteOwner?: Maybe<SubSite>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
 };
 
@@ -1682,6 +1688,7 @@ export type PageFiltersInput = {
   or?: InputMaybe<Array<InputMaybe<PageFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   slug?: InputMaybe<StringFilterInput>;
+  subSiteOwner?: InputMaybe<SubSiteFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
 };
 
@@ -1693,6 +1700,7 @@ export type PageInput = {
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
   sharedImage?: InputMaybe<Scalars['ID']['input']>;
   slug?: InputMaybe<Scalars['String']['input']>;
+  subSiteOwner?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type PageRelationResponseCollection = {
