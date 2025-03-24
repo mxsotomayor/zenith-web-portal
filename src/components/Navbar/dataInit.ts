@@ -1,4 +1,4 @@
-import { MenuLink, MenuProps } from "./schema";
+import { MenuLink, MenuProps } from "./types";
 
 export const mainMenuItems: MenuLink[] = [
   {

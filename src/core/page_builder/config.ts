@@ -11,6 +11,8 @@ const partialScaffoldMap: Record<string, string> = {
   CampaignBannerFragment  : "CampaignBannerFragment",
   ComponentSharedTwoColumnBanner  : "TwoColumnBannerFragment",
   ComponentSlidersMobileAppAd  : "MobileAppAdFragment",
+  ComponentFormsLoanSimulator  : "FormsLoanSimulatorFragment",
+  ComponentFormsForexSimulator  : "FormsForexSimulatorFragment",
 };
 
 export default partialScaffoldMap;

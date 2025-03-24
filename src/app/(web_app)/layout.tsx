@@ -5,6 +5,7 @@ import CMSGlobalService from "@/core/services/CMSGlobalService";
 import NavBarFragment from "@/core/page_builder/_partials/NavBarFragment";
 import PhoneCallLeadButton from "@/components/PhoneCallLeadButton";
 import ChatBotBox from "@/components/ChatBotBox";
+import FooterFragment from "@/core/page_builder/_partials/FooterFragment";
 
 const baseFont = Open_Sans({
   weight: ["400", "600", "800"],
@@ -51,7 +52,11 @@ export default async function RootLayout({
           />
         )}
         {/* <CookiesNotice /> */}
-        {/* <Footer />  */}
+       
+
+        {globalSettings?.defaultSite?.footer && (
+           <FooterFragment {...globalSettings.defaultSite.footer} />
+        )}
       </body>
     </html>
   );

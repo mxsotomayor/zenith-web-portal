@@ -133,3 +133,22 @@ export const ComponentSlidersMobileAppAd_QF = gql`
     googlePlayUrl
   }
 `;
+
+export const ComponentFormsLoanSimulator_QF = gql`
+  fragment ComponentFormsLoanSimulator_QF on ComponentFormsLoanSimulator {
+    title
+    subtitle
+  }
+`;
+
+export const ComponentFormsForexSimulator_QF = gql`
+  fragment ComponentFormsForexSimulator_QF on ComponentFormsForexSimulator {
+    title
+    for_ex_items {
+      name
+      iso2
+      buy
+      sell
+    }
+  }
+`;

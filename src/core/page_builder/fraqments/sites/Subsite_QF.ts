@@ -53,6 +53,19 @@ const SubSite_QF = gql`
     }
     footer {
       documentId
+      footerSlogan
+      footerLogo {
+        url
+        alternativeText
+      }
+      banks_locations {
+        address
+        name
+        lat
+        lng
+        phone
+        email
+      }
       sections {
         title
         items {

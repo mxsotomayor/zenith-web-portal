@@ -25,3 +25,7 @@ export const extractNavLinkHref = (item: Maybe<ComponentNavNavLink> | undefined)
     ""
   );
 };
+
+export const generateCMSMedia = (path = "") => {
+    return `${process.env.NEXT_PUBLIC_STRAPI_CMS_BASE_API}${path}`
+}
