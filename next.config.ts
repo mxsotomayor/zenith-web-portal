@@ -31,6 +31,11 @@ const nextConfig: NextConfig = {
         pathname: "/**",
         search: "",
       },
+      {
+        protocol: "https",
+        hostname: "flagsapi.com", 
+        pathname: "/**",
+      },
     ],
   },
 };

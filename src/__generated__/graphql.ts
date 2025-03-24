@@ -406,6 +406,35 @@ export type ComponentFormCustomerCbForm = {
   phoneLabel?: Maybe<Scalars['String']['output']>;
 };
 
+export type ComponentFormsForexSimulator = {
+  __typename?: 'ComponentFormsForexSimulator';
+  for_ex_items: Array<Maybe<ForexItem>>;
+  for_ex_items_connection?: Maybe<ForexItemRelationResponseCollection>;
+  id: Scalars['ID']['output'];
+  title?: Maybe<Scalars['String']['output']>;
+};
+
+
+export type ComponentFormsForexSimulatorFor_Ex_ItemsArgs = {
+  filters?: InputMaybe<ForexItemFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type ComponentFormsForexSimulatorFor_Ex_Items_ConnectionArgs = {
+  filters?: InputMaybe<ForexItemFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentFormsLoanSimulator = {
+  __typename?: 'ComponentFormsLoanSimulator';
+  id: Scalars['ID']['output'];
+  subtitle?: Maybe<Scalars['String']['output']>;
+  title?: Maybe<Scalars['String']['output']>;
+};
+
 export type ComponentGridsArticleGrid = {
   __typename?: 'ComponentGridsArticleGrid';
   articleCategory?: Maybe<Category>;
@@ -903,6 +932,8 @@ export type FloatFilterInput = {
 
 export type Footer = {
   __typename?: 'Footer';
+  banks_locations: Array<Maybe<Location>>;
+  banks_locations_connection?: Maybe<LocationRelationResponseCollection>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   documentId: Scalars['ID']['output'];
   footerLogo?: Maybe<UploadFile>;
@@ -914,6 +945,20 @@ export type Footer = {
   sections?: Maybe<Array<Maybe<ComponentNavNavBarSection>>>;
   title?: Maybe<Scalars['String']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+
+export type FooterBanks_LocationsArgs = {
+  filters?: InputMaybe<LocationFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+export type FooterBanks_Locations_ConnectionArgs = {
+  filters?: InputMaybe<LocationFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 
@@ -945,6 +990,7 @@ export type FooterEntityResponseCollection = {
 
 export type FooterFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<FooterFiltersInput>>>;
+  banks_locations?: InputMaybe<LocationFiltersInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   documentId?: InputMaybe<IdFilterInput>;
   footerSlogan?: InputMaybe<StringFilterInput>;
@@ -959,6 +1005,7 @@ export type FooterFiltersInput = {
 };
 
 export type FooterInput = {
+  banks_locations?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   footerLogo?: InputMaybe<Scalars['ID']['input']>;
   footerSlogan?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
@@ -971,7 +1018,52 @@ export type FooterRelationResponseCollection = {
   nodes: Array<Footer>;
 };
 
-export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentBotChatBotSetting | ComponentButtonCallBackButton | ComponentButtonLoginButton | ComponentFormCustomerCbForm | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSharedTwoColumnBanner | ComponentSlidersMobileAppAd | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | CustomerCbReason | CustomerCbSchedule | Faq | Footer | Global | I18NLocale | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
+export type ForexItem = {
+  __typename?: 'ForexItem';
+  buy?: Maybe<Scalars['Float']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  iso2?: Maybe<Scalars['String']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  sell?: Maybe<Scalars['Float']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type ForexItemEntityResponseCollection = {
+  __typename?: 'ForexItemEntityResponseCollection';
+  nodes: Array<ForexItem>;
+  pageInfo: Pagination;
+};
+
+export type ForexItemFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ForexItemFiltersInput>>>;
+  buy?: InputMaybe<FloatFilterInput>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  documentId?: InputMaybe<IdFilterInput>;
+  iso2?: InputMaybe<StringFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ForexItemFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ForexItemFiltersInput>>>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  sell?: InputMaybe<FloatFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type ForexItemInput = {
+  buy?: InputMaybe<Scalars['Float']['input']>;
+  iso2?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  sell?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type ForexItemRelationResponseCollection = {
+  __typename?: 'ForexItemRelationResponseCollection';
+  nodes: Array<ForexItem>;
+};
+
+export type GenericMorph = About | Article | Author | Campaign | Category | ComponentAccordionFaq | ComponentBotChatBotSetting | ComponentButtonCallBackButton | ComponentButtonLoginButton | ComponentFormCustomerCbForm | ComponentFormsForexSimulator | ComponentFormsLoanSimulator | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentNavNavBar | ComponentNavNavBarMenuItem | ComponentNavNavBarSection | ComponentNavNavLink | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedSeo | ComponentSharedSlider | ComponentSharedTwoColumnBanner | ComponentSlidersMobileAppAd | ComponentSlidersServiceSliderItem | ComponentSlidersServicesSlider | ComponentTextCampaignHighlight | CustomerCbReason | CustomerCbSchedule | Faq | Footer | ForexItem | Global | I18NLocale | Location | Navbar | Page | ReviewWorkflowsWorkflow | ReviewWorkflowsWorkflowStage | SubSite | UploadFile | UsersPermissionsPermission | UsersPermissionsRole | UsersPermissionsUser;
 
 export type Global = {
   __typename?: 'Global';
@@ -1119,6 +1211,63 @@ export type JsonFilterInput = {
   startsWith?: InputMaybe<Scalars['JSON']['input']>;
 };
 
+export type Location = {
+  __typename?: 'Location';
+  address?: Maybe<Scalars['String']['output']>;
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  documentId: Scalars['ID']['output'];
+  email?: Maybe<Scalars['String']['output']>;
+  footer?: Maybe<Footer>;
+  isPrimary?: Maybe<Scalars['Boolean']['output']>;
+  lat?: Maybe<Scalars['Float']['output']>;
+  lng?: Maybe<Scalars['Float']['output']>;
+  name?: Maybe<Scalars['String']['output']>;
+  phone?: Maybe<Scalars['String']['output']>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type LocationEntityResponseCollection = {
+  __typename?: 'LocationEntityResponseCollection';
+  nodes: Array<Location>;
+  pageInfo: Pagination;
+};
+
+export type LocationFiltersInput = {
+  address?: InputMaybe<StringFilterInput>;
+  and?: InputMaybe<Array<InputMaybe<LocationFiltersInput>>>;
+  createdAt?: InputMaybe<DateTimeFilterInput>;
+  documentId?: InputMaybe<IdFilterInput>;
+  email?: InputMaybe<StringFilterInput>;
+  footer?: InputMaybe<FooterFiltersInput>;
+  isPrimary?: InputMaybe<BooleanFilterInput>;
+  lat?: InputMaybe<FloatFilterInput>;
+  lng?: InputMaybe<FloatFilterInput>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<LocationFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<LocationFiltersInput>>>;
+  phone?: InputMaybe<StringFilterInput>;
+  publishedAt?: InputMaybe<DateTimeFilterInput>;
+  updatedAt?: InputMaybe<DateTimeFilterInput>;
+};
+
+export type LocationInput = {
+  address?: InputMaybe<Scalars['String']['input']>;
+  email?: InputMaybe<Scalars['String']['input']>;
+  footer?: InputMaybe<Scalars['ID']['input']>;
+  isPrimary?: InputMaybe<Scalars['Boolean']['input']>;
+  lat?: InputMaybe<Scalars['Float']['input']>;
+  lng?: InputMaybe<Scalars['Float']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type LocationRelationResponseCollection = {
+  __typename?: 'LocationRelationResponseCollection';
+  nodes: Array<Location>;
+};
+
 export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
@@ -1131,6 +1280,8 @@ export type Mutation = {
   createCustomerCbSchedule?: Maybe<CustomerCbSchedule>;
   createFaq?: Maybe<Faq>;
   createFooter?: Maybe<Footer>;
+  createForexItem?: Maybe<ForexItem>;
+  createLocation?: Maybe<Location>;
   createNavbar?: Maybe<Navbar>;
   createPage?: Maybe<Page>;
   createReviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
@@ -1149,7 +1300,9 @@ export type Mutation = {
   deleteCustomerCbSchedule?: Maybe<DeleteMutationResponse>;
   deleteFaq?: Maybe<DeleteMutationResponse>;
   deleteFooter?: Maybe<DeleteMutationResponse>;
+  deleteForexItem?: Maybe<DeleteMutationResponse>;
   deleteGlobal?: Maybe<DeleteMutationResponse>;
+  deleteLocation?: Maybe<DeleteMutationResponse>;
   deleteNavbar?: Maybe<DeleteMutationResponse>;
   deletePage?: Maybe<DeleteMutationResponse>;
   deleteReviewWorkflowsWorkflow?: Maybe<DeleteMutationResponse>;
@@ -1178,7 +1331,9 @@ export type Mutation = {
   updateCustomerCbSchedule?: Maybe<CustomerCbSchedule>;
   updateFaq?: Maybe<Faq>;
   updateFooter?: Maybe<Footer>;
+  updateForexItem?: Maybe<ForexItem>;
   updateGlobal?: Maybe<Global>;
+  updateLocation?: Maybe<Location>;
   updateNavbar?: Maybe<Navbar>;
   updatePage?: Maybe<Page>;
   updateReviewWorkflowsWorkflow?: Maybe<ReviewWorkflowsWorkflow>;
@@ -1245,6 +1400,18 @@ export type MutationCreateFaqArgs = {
 export type MutationCreateFooterArgs = {
   data: FooterInput;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationCreateForexItemArgs = {
+  data: ForexItemInput;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationCreateLocationArgs = {
+  data: LocationInput;
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1330,6 +1497,16 @@ export type MutationDeleteFaqArgs = {
 export type MutationDeleteFooterArgs = {
   documentId: Scalars['ID']['input'];
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+
+export type MutationDeleteForexItemArgs = {
+  documentId: Scalars['ID']['input'];
+};
+
+
+export type MutationDeleteLocationArgs = {
+  documentId: Scalars['ID']['input'];
 };
 
 
@@ -1466,8 +1643,22 @@ export type MutationUpdateFooterArgs = {
 };
 
 
+export type MutationUpdateForexItemArgs = {
+  data: ForexItemInput;
+  documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
 export type MutationUpdateGlobalArgs = {
   data: GlobalInput;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type MutationUpdateLocationArgs = {
+  data: LocationInput;
+  documentId: Scalars['ID']['input'];
   status?: InputMaybe<PublicationStatus>;
 };
 
@@ -1667,7 +1858,7 @@ export type PageLocalizations_ConnectionArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
-export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedTwoColumnBanner | ComponentSlidersMobileAppAd | ComponentSlidersServicesSlider | Error;
+export type PageBodyDynamicZone = ComponentAccordionFaq | ComponentFormsForexSimulator | ComponentFormsLoanSimulator | ComponentGridsArticleGrid | ComponentGridsFourBlocksGrid | ComponentSharedAlertCard | ComponentSharedHeroBanner | ComponentSharedHeroBannerItem | ComponentSharedMedia | ComponentSharedQuote | ComponentSharedRichText | ComponentSharedTwoColumnBanner | ComponentSlidersMobileAppAd | ComponentSlidersServicesSlider | Error;
 
 export type PageEntityResponseCollection = {
   __typename?: 'PageEntityResponseCollection';
@@ -1755,10 +1946,16 @@ export type Query = {
   footer?: Maybe<Footer>;
   footers: Array<Maybe<Footer>>;
   footers_connection?: Maybe<FooterEntityResponseCollection>;
+  forexItem?: Maybe<ForexItem>;
+  forexItems: Array<Maybe<ForexItem>>;
+  forexItems_connection?: Maybe<ForexItemEntityResponseCollection>;
   global?: Maybe<Global>;
   i18NLocale?: Maybe<I18NLocale>;
   i18NLocales: Array<Maybe<I18NLocale>>;
   i18NLocales_connection?: Maybe<I18NLocaleEntityResponseCollection>;
+  location?: Maybe<Location>;
+  locations: Array<Maybe<Location>>;
+  locations_connection?: Maybe<LocationEntityResponseCollection>;
   me?: Maybe<UsersPermissionsMe>;
   navbar?: Maybe<Navbar>;
   navbars: Array<Maybe<Navbar>>;
@@ -1974,6 +2171,28 @@ export type QueryFooters_ConnectionArgs = {
 };
 
 
+export type QueryForexItemArgs = {
+  documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryForexItemsArgs = {
+  filters?: InputMaybe<ForexItemFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryForexItems_ConnectionArgs = {
+  filters?: InputMaybe<ForexItemFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
 export type QueryGlobalArgs = {
   status?: InputMaybe<PublicationStatus>;
 };
@@ -1995,6 +2214,28 @@ export type QueryI18NLocalesArgs = {
 
 export type QueryI18NLocales_ConnectionArgs = {
   filters?: InputMaybe<I18NLocaleFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryLocationArgs = {
+  documentId: Scalars['ID']['input'];
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryLocationsArgs = {
+  filters?: InputMaybe<LocationFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  status?: InputMaybe<PublicationStatus>;
+};
+
+
+export type QueryLocations_ConnectionArgs = {
+  filters?: InputMaybe<LocationFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   status?: InputMaybe<PublicationStatus>;

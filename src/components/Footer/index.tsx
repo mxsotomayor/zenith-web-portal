@@ -1,11 +1,18 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, ChevronRight } from "lucide-react";
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Mail,
+  ChevronRight,
+} from "lucide-react";
 import FooterProps from "./types";
 import Image from "next/image";
 
-const Footer = ({ slogan, logoUrl, blocks }: FooterProps) => {
+const Footer = ({ slogan, logoUrl, blocks, locations }: FooterProps) => {
   return (
     <footer data-name="Footer" className="bg-blue-950  text-white">
       <div className="container mx-auto px-4  2xl:px-0 py-12">
@@ -44,9 +51,14 @@ const Footer = ({ slogan, logoUrl, blocks }: FooterProps) => {
           {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <p className="text-gray-300">123 Main St, City, Country</p>
-            <p className="text-gray-300">Phone: (123) 456-7890</p>
-            <p className="text-gray-300">Email: info@company.com</p>
+            {locations?.map((item, index) => (
+              <div key={index} className="text-sm">
+                <h4 className="font-semibold">{item.name}</h4>
+                <h4>{item.address}</h4>
+                <h4>{item.phone}</h4>
+                <h4>{item.email}</h4>
+              </div>
+            ))}
           </div>
 
           {/* Newsletter Signup */}

@@ -58,6 +58,14 @@ const SubSite_QF = gql`
         url
         alternativeText
       }
+      banks_locations {
+        address
+        name
+        lat
+        lng
+        phone
+        email
+      }
       sections {
         title
         items {

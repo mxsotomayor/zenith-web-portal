@@ -10,6 +10,12 @@ const mapper = (props: Footer): FooterProps => {
   return {
     logoUrl: generateCMSMedia(props.footerLogo?.url ?? ""),
     slogan: props.footerSlogan ?? "",
+    locations: props.banks_locations?.map((item)=> ({
+        name: item?.name ?? "",
+        address: item?.address ?? "",
+        phone: item?.phone ?? "",
+        email: item?.email ?? ""
+    })) ?? [],
     blocks:
       props.sections?.map((section) => ({
         title: section?.title ?? "",

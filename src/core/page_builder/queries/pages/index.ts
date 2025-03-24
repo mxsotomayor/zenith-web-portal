@@ -11,6 +11,8 @@ import {
   ComponentSharedTwoColumnBanner_QF,
   ComponentSlidersServicesSlider_QF,
   ComponentSlidersMobileAppAd_QF,
+  ComponentFormsLoanSimulator_QF,
+  ComponentFormsForexSimulator_QF,
 } from "../../fraqments/pages/PageBodyDynamicZone";
 
 const GetPageBySlugQuery = gql`
@@ -26,6 +28,8 @@ const GetPageBySlugQuery = gql`
   ${ComponentGridsArticleGrid_QF}
   ${ComponentSharedAlertCard_QF}
   ${ComponentSlidersMobileAppAd_QF}
+  ${ComponentFormsLoanSimulator_QF}
+  ${ComponentFormsForexSimulator_QF}
 
   query getPageOne($filterInput: PageFiltersInput) {
     pages(filters: $filterInput) {
@@ -73,10 +77,17 @@ const GetPageBySlugQuery = gql`
         ... on ComponentSharedAlertCard {
           ...ComponentSharedAlertCard_QF
         }
-        
 
         ... on ComponentSlidersMobileAppAd {
           ...ComponentSlidersMobileAppAd_QF
+        }
+
+        ... on ComponentFormsLoanSimulator {
+          ...ComponentFormsLoanSimulator_QF
+        }
+
+        ... on ComponentFormsForexSimulator {
+          ...ComponentFormsForexSimulator_QF
         }
       }
     }
@@ -96,6 +107,8 @@ export const GetPageByIDQuery = gql`
   ${ComponentGridsArticleGrid_QF}
   ${ComponentSharedAlertCard_QF}
   ${ComponentSlidersMobileAppAd_QF}
+  ${ComponentFormsLoanSimulator_QF}
+  ${ComponentFormsForexSimulator_QF}
 
   query getPageByID($documentId: ID!) {
     page(documentId: $documentId) {
@@ -146,6 +159,14 @@ export const GetPageByIDQuery = gql`
 
         ... on ComponentSlidersMobileAppAd {
           ...ComponentSlidersMobileAppAd_QF
+        }
+
+        ... on ComponentFormsLoanSimulator {
+          ...ComponentFormsLoanSimulator_QF
+        }
+
+        ... on ComponentFormsForexSimulator {
+          ...ComponentFormsForexSimulator_QF
         }
       }
     }
