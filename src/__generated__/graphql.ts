@@ -408,6 +408,7 @@ export type ComponentFormCustomerCbForm = {
 
 export type ComponentFormsForexSimulator = {
   __typename?: 'ComponentFormsForexSimulator';
+  baseCurrency?: Maybe<ForexItem>;
   for_ex_items: Array<Maybe<ForexItem>>;
   for_ex_items_connection?: Maybe<ForexItemRelationResponseCollection>;
   id: Scalars['ID']['output'];
@@ -1022,6 +1023,7 @@ export type ForexItem = {
   __typename?: 'ForexItem';
   buy?: Maybe<Scalars['Float']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  displayName?: Maybe<Scalars['String']['output']>;
   documentId: Scalars['ID']['output'];
   iso2?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
@@ -1040,6 +1042,7 @@ export type ForexItemFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ForexItemFiltersInput>>>;
   buy?: InputMaybe<FloatFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
+  displayName?: InputMaybe<StringFilterInput>;
   documentId?: InputMaybe<IdFilterInput>;
   iso2?: InputMaybe<StringFilterInput>;
   name?: InputMaybe<StringFilterInput>;
@@ -1052,6 +1055,7 @@ export type ForexItemFiltersInput = {
 
 export type ForexItemInput = {
   buy?: InputMaybe<Scalars['Float']['input']>;
+  displayName?: InputMaybe<Scalars['String']['input']>;
   iso2?: InputMaybe<Scalars['String']['input']>;
   name?: InputMaybe<Scalars['String']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;

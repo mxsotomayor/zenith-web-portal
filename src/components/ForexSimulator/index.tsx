@@ -1,5 +1,7 @@
-import React from "react";
-import ForexSimulatorProps from "./types";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import ForexSimulatorProps, { ForexItem } from "./types";
 import { Label } from "../ui/label";
 import Image from "next/image";
 import { Input } from "../ui/input";
@@ -10,17 +12,38 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@radix-ui/react-select";
+} from "@/components/ui/select";
 import { ArrowRightLeft } from "lucide-react";
 
-function ForexSimulator({ title, items }: ForexSimulatorProps) {
+function ForexSimulator({ title, baseCurrency, items }: ForexSimulatorProps) {
+  const [isoSelected, setIsoSelected] = useState<ForexItem | null>(null);
+  const [baseAmount, setBaseAmount] = useState(1);
+  const [valueExchaged, setValueEnchanged] = useState(0);
+
+
+  const computeChanged = () => {
+    setValueEnchanged(parseFloat(((isoSelected?.buy ?? 0) * baseAmount).toFixed(4)));
+  }
+
+  useEffect(()=>{
+    computeChanged()
+  },[isoSelected, baseAmount])
+
+
+
+  useEffect(() => {
+    setIsoSelected(baseCurrency ?? null);
+  }, []);
+
+
+
   return (
     <div className="py-12">
       <div className="container mx-auto px-4 2xl:p-0">
         <h3 className="text-3xl font-semibold mb-6">{title}</h3>
-        <div className="flex border rounded-md bg-white shadow-sm">
-          <div className="w-32">
-            <div className="h-10 border-b flex items-center justify-between px-2 bg-slate-100">
+        <div className="flex border overflow-hidden rounded-md bg-white shadow-sm">
+          <div className="w-32 bg-slate-100">
+            <div className="h-10 border-b flex items-center justify-between px-2 ">
               <Label className="font-bold">Currency</Label>
             </div>
 
@@ -36,14 +59,14 @@ function ForexSimulator({ title, items }: ForexSimulatorProps) {
           <div className="flex-1 flex overflow-x-auto">
             {items.map((item, index) => (
               <div className="min-w-32 flex-1 " key={index}>
-                <div className="h-10 border-b flex items-center justify-between px-2 border-l  ">
-                  <Label>{item.name}</Label>
+                <div className="h-10 border-b flex items-center gap-3  flex-row px-2 border-l  ">
                   <Image
                     src={`https://flagsapi.com/${item.iso.toUpperCase()}/flat/64.png`}
                     width="28"
                     height="20"
                     alt={item.iso}
                   />
+                  <Label>{item.name}</Label>
                 </div>
 
                 <div className="p-2 border-b border-l">
@@ -58,24 +81,44 @@ function ForexSimulator({ title, items }: ForexSimulatorProps) {
           </div>
         </div>
         {/* =============================== */}
-        <div className="border rounded-md p-8 bg-white mt-8 flex items-end gap-4 w-3/4">
-          <div className="w-[480px] grid gap-4">
+        <div className="border rounded-md p-8 bg-white mt-8 flex flex-col lg:flex-row lg:items-end gap-4">
+          <div className="w-full mb-8 lg:mb-0 lg:w-[480px] grid gap-4">
             <div>
-              <Input />
+              <h4 className="text-3xl font-semibold">Conversor</h4>
             </div>
             <div>
-              <Input />
+              <Input
+                value={baseAmount}
+                onChange={(evt) => setBaseAmount(parseFloat(evt.target.value))}
+              />
             </div>
             <div className="flex gap-2">
               <div className="flex-1 relative">
-                <Select>
+                <Select
+                  value={isoSelected?.iso}
+                  onValueChange={(value) => {
+                    setIsoSelected(
+                      items.find((item) => item.iso == value) ?? null
+                    );
+                  }}
+                >
                   <SelectTrigger className="w-full h-9 rounded border text-start px-4">
-                    <SelectValue placeholder="Theme" />
+                    <SelectValue placeholder="Select Currency" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="light">Light</SelectItem>
-                    <SelectItem value="dark">Dark</SelectItem>
-                    <SelectItem value="system">System</SelectItem>
+                    {items.map((item, index) => (
+                      <SelectItem key={index} value={item.iso}>
+                        <div className="flex items-center gap-2">
+                          <Image
+                            src={`https://flagsapi.com/${item.iso.toUpperCase()}/flat/64.png`}
+                            width="26"
+                            height="20"
+                            alt={item.iso}
+                          />
+                          {item.name} - {item.fullName}
+                        </div>
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </div>
@@ -83,28 +126,32 @@ function ForexSimulator({ title, items }: ForexSimulatorProps) {
             </div>
           </div>
           <div className="flex-1 flex items-center justify-between">
-            <div className="w-60 h-60 border rounded-md p-4">
+            <div className="w-72 h-60 border rounded-md p-4  bg-slate-50">
               <Image
-                src={`https://flagsapi.com/US/flat/64.png`}
+                src={`https://flagsapi.com/${baseCurrency.iso.toUpperCase()}/flat/64.png`}
                 width="98"
                 height="80"
                 alt="us"
               />
-              <h4 className="font-bold text-md">Base Currency</h4>
-              <h6 className="font-semibold text-5xl  mt-3">0.0</h6>
+              <h4 className="font-semibold text-sm">Base Currency</h4>
+              <h4 className="font-semibold text-md  text-ellipsis line-clamp-1">{baseCurrency?.name} - {baseCurrency?.fullName}</h4>
+              <h6 className="font-semibold text-2xl lg:text-5xl mt-3">{baseAmount}</h6>
             </div>
-            <span className="border w-12 h-12 rounded-full flex items-center justify-center">
+            <span className="border min-w-12 w-12 h-12 rounded-full flex items-center justify-center  bg-slate-50 m-2">
               <ArrowRightLeft />
             </span>
-            <div className="w-60 h-60 border rounded-md p-4">
+            <div className="w-72 h-60 border rounded-md p-4 bg-slate-50">
               <Image
-                src={`https://flagsapi.com/GB/flat/64.png`}
+                src={`https://flagsapi.com/${
+                  isoSelected?.iso.toUpperCase() ?? "US"
+                }/flat/64.png`}
                 width="98"
                 height="80"
-                alt="us"
+                alt={isoSelected?.iso ?? ""}
               />
-              <h4 className="font-bold text-md">GBP - Pound Sterling</h4>
-              <h6 className="font-semibold text-5xl mt-3">0.0</h6>
+              <h4 className="font-semibold text-md text-ellipsis line-clamp-1">{isoSelected?.name} - {isoSelected?.fullName}</h4>
+              <h5 className="font-light text-sm text-ellipsis line-clamp-1">{new Date().toISOString()}</h5>
+              <h6 className="font-semibold text-2xl lg:text-5xl mt-3">{valueExchaged}</h6>
             </div>
           </div>
         </div>
