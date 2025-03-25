@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { ArrowRightLeft } from "lucide-react";
+import { DateHelper } from "@/core/lib/helpers/dateHelper";
 
 function ForexSimulator({ title, baseCurrency, items }: ForexSimulatorProps) {
   const [isoSelected, setIsoSelected] = useState<ForexItem | null>(null);
@@ -40,7 +41,7 @@ function ForexSimulator({ title, baseCurrency, items }: ForexSimulatorProps) {
   return (
     <div className="py-12">
       <div className="container mx-auto px-4 2xl:p-0">
-        <h3 className="text-3xl font-semibold mb-6">{title}</h3>
+        <h3 className="text-xl lg:text-4xl font-semibold mb-6 text-blue-900">{title}</h3>
         <div className="flex border overflow-hidden rounded-md bg-white shadow-sm">
           <div className="w-32 bg-slate-100">
             <div className="h-10 border-b flex items-center justify-between px-2 ">
@@ -125,7 +126,7 @@ function ForexSimulator({ title, baseCurrency, items }: ForexSimulatorProps) {
               <Button>Convertir</Button>
             </div>
           </div>
-          <div className="flex-1 flex items-center justify-between">
+          <div className="flex-1 flex flex-col lg:flex-row items-center justify-between">
             <div className="w-72 h-60 border rounded-md p-4  bg-slate-50">
               <Image
                 src={`https://flagsapi.com/${baseCurrency.iso.toUpperCase()}/flat/64.png`}
@@ -150,7 +151,7 @@ function ForexSimulator({ title, baseCurrency, items }: ForexSimulatorProps) {
                 alt={isoSelected?.iso ?? ""}
               />
               <h4 className="font-semibold text-md text-ellipsis line-clamp-1">{isoSelected?.name} - {isoSelected?.fullName}</h4>
-              <h5 className="font-light text-sm text-ellipsis line-clamp-1">{new Date().toISOString()}</h5>
+              <h5 className="font-light text-sm text-ellipsis line-clamp-1">{DateHelper.formatDate(new Date())}</h5>
               <h6 className="font-semibold text-2xl lg:text-5xl mt-3">{valueExchaged}</h6>
             </div>
           </div>

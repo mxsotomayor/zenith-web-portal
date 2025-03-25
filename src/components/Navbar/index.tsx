@@ -210,7 +210,18 @@ function NavBar({ selectedSite = 0, menu }: NavBarProps) {
                 ))}
 
                 <DropdownMenu>
-                  <DropdownMenuTrigger>LANG: EN</DropdownMenuTrigger>
+                  <DropdownMenuTrigger>
+                   <div className="flex items-center gap-1 bg-white text-black px-2 rounded-md">
+                   <Image
+                      src={`https://flagsapi.com/ES/flat/64.png`}
+                      width="20"
+                      height="18"
+                      alt={""}
+                    />{" "}
+                    <span>ES</span>
+                    <span><ChevronDown size="14"/></span>
+                   </div>
+                  </DropdownMenuTrigger>
                   <DropdownMenuContent>
                     <DropdownMenuItem>EN</DropdownMenuItem>
                     <DropdownMenuItem>ES</DropdownMenuItem>
