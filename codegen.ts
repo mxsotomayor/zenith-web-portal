@@ -6,26 +6,9 @@ const config: CodegenConfig = {
   ignoreNoDocuments: true,
   generates: {
     "./src/__generated__/": {
-      preset: "client",
-    //   presetConfig: {
-    //     gqlTagName: "gql",
-    //   },
+      preset: "client", 
     },
-  },
-  //   generates: {
-  //     './src/graphql/': {
-  //       preset: 'client',
-  //       config: {
-  //         documentMode: 'string'
-  //       }
-  //     },
-  //     './schema.graphql': {
-  //       plugins: ['schema-ast'],
-  //       config: {
-  //         includeDirectives: true
-  //       }
-  //     }
-  //   }
+  }, 
 };
 
 export default config;
