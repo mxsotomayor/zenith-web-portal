@@ -1,9 +1,11 @@
 type ForexSimulatorProps = {
   title: string;
+  baseCurrency: ForexItem;
   items: ForexItem[];
 };
 
-type ForexItem = {
+export type ForexItem = {
+  fullName: string;
   name: string;
   iso: string;
   buy: number;

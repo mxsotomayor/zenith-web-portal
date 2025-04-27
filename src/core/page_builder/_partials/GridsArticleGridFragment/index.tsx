@@ -32,8 +32,10 @@ const LogicNode = (props: ComponentGridsArticleGrid) => {
 
   if (loading) {
     return (
-      <div className="container mx-auto py-16 flex items-center justify-center">
-        Loading...
+      <div className="container mx-auto py-20  grid grid-cols-3 gap-3">
+         <div className=" bg-slate-100  aspect-square  rounded-md animate-pulse"></div>
+         <div className=" bg-slate-100  aspect-square  rounded-md animate-pulse"></div>
+         <div className=" bg-slate-100  aspect-square  rounded-md animate-pulse"></div>
       </div>
     );
   }

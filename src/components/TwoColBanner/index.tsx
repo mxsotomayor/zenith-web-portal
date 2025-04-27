@@ -26,7 +26,7 @@ function TwoColumnBanner({
             : " flex-col-reverse lg:flex-row-reverse"
         }`}
       >
-        <div className="flex-1 flex flex-col py-8 px-4 justify-center gap-2">
+        <div className="flex-1 flex flex-col py-8 lg:px-4 justify-center gap-2">
           <h3 className="font-bold text-4xl text-blue-900">{title}</h3>
           <h6 className="text-xl mb-3 text-slate-900">{subTitle}</h6>
           <div className="grid gap-2">
@@ -46,7 +46,7 @@ function TwoColumnBanner({
               width="300"
               height="300"
               alt=""
-              className="object-contain w-[calc(90%)] h-[calc(80%)]"
+              className="object-contain w-full lg:w-[calc(90%)] h-[calc(80%)]"
             />
           ) : (
             <iframe

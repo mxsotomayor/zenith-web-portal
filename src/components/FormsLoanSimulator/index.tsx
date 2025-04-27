@@ -141,10 +141,10 @@ function FormsLoanSimulator({ title, subTitle }: FormsLoanSimulatorProps) {
 
   return (
     <div className="py-12">
-      <div className="container mx-auto">
-        <h2 className="text-4xl font-semibold">{title}</h2>
-        <p>{subTitle}</p>
-        <div className="flex border border-green-500 rounded-md overflow-hidden mt-6">
+      <div className="container mx-auto px-4 2xl:px-0">
+        <h2 className="text-3xl lg:text-5xl font-semibold text-blue-900 mb-1">{title}</h2>
+        <p className="text-xl">{subTitle}</p>
+        <div className="flex flex-col lg:flex-row border border-green-500 rounded-md overflow-hidden mt-10">
           <div className="grid gap-3 flex-1 p-8 bg-white py-14 ">
             <div>
               <Label>Amount</Label>

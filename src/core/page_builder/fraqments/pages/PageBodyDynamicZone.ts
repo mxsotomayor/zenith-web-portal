@@ -144,7 +144,15 @@ export const ComponentFormsLoanSimulator_QF = gql`
 export const ComponentFormsForexSimulator_QF = gql`
   fragment ComponentFormsForexSimulator_QF on ComponentFormsForexSimulator {
     title
+    baseCurrency {
+      displayName
+      name
+      iso2
+      buy
+      sell
+    }
     for_ex_items {
+      displayName
       name
       iso2
       buy
